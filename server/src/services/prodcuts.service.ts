@@ -1,6 +1,15 @@
-import { Product } from 'src/utils/types';
 import { prisma } from '../config/database';
 import { Prisma } from '@prisma/client';
+
+type Product = {
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  imageUrl: string;
+  specs: Record<string, any>;
+  categoryId: string;
+};
 
 export default class ProductsService {
   static async find(query: any) {
