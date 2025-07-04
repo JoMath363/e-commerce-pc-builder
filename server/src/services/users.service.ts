@@ -9,11 +9,6 @@ type User = {
   password: string;
 }
 
-type Login = {
-  email: string;
-  passwordHash: string;
-}
-
 export default class UsersService {
   static async findAll() {
     return await prisma.user.findMany();
@@ -58,7 +53,7 @@ export default class UsersService {
     });
   }
 
-  static async login(dto: Login) {
+  static async login(dto: User) {
     const user = await prisma.user.findUnique({
       select: {
         email: true,
@@ -69,13 +64,11 @@ export default class UsersService {
       }
     })
 
-    console.log(user)
-
     if (!user) {
       throw new Error('User not in register.')
     }
 
-    const passwordsMatch = await compare(dto.passwordHash, user.passwordHash)
+    const passwordsMatch = await compare(dto.password, user.passwordHash)
 
     if (!passwordsMatch) {
       throw new Error('User ou password invalid.')
@@ -84,9 +77,21 @@ export default class UsersService {
     const accessToken = sign({
       email: user.email
     }, ENV.JWT_SECRET, {
-      expiresIn: 86400
+      expiresIn: "1h"
     })
 
     return { accessToken }
+  }
+
+  static async findLogged(email: string) {
+    return await prisma.user.findUnique({
+      select: {
+        email: true,
+        name: true,
+        orders: true,
+        builds: true
+      },
+      where: { email }
+    })
   }
 }

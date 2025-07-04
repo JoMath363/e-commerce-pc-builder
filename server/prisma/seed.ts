@@ -5,9 +5,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.product.deleteMany();
-
-  await prisma.product.createMany({
+  /* await prisma.product.createMany({
     data: [
       {
         "name": "AMD Ryzen 7 5800X",
@@ -94,7 +92,18 @@ async function main() {
         categoryId: "a7b7aab0-5fb1-4621-b15c-cbf4725a78ff"
       }
     ]
-  });
+  }); */
+
+  await prisma.user.createMany({
+    data: [
+      {
+        name: "admin",
+        email: "admin@gmail.com",
+        isAdmin: true,
+        passwordHash: "$2b$08$7lyTcM8SHihNs/oE0ql4u.Dvzg7e/T1pRl.FFTUe6V5doEdaJfw6m"
+      }
+    ]
+  })
 
   console.log('Seed inserida com sucesso!');
 }
@@ -102,7 +111,6 @@ async function main() {
 main()
   .catch((e) => {
     console.error(e);
-    process.exit(1);
   })
   .finally(() => {
     prisma.$disconnect();

@@ -27,6 +27,7 @@ model Category {
   id    String   @id @default(uuid())
   name  String
   products Product[]
+  buildComponents BuildComponent[]
 }
 
 model Product {
@@ -41,25 +42,13 @@ model Product {
   categoryId  String
   category    Category @relation(fields: [categoryId], references: [id])
   orderItems  OrderItem[]
-
-  buildsCpu     Build[]   @relation("CPU")
-  buildsMotherboard Build[] @relation("Motherboard")
-  buildsRam     Build[]   @relation("RAM")
-  buildsRam2    Build[]   @relation("RAM2")
-  buildsGpu     Build[]   @relation("GPU")
-  buildsGpu2    Build[]   @relation("GPU2")
-  buildsStorage Build[]   @relation("Storage")
-  buildsStorage2 Build[]  @relation("Storage2")
-  buildsPsu     Build[]   @relation("PSU")
-  buildsCase    Build[]   @relation("Case")
-  buildsCooler  Build[]   @relation("Cooler")
-  buildsCaseFan Build[]   @relation("CaseFan")
+  buildComponents BuildComponent[]
 }
 
 model Order {
   id        String   @id @default(uuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [email])
+  userEmail    String
+  user      User     @relation(fields: [userEmail], references: [email])
   status    OrderStatus
   total     Decimal  @db.Decimal(10, 2)
   createdAt DateTime @default(now())
@@ -78,36 +67,23 @@ model OrderItem {
 }
 
 model Build {
-  id             String   @id @default(uuid())
-  userId         String
-  name           String
-  cpuId          String
-  motherboardId  String
-  ramId          String
-  ram2Id         String?
-  gpuId          String
-  gpu2Id         String?
-  storageId      String
-  storage2Id     String? 
-  psuId          String
-  caseId         String
-  coolerId       String? 
-  caseFanId      String? 
-  totalPrice     Decimal
-  createdAt      DateTime @default(now())
+  id          String   @id @default(uuid())
+  userEmail      String
+  name        String
+  totalPrice  Decimal  @db.Decimal(10, 2)
+  createdAt   DateTime @default(now())
 
-  user           User     @relation(fields: [userId], references: [email])
-  cpu            Product  @relation("CPU", fields: [cpuId], references: [id])
-  motherboard    Product  @relation("Motherboard", fields: [motherboardId], references: [id])
-  ram            Product  @relation("RAM", fields: [ramId], references: [id])
-  ram2           Product? @relation("RAM2", fields: [ram2Id], references: [id])
-  gpu            Product  @relation("GPU", fields: [gpuId], references: [id])
-  gpu2           Product? @relation("GPU2", fields: [gpu2Id], references: [id])
-  storage        Product  @relation("Storage", fields: [storageId], references: [id])
-  storage2       Product? @relation("Storage2", fields: [storage2Id], references: [id])
-  psu            Product  @relation("PSU", fields: [psuId], references: [id])
-  case           Product  @relation("Case", fields: [caseId], references: [id])
-  cooler         Product? @relation("Cooler", fields: [coolerId], references: [id])
-  caseFan        Product? @relation("CaseFan", fields: [caseFanId], references: [id])
+  user        User     @relation(fields: [userEmail], references: [email])
+  components  BuildComponent[]
 }
 
+model BuildComponent {
+  id         String   @id @default(uuid())
+  buildId    String
+  productId  String
+  categoryId String
+
+  build      Build    @relation(fields: [buildId], references: [id])
+  product    Product  @relation(fields: [productId], references: [id])
+  category   Category @relation(fields: [categoryId], references: [id])
+}

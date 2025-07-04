@@ -11,6 +11,10 @@
     "strict": true,
     "skipLibCheck": true
   },
+  "include": [
+    "src",
+    "@types"
+  ],
   "ts-node": {
     "transpileOnly": true
   },
