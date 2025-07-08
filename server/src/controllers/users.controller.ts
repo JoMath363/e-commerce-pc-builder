@@ -41,35 +41,4 @@ export default class UsersController {
       next(error);
     }
   }
-
-  static async register(req: Request, res: Response, next: NextFunction) {
-    try {
-      const dto = req.body;
-      const newUser = await UsersService.register(dto);
-      res.status(201).json(newUser);
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  static async login(req: Request, res: Response, next: NextFunction) {
-    try {
-      const dto = req.body;
-      const user = await UsersService.login(dto);
-      res.status(201).json(user);
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  static async getInfo(req: Request, res: Response, next: NextFunction) {
-    try {
-      const email = req.user?.email || ""
-      const user = await UsersService.findLogged(email);
-      if (!user) res.status(404).json({ message: 'Not found' });
-      res.json(user);
-    } catch (error) {
-      next(error);
-    }
-  }
 }

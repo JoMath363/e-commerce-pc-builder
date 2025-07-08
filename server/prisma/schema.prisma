@@ -40,19 +40,21 @@ model Product {
   specs       Json
   createdAt   DateTime @default(now())
   categoryId  String
-  category    Category @relation(fields: [categoryId], references: [id])
   orderItems  OrderItem[]
   buildComponents BuildComponent[]
+
+  category    Category @relation(fields: [categoryId], references: [id])
 }
 
 model Order {
   id        String   @id @default(uuid())
   userEmail    String
-  user      User     @relation(fields: [userEmail], references: [email])
-  status    OrderStatus
+  status    OrderStatus @default(PENDING)
   total     Decimal  @db.Decimal(10, 2)
   createdAt DateTime @default(now())
   items     OrderItem[]
+
+  user      User     @relation(fields: [userEmail], references: [email])
 }
 
 model OrderItem {

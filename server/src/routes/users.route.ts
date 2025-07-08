@@ -8,7 +8,4 @@ export default router
   .get('/', authenticate, requireAdmin, UsersController.getAll)
   .get('/:email', authenticate, requireAdmin, UsersController.getByEmail)
   .put('/:email', authenticate, requireAdmin, UsersController.updateByEmail)
-  .delete('/:email', authenticate, requireAdmin, UsersController.deleteByEmail)
-  .post('/auth/register', UsersController.register)
-  .post('/auth/login', UsersController.login)
-  .get('/auth/info', authenticate, UsersController.getInfo);
+  .delete('/:email', authenticate, requireAdmin, UsersController.deleteByEmail);
