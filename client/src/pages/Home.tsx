@@ -1,8 +1,14 @@
+import Navbar from "../components/layout/Navbar";
+import CategorieRow from "../components/sections/CategorieRow";
+import Hero from "../components/sections/Hero";
+
 const Home = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Navbar />
+      <CategorieRow />
+      <Hero />
+    </>
   )
 };
 
