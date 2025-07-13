@@ -2,7 +2,7 @@ import { PiCpu, PiCircuitry, PiMemory, PiGraphicsCard, PiHardDrive, PiLightning,
 
 const CategorieRow = () => {
   return (
-    <div className="p-4  overflow-x-auto">
+    <section className="p-4 overflow-x-auto">
       <div className="flex space-x-4 w-fit">
         <button className="p-4 flex gap-2 items-center text-nowrap cursor-pointer border-2 border-[var(--border-1)] rounded-xl text-[var(--text-2)] hover:bg-[var(--surface)] hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent">
           <PiCpu className="text-2xl" />
@@ -67,7 +67,7 @@ const CategorieRow = () => {
           </span>
         </button>
       </div>
-    </div>
+    </section>
   )
 };
 

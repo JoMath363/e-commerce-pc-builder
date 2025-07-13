@@ -1,0 +1,308 @@
+{
+  "cpus": [
+    {
+      "name": "AMD Ryzen 7 7800X3D Da Silva",
+      "price": 339,
+      "core_count": 8,
+      "core_clock": 4.2,
+      "boost_clock": 5,
+      "tdp": 120,
+      "graphics": "Radeon",
+      "smt": true
+    },
+    {
+      "name": "AMD Ryzen 5 7600X",
+      "price": 204.99,
+      "core_count": 6,
+      "core_clock": 4.7,
+      "boost_clock": 5.3,
+      "tdp": 105,
+      "graphics": "Radeon",
+      "smt": true
+    },
+    {
+      "name": "AMD Ryzen 5 5600X",
+      "price": 144.31,
+      "core_count": 6,
+      "core_clock": 3.7,
+      "boost_clock": 4.6,
+      "tdp": 65,
+      "graphics": null,
+      "smt": true
+    },
+    {
+      "name": "AMD Ryzen 5 7600",
+      "price": 185,
+      "core_count": 6,
+      "core_clock": 3.8,
+      "boost_clock": 5.1,
+      "tdp": 65,
+      "graphics": "Radeon",
+      "smt": true
+    },
+    {
+      "name": "Intel Core i9-14900K",
+      "price": 544.99,
+      "core_count": 24,
+      "core_clock": 3.2,
+      "boost_clock": 6,
+      "tdp": 125,
+      "graphics": "Intel UHD Graphics 770",
+      "smt": true
+    },
+    {
+      "name": "Intel Core i7-14700K",
+      "price": 399.99,
+      "core_count": 20,
+      "core_clock": 3.4,
+      "boost_clock": 5.6,
+      "tdp": 125,
+      "graphics": "Intel UHD Graphics 770",
+      "smt": true
+    },
+    {
+      "name": "Intel Core i5-12400F",
+      "price": 128,
+      "core_count": 6,
+      "core_clock": 2.5,
+      "boost_clock": 4.4,
+      "tdp": 65,
+      "graphics": null,
+      "smt": true
+    },
+    {
+      "name": "AMD Ryzen 5 3600",
+      "price": 84,
+      "core_count": 6,
+      "core_clock": 3.6,
+      "boost_clock": 4.2,
+      "tdp": 65,
+      "graphics": null,
+      "smt": true
+    },
+    {
+      "name": "AMD Ryzen 7 7700X",
+      "price": 288.81,
+      "core_count": 8,
+      "core_clock": 4.5,
+      "boost_clock": 5.4,
+      "tdp": 105,
+      "graphics": "Radeon",
+      "smt": true
+    },
+    {
+      "name": "AMD Ryzen 9 7950X3D",
+      "price": 564,
+      "core_count": 16,
+      "core_clock": 4.2,
+      "boost_clock": 5.7,
+      "tdp": 120,
+      "graphics": "Radeon",
+      "smt": true
+    },
+    {
+      "name": "AMD Ryzen 5 5600",
+      "price": 129.99,
+      "core_count": 6,
+      "core_clock": 3.5,
+      "boost_clock": 4.4,
+      "tdp": 65,
+      "graphics": null,
+      "smt": true
+    }
+  ],
+  "motherboards": [
+    {
+      "name": "MSI B650 GAMING PLUS WIFI",
+      "price": 169.99,
+      "socket": "AM5",
+      "form_factor": "ATX",
+      "max_memory": 192,
+      "memory_slots": 4,
+      "color": "Black"
+    },
+    {
+      "name": "Asus ROG STRIX B650-A GAMING WIFI",
+      "price": 199.99,
+      "socket": "AM5",
+      "form_factor": "ATX",
+      "max_memory": 192,
+      "memory_slots": 4,
+      "color": "Black / Silver"
+    },
+    {
+      "name": "MSI B760 GAMING PLUS WIFI",
+      "price": 159.99,
+      "socket": "LGA1700",
+      "form_factor": "ATX",
+      "max_memory": 192,
+      "memory_slots": 4,
+      "color": "Black / Silver"
+    },
+    {
+      "name": "MSI PRO Z790-A MAX WIFI",
+      "price": 239.99,
+      "socket": "LGA1700",
+      "form_factor": "ATX",
+      "max_memory": 192,
+      "memory_slots": 4,
+      "color": "Silver / Black"
+    },
+    {
+      "name": "MSI B550 GAMING GEN3",
+      "price": 99.99,
+      "socket": "AM4",
+      "form_factor": "ATX",
+      "max_memory": 128,
+      "memory_slots": 4,
+      "color": "Black"
+    },
+    {
+      "name": "MSI B450M-A PRO MAX II",
+      "price": 69.98,
+      "socket": "AM4",
+      "form_factor": "Micro ATX",
+      "max_memory": 64,
+      "memory_slots": 2,
+      "color": "Black"
+    },
+    {
+      "name": "MSI MAG B650 TOMAHAWK WIFI",
+      "price": 199.99,
+      "socket": "AM5",
+      "form_factor": "ATX",
+      "max_memory": 192,
+      "memory_slots": 4,
+      "color": "Black"
+    },
+    {
+      "name": "Gigabyte B650 GAMING X AX",
+      "price": 179.99,
+      "socket": "AM5",
+      "form_factor": "ATX",
+      "max_memory": 192,
+      "memory_slots": 4,
+      "color": "Black / Gray"
+    },
+    {
+      "name": "Asus PRIME B550M-A WIFI II",
+      "price": 104.99,
+      "socket": "AM4",
+      "form_factor": "Micro ATX",
+      "max_memory": 128,
+      "memory_slots": 4,
+      "color": "Blue / Silver"
+    },
+    {
+      "name": "ASRock B650M Pro RS WiFi",
+      "price": 149.99,
+      "socket": "AM5",
+      "form_factor": "Micro ATX",
+      "max_memory": 192,
+      "memory_slots": 4,
+      "color": "Black / Silver"
+    }
+  ],
+  "cases": [
+    {
+      "name": "Corsair 4000D Airflow",
+      "price": 104.99,
+      "type": "ATX Mid Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Tinted Tempered Glass",
+      "external_volume": 48.6,
+      "internal_35_bays": 2
+    },
+    {
+      "name": "NZXT H5 Flow",
+      "price": 94.99,
+      "type": "ATX Mid Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Tempered Glass",
+      "external_volume": 47,
+      "internal_35_bays": 1
+    },
+    {
+      "name": "NZXT H9 Flow",
+      "price": 159.99,
+      "type": "ATX Mid Tower",
+      "color": "White",
+      "psu": null,
+      "side_panel": "Tempered Glass",
+      "external_volume": 66.9,
+      "internal_35_bays": 2
+    },
+    {
+      "name": "NZXT H9 Flow",
+      "price": 154.99,
+      "type": "ATX Mid Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Tempered Glass",
+      "external_volume": 66.9,
+      "internal_35_bays": 2
+    },
+    {
+      "name": "Montech AIR 903 MAX",
+      "price": 75,
+      "type": "ATX Mid Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Tempered Glass",
+      "external_volume": 54.2,
+      "internal_35_bays": 2
+    },
+    {
+      "name": "NZXT H6 Flow",
+      "price": 109.99,
+      "type": "ATX Mid Tower",
+      "color": "White",
+      "psu": null,
+      "side_panel": "Tempered Glass",
+      "external_volume": 51.8,
+      "internal_35_bays": 1
+    },
+    {
+      "name": "Cooler Master MasterBox Q300L",
+      "price": 46.98,
+      "type": "MicroATX Mini Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Acrylic",
+      "external_volume": 33.6,
+      "internal_35_bays": 1
+    },
+    {
+      "name": "NZXT H6 Flow",
+      "price": 101.29,
+      "type": "ATX Mid Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Tempered Glass",
+      "external_volume": 51.8,
+      "internal_35_bays": 1
+    },
+    {
+      "name": "Montech X3 Mesh",
+      "price": 64.98,
+      "type": "ATX Mid Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Tempered Glass",
+      "external_volume": null,
+      "internal_35_bays": 2
+    },
+    {
+      "name": "Montech AIR 100 ARGB",
+      "price": null,
+      "type": "MicroATX Mid Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Tempered Glass",
+      "external_volume": 36.1,
+      "internal_35_bays": 2
+    }
+  ]
+}

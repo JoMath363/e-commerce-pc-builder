@@ -8,7 +8,7 @@ const Navbar = () => {
         <p>PC Builder</p>
       </div>
 
-      <div className="flex items-center justify-center gap-1">
+      <div className="flex items-center justify-center gap-2">
         <button className="p-1.5 text-[var(--background)] text-2xl rounded cursor-pointer transition-all hover:bg-[var(--primary-1)] active:bg-[var(--background)] active:text-[var(--text-1)]">
           <PiMagnifyingGlass />
         </button>
