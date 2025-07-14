@@ -1,18 +1,21 @@
+import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
-import CategorieRow from "../components/sections/CategorieRow";
-import FeaturedCategorie from "../components/sections/FeaturedCategorie";
+import FeaturedCategories from "../components/sections/FeaturedCategories";
+import FeaturedProducts from "../components/sections/FeaturedProdcuts";
 import Hero from "../components/sections/Hero";
 
-import { cpus, cases } from "../utils/mock.json";
+import { cpus, cases, motherboards } from "../utils/mock.json";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      <CategorieRow />
+      <FeaturedCategories />
       <Hero />
-      <FeaturedCategorie title="Best Sellers" link="" products={cpus} />
-      <FeaturedCategorie title="Build Essentials" link="" products={cases} />
+      <FeaturedProducts title="Best Sellers" link="" products={cpus} />
+      <FeaturedProducts title="New Arrivals" link="" products={cases} />
+      <FeaturedProducts title="Build Essentials" link="" products={motherboards} />
+      <Footer />
     </>
   )
 };

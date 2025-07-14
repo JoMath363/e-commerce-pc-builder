@@ -4,8 +4,8 @@ import type { ProductPreview } from "../../utils/types";
 
 const ProductCard = (props: ProductPreview) => {
   return (
-    <a className="min-w-30 flex flex-col gap-2">
-      <img src={props.imageUrl || placeholder_img} alt="" />
+    <a className="min-w-35 p-2 bg-[var(--surface)] rounded-lg flex flex-col gap-2">
+      <img className="rounded" src={props.imageUrl || placeholder_img} alt="" />
 
       <h2 className="h-12 font-medium line-clamp-2 text-ellipsis">
         {props.name}

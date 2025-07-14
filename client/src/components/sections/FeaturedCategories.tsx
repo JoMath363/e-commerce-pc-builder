@@ -1,6 +1,6 @@
 import { PiCpu, PiCircuitry, PiMemory, PiGraphicsCard, PiHardDrive, PiLightning, PiComputerTower, PiFan, PiWind } from "react-icons/pi";
 
-const CategorieRow = () => {
+const FeaturedCategories = () => {
   return (
     <section className="p-4 overflow-x-auto">
       <div className="flex space-x-4 w-fit">
@@ -71,4 +71,4 @@ const CategorieRow = () => {
   )
 };
 
-export default CategorieRow;
+export default FeaturedCategories;
