@@ -4,21 +4,25 @@ import type { ProductPreview } from "../../utils/types";
 
 const ProductCard = (props: ProductPreview) => {
   return (
-    <a className="min-w-35 p-2 bg-[var(--surface)] rounded-lg flex flex-col gap-2">
+    <a className="min-fit bg-[var(--surface)] rounded">
       <img className="rounded" src={props.imageUrl || placeholder_img} alt="" />
 
-      <h2 className="h-12 font-medium line-clamp-2 text-ellipsis">
-        {props.name}
-      </h2>
+      <div className="p-2 flex flex-col gap-2">
+        <h2 className="h-12 font-medium line-clamp-2 text-ellipsis">
+          {props.name}
+        </h2>
 
-      <div className="flex flex-col justidy-between ">
-        <p className="text-[var(--negative)] text-sm line-through">
-          $500,00
-        </p>
-        <p className="text-[var(--positive)] text-lg font-medium">
-          ${(props.price || 0).toFixed(2)}
-        </p>
+        <div className="flex items-center gap-2 justify-between ">
+          <p className="text-[var(--positive)] text-lg font-medium">
+            ${(props.price || 0).toFixed(2)}
+          </p>
+
+          <p className="text-[var(--text-2)] text-sm line-through">
+            $1000,00
+          </p>
+        </div>
       </div>
+
     </a>
   )
 };
