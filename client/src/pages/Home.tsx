@@ -4,19 +4,28 @@ import CategoryRow from "../components/sections/CategoryRow";
 import FeaturedProducts from "../components/sections/FeaturedProdcuts";
 import Hero from "../components/sections/Hero";
 import SearchBar from "../components/ui/SearchBar";
-
-import { components } from "../utils/mock.json";
-
 const Home = () => {
   return (
     <>
       <NavBar />
-      <SearchBar/>
+      <SearchBar />
       <CategoryRow />
       <Hero />
-      <FeaturedProducts title="Best Sellers" link="/catalog" products={components} />
-      <FeaturedProducts title="New Arrivals" link="/catalog" products={components} />
-      <FeaturedProducts title="Build Essentials" link="/catalog" products={components} />
+      <FeaturedProducts
+        title="Best Sellers"
+        link="/catalog"
+        filter={{ categories: [], minPrice: 0, maxPrice: 2000 }}
+      />
+      <FeaturedProducts
+        title="New Arrivals"
+        link="/catalog"
+        filter={{ categories: [], minPrice: 0, maxPrice: 2000 }}
+      />
+      <FeaturedProducts
+        title="Build Essentials"
+        link="/catalog"
+        filter={{ categories: [], minPrice: 0, maxPrice: 2000 }}
+      />
       <Footer />
     </>
   )

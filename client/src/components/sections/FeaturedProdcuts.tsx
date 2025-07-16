@@ -1,7 +1,13 @@
-import type { ProductPreview } from "../../utils/types";
+import { useProduct } from "../../contexts/ProdcutContext";
+import type { ProductFilter } from "../../utils/types";
 import ProductCard from "../ui/ProductCard";
 
-const FeaturedProdcuts = (props: { title: string; link: string; products: ProductPreview[] }) => {
+const FeaturedProdcuts = (props: { title: string; link: string; filter: ProductFilter }) => {
+  
+  const { fetchProducts } = useProduct();
+
+  const products = fetchProducts();
+
   return (
     <section className="mb-8 m-4 flex flex-col gap-4">
       <div className="flex justify-between items-center">
@@ -11,7 +17,7 @@ const FeaturedProdcuts = (props: { title: string; link: string; products: Produc
 
       <div className="overflow-x-auto">
         <div className="flex space-x-4 w-fit">
-          {props.products.map((item) => <ProductCard {...item}/>)}
+          {products.map((item) => <ProductCard {...item}/>)}
         </div>
       </div>
     </section>

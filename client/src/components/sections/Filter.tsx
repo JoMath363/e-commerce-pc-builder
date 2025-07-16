@@ -29,10 +29,10 @@ const Filter = () => {
 
         </div>
 
-        {<div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <h3 className="font-medium">Price</h3>
 
-        </div>}
+        </div>
       </div>
     </DropSection>
   )

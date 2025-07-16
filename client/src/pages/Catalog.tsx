@@ -1,7 +1,8 @@
-import {  } from "react-icons/pi";
 import Navbar from "../components/layout/NavBar";
 import SearchBar from "../components/ui/SearchBar";
 import Filter from "../components/sections/Filter";
+import ProductsGrid from "../components/sections/ProductsGrid";
+import Footer from "../components/layout/Footer";
 
 const Catalog = () => {
   return (
@@ -9,6 +10,8 @@ const Catalog = () => {
       <Navbar/>
       <SearchBar/>
       <Filter/>
+      <ProductsGrid/>
+      <Footer/>
     </>
   )
 };
