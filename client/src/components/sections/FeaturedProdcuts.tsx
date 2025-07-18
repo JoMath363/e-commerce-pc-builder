@@ -6,10 +6,10 @@ const FeaturedProdcuts = (props: { title: string; link: string; filter: ProductF
   
   const { fetchProducts } = useProduct();
 
-  const products = fetchProducts();
+  const products = fetchProducts(0);
 
   return (
-    <section className="mb-8 m-4 flex flex-col gap-4">
+    <section className="flex flex-col gap-4">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold ">{props.title}</h2>
         <a href={props.link} className="text-[var(--primary-2)]">View More</a>

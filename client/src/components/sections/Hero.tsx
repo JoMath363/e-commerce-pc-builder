@@ -3,7 +3,7 @@ import cabinet_img from "../../assets/cabinet_img.png"
 
 const Hero = () => {
   return (
-    <section className="mx-4 px-4 py-8 flex justify-between items-center bg-[var(--surface)] rounded-2xl">
+    <section className="px-4 py-8 flex justify-between items-center bg-[var(--surface)] rounded-2xl">
       <div className="w-1/2 flex flex-col gap-4 items-center text-center">
         <h1 className="font-bold text-3xl">
           Build Your Dream PC

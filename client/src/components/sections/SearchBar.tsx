@@ -14,7 +14,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="group mt-4 mx-4 flex gap-2 border-1 border-[var(--border-2)] rounded-xl overflow-hidden group-focus-within:text-[var(--text-1)]">
+    <div className="group flex gap-2 border-1 border-[var(--border-2)] rounded-xl overflow-hidden group-focus-within:text-[var(--text-1)]">
       <div className="group w-1/1 pl-4 py-2 gap-2 flex items-center">
         <input onChange={(e) => setSearchInput(e.target.value)} placeholder="Search" type="text" id="searchInput" className="w-1/1 focus:outline-none" />
         {

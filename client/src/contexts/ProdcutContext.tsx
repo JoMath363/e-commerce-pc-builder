@@ -6,7 +6,7 @@ import { components } from "../utils/mock.json";
 interface ProductContextInterface {
   filter: ProductFilter;
   setFilter: Dispatch<SetStateAction<ProductFilter>>;
-  fetchProducts: () => ProductPreview[];
+  fetchProducts: (page: number) => ProductPreview[];
 }
 
 const ProductContext = createContext<ProductContextInterface | null>(null);
@@ -20,18 +20,17 @@ export const ProductProvider = (props: { children: ReactNode }) => {
 
   const [filter, setFilter] = useState<ProductFilter>(defaultFilter);
 
-  const fetchProducts = () => {
+  const fetchProducts = (page: number): ProductPreview[] => {
+    console.log(page);
     return components;
   };
 
-  const value: ProductContextInterface = {
-    filter,
-    setFilter,
-    fetchProducts
-  }
-
   return (
-    <ProductContext.Provider value={value}>
+    <ProductContext.Provider value={{
+      filter,
+      setFilter,
+      fetchProducts
+    }}>
       {props.children}
     </ProductContext.Provider>
   );

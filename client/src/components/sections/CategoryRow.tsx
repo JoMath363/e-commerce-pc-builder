@@ -17,7 +17,7 @@ const categoryIcons: { [key: string]: JSX.Element } = {
 
 const CategoryRow = () => {
   return (
-    <section className="p-4 overflow-x-auto">
+    <section className="overflow-x-auto">
       <div className="flex space-x-4 w-fit">
         {
           categories.map(item =>
