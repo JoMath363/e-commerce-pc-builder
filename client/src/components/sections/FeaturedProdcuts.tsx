@@ -4,9 +4,9 @@ import ProductCard from "../ui/ProductCard";
 
 const FeaturedProdcuts = (props: { title: string; link: string; filter: ProductFilter }) => {
   
-  const { fetchProducts } = useProduct();
+  const { fetchCatalog } = useProduct();
 
-  const products = fetchProducts(0);
+  const products = fetchCatalog(0);
 
   return (
     <section className="flex flex-col gap-4">

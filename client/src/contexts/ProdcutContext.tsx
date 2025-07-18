@@ -1,35 +1,50 @@
 import { createContext, useContext, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
-import type { ProductPreview, ProductFilter } from "../utils/types";
+import type { ProductPreview, ProductFilter, ProductData } from "../utils/types";
 
-import { components } from "../utils/mock.json";
+import { components, categories } from "../utils/mock.json";
 
 interface ProductContextInterface {
+  categoriesList: { name: string; }[];
   filter: ProductFilter;
   setFilter: Dispatch<SetStateAction<ProductFilter>>;
-  fetchProducts: (page: number) => ProductPreview[];
+  fetchCatalog: (page: number) => ProductPreview[];
+  fetchFeatured: (filter: ProductFilter) => ProductPreview[];
+  fetchProduct: (name: string) => ProductData[];
 }
 
 const ProductContext = createContext<ProductContextInterface | null>(null);
 
 export const ProductProvider = (props: { children: ReactNode }) => {
-  const defaultFilter: ProductFilter = {
+  const categoriesList = categories;
+
+  const [filter, setFilter] = useState<ProductFilter>({
     categories: [],
-    maxPrice: 2000,
     minPrice: 0,
-  };
+    maxPrice: 2000,
+  });
 
-  const [filter, setFilter] = useState<ProductFilter>(defaultFilter);
+  const fetchFeatured = (filter: ProductFilter): ProductPreview[] => {
+    console.log(filter);
+    return components;
+  }
 
-  const fetchProducts = (page: number): ProductPreview[] => {
+  const fetchCatalog = (page: number): ProductPreview[] => {
     console.log(page);
     return components;
   };
 
+  const fetchProduct = (name: string): ProductData[] => {
+    return components.filter(product => product.name == name);
+  }
+
   return (
     <ProductContext.Provider value={{
+      categoriesList,
       filter,
       setFilter,
-      fetchProducts
+      fetchCatalog,
+      fetchFeatured,
+      fetchProduct
     }}>
       {props.children}
     </ProductContext.Provider>

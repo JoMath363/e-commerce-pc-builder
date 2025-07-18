@@ -8,7 +8,7 @@ const DropSection = (props: { title: string; children: JSX.Element }) => {
     <section className="border-1 border-[var(--border-2)] rounded-lg overflow-hidden">
       <div
         className={
-          `px-4 py-2 flex justify-between items-center cursor-pointer select-none
+          `px-4 py-2 flex justify-between items-center cursor-pointer select-none hover:bg-[var(--secondary-2)] hover:text-[var(--background)]
           ${isOpen? "bg-[var(--secondary-1)] text-[var(--background)]" : "bg-[var(--surface)]"}`
         }
         onClick={() => setIsOpen(x => !x)}

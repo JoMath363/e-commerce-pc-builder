@@ -6,14 +6,13 @@ import { useEffect, useState } from "react";
 import type { ProductPreview } from "../../utils/types";
 
 const ProductsGrid = () => {
-  const { fetchProducts } = useProduct();
+  const { fetchCatalog } = useProduct();
   const [products, setProducts] = useState<ProductPreview[]>([]);
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    setProducts(fetchProducts(page));
-  }, [page])
-
+    setProducts(fetchCatalog(page));
+  }, [fetchCatalog, page])
 
   return (
     <section className="flex flex-col gap-4">

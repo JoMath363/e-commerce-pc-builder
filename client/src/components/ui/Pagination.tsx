@@ -8,15 +8,19 @@ type PaginationProps = {
 }
 
 const Pagination = ({ page, maximum, setPage }: PaginationProps) => {
-  
+
   const getPages = () => {
     const pagesCount = Math.min(5, maximum);
 
-    if (page + pagesCount > maximum) {
+    if (page <= pagesCount / 2) {
+      return Array.from({ length: pagesCount }, (_, i) => 1 + i)
+    }
+
+    if (page > maximum - pagesCount / 2) {
       return Array.from({ length: pagesCount }, (_, i) => Math.max(1, maximum - pagesCount + 1) + i);
     }
 
-    return Array.from({ length: pagesCount }, (_, i) => page + i)
+    return Array.from({ length: pagesCount }, (_, i) => page - Math.floor(pagesCount / 2) + i)
   }
 
   return (
@@ -36,6 +40,7 @@ const Pagination = ({ page, maximum, setPage }: PaginationProps) => {
         getPages().map(n => n == page ? (
           <button
             className="p-1 px-3 bg-[var(--primary-2)] border-1 border-[var(--primary-2)] text-[var(--background)] rounded-lg text-xl cursor-pointer"
+            key={n}
           >
             <span>{n}</span>
           </button>

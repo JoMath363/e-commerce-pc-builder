@@ -1,6 +1,6 @@
 import Navbar from "../components/layout/NavBar";
 import SearchBar from "../components/sections/SearchBar";
-import Filter from "../components/sections/Filter";
+import ProductsFilter from "../components/sections/ProductsFilter";
 import ProductsGrid from "../components/sections/ProductsGrid";
 import Footer from "../components/layout/Footer";
 import Main from "../components/layout/Main";
@@ -11,7 +11,7 @@ const Catalog = () => {
       <Navbar />
       <Main>
         <SearchBar />
-        <Filter />
+        <ProductsFilter />
         <ProductsGrid />
       </Main>
       <Footer />

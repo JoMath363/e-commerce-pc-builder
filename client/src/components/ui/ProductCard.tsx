@@ -4,7 +4,10 @@ import type { ProductPreview } from "../../utils/types";
 
 const ProductCard = (props: ProductPreview) => {
   return (
-    <a className="min-fit bg-[var(--surface)] rounded">
+    <a
+      className="min-fit bg-[var(--surface)] rounded"
+      href={`/product/${props.name}`}
+    >
       <img className="rounded" src={props.imageUrl || placeholder_img} alt="" />
 
       <div className="p-2 flex flex-col gap-2">
