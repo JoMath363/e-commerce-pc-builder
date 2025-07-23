@@ -1,5 +1,5 @@
 import { PiCaretRightBold } from "react-icons/pi";
-import cabinet_img from "../../assets/cabinet_img.png"
+import cabinet_img from "../assets/cabinet_img.png"
 
 const Hero = () => {
   return (

@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
-import type { ProductPreview, ProductFilter, ProductData } from "../utils/types";
+import type { ProductPreview, ProductFilter, ProductData } from "../types/prodcutTypes";
 
-import { components, categories } from "../utils/mock.json";
+import { prodcuts_previews, products_data, categories } from "../utils/mock.json";
 
 interface ProductContextInterface {
   categoriesList: { name: string; }[];
@@ -25,16 +25,16 @@ export const ProductProvider = (props: { children: ReactNode }) => {
 
   const fetchFeatured = (filter: ProductFilter): ProductPreview[] => {
     console.log(filter);
-    return components;
+    return prodcuts_previews;
   }
 
   const fetchCatalog = (page: number): ProductPreview[] => {
     console.log(page);
-    return components;
+    return prodcuts_previews;
   };
 
   const fetchProduct = (name: string): ProductData[] => {
-    return components.filter(product => product.name == name);
+    return products_data.filter(product => product.name == name);
   }
 
   return (

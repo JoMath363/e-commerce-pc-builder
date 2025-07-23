@@ -1,17 +1,17 @@
 {
-  "components": [
+  "prodcuts_previews": [
     {
       "name": "Intel Core i7-13700K",
       "price": 399.99,
       "description": "14-core, 20-thread desktop processor for high performance gaming and productivity.",
       "imageUrl": "",
       "specs": {
-        "cores": 14,
-        "threads": 20,
-        "baseClock": "3.4GHz",
-        "boostClock": "5.4GHz",
-        "socket": "LGA1700",
-        "tdp": "125W"
+        "core_count": 8,
+        "core_clock": 4.2,
+        "boost_clock": 5,
+        "tdp": 120,
+        "graphics": "Radeon",
+        "smt": true
       }
     },
     {
@@ -307,6 +307,22 @@
       }
     }
   ],
+  "products_data": [
+    {
+      "name": "AMD Ryzen 7 7800X3D",
+      "description": "The AMD Ryzen 7 7800X3D delivers lightning-fast speed and smooth multitasking, making it perfect for high-end gaming and demanding workloads. Powered by advanced 3D cache technology, it's built to dominate.",
+      "imageUrl": "https://images2.kabum.com.br/produtos/fotos/426262/processador-amd-ryzen-7-7800x3d-5-0ghz-max-turbo-cache-104mb-am5-8-nucleos-video-integrado-100-100000910wof_1680784502_m.jpg",
+      "price": 339,
+      "specs": {
+        "core_count": 8,
+        "core_clock": 4.2,
+        "boost_clock": 5,
+        "tdp": 120,
+        "graphics": "Radeon",
+        "smt": true
+      }
+    }
+  ],
   "categories": [
     {
       "name": "processors"
@@ -335,5 +351,89 @@
     {
       "name": "case-fans"
     }
-  ]
+  ],
+  "spec_ex": {
+    "case": {
+      "type": "ATX Mid Tower",
+      "color": "Black",
+      "psu": null,
+      "side_panel": "Tinted Tempered Glass",
+      "external_volume": 48.6,
+      "internal_35_bays": 2
+    },
+    "processor": {
+      "core_count": 8,
+      "core_clock": 4.2,
+      "boost_clock": 5,
+      "tdp": 120,
+      "graphics": "Radeon",
+      "smt": true
+    },
+    "memory": {
+      "speed": [
+        4,
+        3200
+      ],
+      "modules": [
+        2,
+        8
+      ],
+      "price_per_gb": 2.437,
+      "color": "Black / Yellow",
+      "first_word_latency": 10,
+      "cas_latency": 16
+    },
+    "motherboard": {
+      "socket": "AM5",
+      "form_factor": "ATX",
+      "max_memory": 192,
+      "memory_slots": 4,
+      "color": "Black"
+    },
+    "power_supply": {
+      "type": "ATX",
+      "efficiency": "gold",
+      "wattage": 750,
+      "modular": "Full",
+      "color": "Black"
+    },
+    "storage": {
+      "capacity": 2000,
+      "price_per_gb": 0.085,
+      "type": "SSD",
+      "cache": 2048,
+      "form_factor": "M.2-2280",
+      "interface": "M.2 PCIe 4.0 X4"
+    },
+    "graphics_card": {
+      "chipset": "GeForce RTX 3060 12GB",
+      "memory": 12,
+      "core_clock": 1320,
+      "boost_clock": 1777,
+      "color": "Black",
+      "length": 235
+    },
+    "case_fan": {
+      "size": 120,
+      "color": "Black",
+      "rpm": null,
+      "airflow": [
+        0,
+        61.3
+      ],
+      "noise_level": [
+        0,
+        29
+      ],
+      "pwm": true
+    },
+    "cooler": {
+      "name": "Thermalright Peerless Assassin 120 SE",
+      "price": 33.9,
+      "rpm": 1550,
+      "noise_level": 25.6,
+      "color": "Black",
+      "size": null
+    }
+  }
 }
