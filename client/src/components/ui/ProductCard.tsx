@@ -1,6 +1,6 @@
 import { } from "react-icons/pi";
 import placeholder_img from "../assets/placeholder_img.png"
-import type { ProductPreview } from "../../types/prodcutTypes";
+import type { ProductPreview } from "../../types/ProdcutTypes";
 
 const ProductCard = (props: ProductPreview) => {
   return (

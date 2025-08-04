@@ -1,7 +1,7 @@
 import { PiCpu, PiCircuitry, PiMemory, PiGraphicsCard, PiHardDrive, PiLightning, PiComputerTower, PiFan, PiWind } from "react-icons/pi";
 import { unslug } from "../../utils/helper";
 import type { JSX } from "react";
-import { useProduct } from "../../contexts/ProdcutContext";
+import { useProduct } from "../../contexts/ProductContext";
 
 const categoryIcons: { [key: string]: JSX.Element } = {
   "processors": <PiCpu />,

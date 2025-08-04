@@ -1,11 +1,11 @@
 import { } from "react-icons/pi";
 import DropSection from "../ui/DropSection";
-import { useProduct } from "../../contexts/ProdcutContext";
+import { useProduct } from "../../contexts/ProductContext";
 import { useState } from "react";
 import CheckboxList from "../ui/CheckboxList";
 import PriceRange from "../ui/PriceRange";
 
-const ProductsFilter = () => {
+const CatalogFilter = () => {
   const { filter, setFilter } = useProduct();
   const [categories, setCategories] = useState(filter.categories);
   const [minPrice, setMinPrice] = useState(filter.minPrice);
@@ -44,4 +44,4 @@ const ProductsFilter = () => {
   )
 };
 
-export default ProductsFilter;
+export default CatalogFilter;

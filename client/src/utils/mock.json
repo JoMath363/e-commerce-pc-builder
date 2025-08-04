@@ -3,315 +3,111 @@
     {
       "name": "Intel Core i7-13700K",
       "price": 399.99,
-      "description": "14-core, 20-thread desktop processor for high performance gaming and productivity.",
-      "imageUrl": "",
-      "specs": {
-        "core_count": 8,
-        "core_clock": 4.2,
-        "boost_clock": 5,
-        "tdp": 120,
-        "graphics": "Radeon",
-        "smt": true
-      }
+      "imageUrl": ""
     },
     {
       "name": "AMD Ryzen 9 7950X",
       "price": 699.99,
-      "description": "16-core, 32-thread processor for enthusiast-level performance.",
-      "imageUrl": "",
-      "specs": {
-        "cores": 16,
-        "threads": 32,
-        "baseClock": "4.5GHz",
-        "boostClock": "5.7GHz",
-        "socket": "AM5",
-        "tdp": "170W"
-      }
+      "imageUrl": ""
     },
     {
       "name": "NVIDIA GeForce RTX 4090",
       "price": 1599.99,
-      "description": "Flagship GPU for 4K gaming and AI workloads with 24GB GDDR6X.",
-      "imageUrl": "",
-      "specs": {
-        "memory": "24GB GDDR6X",
-        "cores": 16384,
-        "baseClock": "2230MHz",
-        "boostClock": "2520MHz",
-        "powerConsumption": "450W",
-        "ports": [
-          "HDMI 2.1",
-          "DisplayPort 1.4a"
-        ]
-      }
+      "imageUrl": ""
     },
     {
       "name": "AMD Radeon RX 7900 XTX",
       "price": 999.99,
-      "description": "High-end AMD GPU with 24GB GDDR6 for 4K gaming.",
-      "imageUrl": "",
-      "specs": {
-        "memory": "24GB GDDR6",
-        "cores": 6144,
-        "baseClock": "1900MHz",
-        "boostClock": "2500MHz",
-        "powerConsumption": "355W",
-        "ports": [
-          "HDMI 2.1",
-          "DisplayPort 2.1"
-        ]
-      }
+      "imageUrl": ""
     },
     {
       "name": "Corsair Vengeance RGB 32GB DDR5-6000",
       "price": 189.99,
       "description": "High-speed DDR5 RAM with RGB lighting.",
-      "imageUrl": "",
-      "specs": {
-        "capacity": "32GB",
-        "modules": "2x16GB",
-        "speed": "6000MHz",
-        "type": "DDR5",
-        "casLatency": "36",
-        "voltage": "1.35V"
-      }
+      "imageUrl": ""
     },
     {
       "name": "G.SKILL Trident Z5 RGB 64GB DDR5-6400",
       "price": 349.99,
-      "description": "High-capacity, high-speed DDR5 RAM with RGB.",
-      "imageUrl": "",
-      "specs": {
-        "capacity": "64GB",
-        "modules": "2x32GB",
-        "speed": "6400MHz",
-        "type": "DDR5",
-        "casLatency": "32",
-        "voltage": "1.4V"
-      }
+      "imageUrl": ""
     },
     {
       "name": "Samsung 990 PRO 2TB NVMe SSD",
       "price": 229.99,
-      "description": "PCIe Gen4 NVMe SSD with blazing fast speeds.",
-      "imageUrl": "",
-      "specs": {
-        "capacity": "2TB",
-        "interface": "PCIe Gen4 x4 NVMe",
-        "sequentialRead": "7450 MB/s",
-        "sequentialWrite": "6900 MB/s",
-        "formFactor": "M.2 2280"
-      }
+      "imageUrl": ""
     },
     {
       "name": "Western Digital Black SN850X 1TB NVMe SSD",
       "price": 109.99,
-      "description": "Fast NVMe storage for gaming and heavy workloads.",
-      "imageUrl": "",
-      "specs": {
-        "capacity": "1TB",
-        "interface": "PCIe Gen4 x4 NVMe",
-        "sequentialRead": "7000 MB/s",
-        "sequentialWrite": "5300 MB/s",
-        "formFactor": "M.2 2280"
-      }
+      "imageUrl": ""
     },
     {
       "name": "MSI MPG Z790 Carbon WiFi",
       "price": 329.99,
-      "description": "Feature-rich motherboard for Intel 12th/13th Gen CPUs.",
-      "imageUrl": "",
-      "specs": {
-        "chipset": "Z790",
-        "socket": "LGA1700",
-        "formFactor": "ATX",
-        "memorySupport": "128GB DDR5",
-        "expansionSlots": "3 x PCIe x16",
-        "network": "WiFi 6E, 2.5G LAN"
-      }
+      "imageUrl": ""
     },
     {
       "name": "ASUS ROG X670E Hero",
       "price": 499.99,
-      "description": "Premium AMD AM5 motherboard with PCIe 5.0.",
-      "imageUrl": "",
-      "specs": {
-        "chipset": "X670E",
-        "socket": "AM5",
-        "formFactor": "ATX",
-        "memorySupport": "128GB DDR5",
-        "expansionSlots": "3 x PCIe x16",
-        "network": "WiFi 6E, 2.5G LAN"
-      }
+      "imageUrl": ""
     },
     {
       "name": "Corsair RM850x 850W 80+ Gold",
       "price": 139.99,
-      "description": "Reliable fully modular PSU with Gold efficiency.",
-      "imageUrl": "",
-      "specs": {
-        "wattage": "850W",
-        "efficiency": "80+ Gold",
-        "modular": true,
-        "fan": "135mm",
-        "connectorTypes": [
-          "ATX 24-pin",
-          "CPU 8-pin",
-          "PCIe 8-pin"
-        ]
-      }
+      "imageUrl": ""
     },
     {
       "name": "Seasonic Prime TX-1000 1000W 80+ Titanium",
       "price": 279.99,
       "description": "Top-tier fully modular PSU with Titanium efficiency.",
-      "imageUrl": "",
-      "specs": {
-        "wattage": "1000W",
-        "efficiency": "80+ Titanium",
-        "modular": true,
-        "fan": "135mm",
-        "connectorTypes": [
-          "ATX 24-pin",
-          "CPU 8-pin",
-          "PCIe 8-pin"
-        ]
-      }
+      "imageUrl": ""
     },
     {
       "name": "NZXT H7 Flow",
       "price": 129.99,
-      "description": "High-airflow mid-tower case with tempered glass panel.",
-      "imageUrl": "",
-      "specs": {
-        "formFactor": "Mid Tower",
-        "material": [
-          "Steel",
-          "Tempered Glass"
-        ],
-        "motherboardSupport": [
-          "ATX",
-          "mATX",
-          "Mini-ITX"
-        ],
-        "expansionSlots": 7,
-        "fanSupport": "Up to 7 fans"
-      }
+      "imageUrl": ""
     },
     {
       "name": "Lian Li PC-O11 Dynamic EVO",
       "price": 169.99,
-      "description": "Popular dual-chamber ATX case with modern design.",
-      "imageUrl": "",
-      "specs": {
-        "formFactor": "Mid Tower",
-        "material": [
-          "Aluminum",
-          "Tempered Glass"
-        ],
-        "motherboardSupport": [
-          "ATX",
-          "mATX",
-          "Mini-ITX"
-        ],
-        "expansionSlots": 8,
-        "fanSupport": "Up to 9 fans"
-      }
+      "imageUrl": ""
     },
     {
       "name": "Noctua NH-D15",
       "price": 99.99,
-      "description": "Premium dual-tower CPU air cooler.",
-      "imageUrl": "",
-      "specs": {
-        "type": "Air Cooler",
-        "fans": 2,
-        "fanSize": "140mm",
-        "height": "165mm",
-        "compatibility": [
-          "Intel LGA1700",
-          "AMD AM5/AM4"
-        ]
-      }
+      "imageUrl": ""
     },
     {
       "name": "Corsair iCUE H150i Elite Capellix XT",
       "price": 189.99,
-      "description": "360mm AIO liquid cooler with RGB.",
-      "imageUrl": "",
-      "specs": {
-        "type": "Liquid Cooler",
-        "radiatorSize": "360mm",
-        "fans": 3,
-        "fanSize": "120mm",
-        "compatibility": [
-          "Intel LGA1700",
-          "AMD AM5/AM4"
-        ]
-      }
+      "imageUrl": ""
     },
     {
       "name": "Arctic MX-6 Thermal Paste",
       "price": 7.99,
-      "description": "High-performance thermal paste for CPUs and GPUs.",
-      "imageUrl": "",
-      "specs": {
-        "type": "Thermal Paste",
-        "thermalConductivity": "8.5 W/mK",
-        "volume": "4g"
-      }
+      "imageUrl": ""
     },
     {
       "name": "TP-Link Archer AX6000 WiFi 6 Router",
       "price": 249.99,
-      "description": "High-speed WiFi 6 router with 8 antennas.",
-      "imageUrl": "",
-      "specs": {
-        "wifiStandard": "WiFi 6",
-        "bands": "Dual-Band",
-        "maxSpeed": "5952 Mbps",
-        "ports": [
-          "8x LAN",
-          "1x WAN",
-          "2x USB 3.0"
-        ]
-      }
+      "imageUrl": ""
     },
     {
       "name": "ASUS ROG Swift PG279QM",
       "price": 799.99,
-      "description": "27-inch QHD gaming monitor with 240Hz refresh rate.",
-      "imageUrl": "",
-      "specs": {
-        "size": "27-inch",
-        "resolution": "2560x1440",
-        "refreshRate": "240Hz",
-        "panelType": "IPS",
-        "adaptiveSync": [
-          "G-SYNC Compatible"
-        ]
-      }
+      "imageUrl": ""
     },
     {
       "name": "Elgato Stream Deck MK.2",
       "price": 149.99,
-      "description": "Customizable control panel for streaming and productivity.",
-      "imageUrl": "",
-      "specs": {
-        "buttons": 15,
-        "connection": "USB",
-        "compatibility": [
-          "Windows",
-          "MacOS"
-        ]
-      }
+      "imageUrl": ""
     }
   ],
   "products_data": [
     {
       "name": "AMD Ryzen 7 7800X3D",
       "description": "The AMD Ryzen 7 7800X3D delivers lightning-fast speed and smooth multitasking, making it perfect for high-end gaming and demanding workloads. Powered by advanced 3D cache technology, it's built to dominate.",
-      "imageUrl": "https://images2.kabum.com.br/produtos/fotos/426262/processador-amd-ryzen-7-7800x3d-5-0ghz-max-turbo-cache-104mb-am5-8-nucleos-video-integrado-100-100000910wof_1680784502_m.jpg",
+      "imageUrl": "https://m.media-amazon.com/images/I/51HqC0rU9HL.jpg",
       "price": 339,
       "specs": {
         "core_count": 8,
@@ -319,8 +115,28 @@
         "boost_clock": 5,
         "tdp": 120,
         "graphics": "Radeon",
-        "smt": true
+        "smt": false
       }
+    }
+  ],
+  "cart_previews": [
+    {
+      "name": "Intel Core i7-13700K",
+      "price": 399.99,
+      "imageUrl": "",
+      "quantity": 1
+    },
+    {
+      "name": "AMD Ryzen 9 7950X",
+      "price": 699.99,
+      "imageUrl": "",
+      "quantity": 3
+    },
+    {
+      "name": "NVIDIA GeForce RTX 4090",
+      "price": 1599.99,
+      "imageUrl": "",
+      "quantity": 1
     }
   ],
   "categories": [

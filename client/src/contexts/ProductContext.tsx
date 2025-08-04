@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
-import type { ProductPreview, ProductFilter, ProductData } from "../types/prodcutTypes";
+import type { ProductPreview, ProductFilter, ProductData } from "../types/ProdcutTypes";
 
 import { prodcuts_previews, products_data, categories } from "../utils/mock.json";
 

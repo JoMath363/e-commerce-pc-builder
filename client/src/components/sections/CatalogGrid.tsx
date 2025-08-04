@@ -1,11 +1,11 @@
 import { } from "react-icons/pi";
-import { useProduct } from "../../contexts/ProdcutContext";
+import { useProduct } from "../../contexts/ProductContext";
 import ProductCard from "../ui/ProductCard";
 import Pagination from "../ui/Pagination";
 import { useEffect, useState } from "react";
-import type { ProductPreview } from "../../utils/types";
+import type { ProductPreview } from "../../types/ProdcutTypes";
 
-const ProductsGrid = () => {
+const CatalogGrid = () => {
   const { fetchCatalog } = useProduct();
   const [products, setProducts] = useState<ProductPreview[]>([]);
   const [page, setPage] = useState<number>(1);
@@ -30,4 +30,4 @@ const ProductsGrid = () => {
   )
 };
 
-export default ProductsGrid;
+export default CatalogGrid;

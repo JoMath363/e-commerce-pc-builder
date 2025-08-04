@@ -1,8 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./pages/Home"
 import Catalog from "./pages/Catalog"
-import { ProductProvider } from "./contexts/ProdcutContext"
+import { ProductProvider } from "./contexts/ProductContext"
 import Product from "./pages/Product"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import Cart from "./pages/Cart"
+import { CartProvider } from "./contexts/CartContext"
 
 const router = createBrowserRouter([
   {
@@ -16,14 +20,28 @@ const router = createBrowserRouter([
   {
     path: "/product/:name",
     element: <Product />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Register />
+  },
+  {
+    path: "/cart",
+    element: <Cart />
   }
 ])
 
 function App() {
   return (
-    <ProductProvider>
-      <RouterProvider router={router} />
-    </ProductProvider>
+    <CartProvider>
+      <ProductProvider>
+        <RouterProvider router={router} />
+      </ProductProvider>
+    </CartProvider>
   )
 }
 

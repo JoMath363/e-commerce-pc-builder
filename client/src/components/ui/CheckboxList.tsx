@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction } from "react";
-import { useProduct } from "../../contexts/ProdcutContext";
+import { useProduct } from "../../contexts/ProductContext";
 import { unslug } from "../../utils/helper";
 
 type CheckboxListProps = {

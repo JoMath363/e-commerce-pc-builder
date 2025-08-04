@@ -9,13 +9,18 @@ const NavBar = () => {
       </a>
 
       <div className="flex items-center justify-center gap-2">
-        <button className="p-1.5 text-[var(--background)] text-2xl rounded cursor-pointer transition-all hover:bg-[var(--primary-1)] active:bg-[var(--background)] active:text-[var(--text-1)]">
+        <a
+          href="/cart"
+          className="p-1.5 text-[var(--background)] text-2xl rounded cursor-pointer transition-all hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]"
+        >
           <PiShoppingCart />
-        </button>
+        </a>
 
-        <button className="p-1.5 text-[var(--background)] text-2xl rounded cursor-pointer transition-all hover:bg-[var(--primary-1)] active:bg-[var(--background)] active:text-[var(--text-1)]">
+        <a
+          href="/user"
+          className="p-1.5 text-[var(--background)] text-2xl rounded cursor-pointer transition-all hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]">
           <PiUser />
-        </button>
+        </a>
       </div>
     </nav>
   )
