@@ -26,6 +26,7 @@ const PriceRange = (props: PriceRangeProps) => {
           />
         </div>
       </label>
+
       <label className="px-2 py-1 border-[var(--border-1)] outline-none">
         <span className="text-sm text-[var(--text-2)]">
           Max
@@ -35,6 +36,7 @@ const PriceRange = (props: PriceRangeProps) => {
           <input
             type="text"
             value={props.maxPrice}
+            onChange={(e) => props.setMaxPrice(Number(e.target.value))}
             className="w-1/1 outline-none"
           />
         </div>

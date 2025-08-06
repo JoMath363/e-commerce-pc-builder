@@ -7,9 +7,9 @@ const CartList = () => {
 
   return (
     <section className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold text-center">
-        My Cart
-      </h1>
+      <h2 className="text-2xl font-bold text-center">
+        Cart Items
+      </h2>
 
       <div className="flex flex-col gap-4">
 

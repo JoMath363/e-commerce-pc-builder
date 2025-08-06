@@ -17,7 +17,7 @@ const NavBar = () => {
         </a>
 
         <a
-          href="/user"
+          href="/"
           className="p-1.5 text-[var(--background)] text-2xl rounded cursor-pointer transition-all hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]">
           <PiUser />
         </a>

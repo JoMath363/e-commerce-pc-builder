@@ -2,7 +2,7 @@
 
 body {
   --background: #f4f3f2;
-  --surface: #ebe4e4;
+  --surface: hsl(0, 1%, 91%);
   --border-1: #8e8771;
   --border-2: #d2cfc6;
   --text-1: #060504;

@@ -8,7 +8,7 @@ const ProductCard = (props: ProductPreview) => {
       className="min-fit bg-[var(--surface)] rounded"
       href={`/product/${props.name}`}
     >
-      <img className="rounded" src={props.imageUrl || placeholder_img} alt="" />
+      <img className="rounded h-32 w-1/1" src={props.imageUrl || placeholder_img} alt="" />
 
       <div className="p-2 flex flex-col gap-2">
         <h2 className="h-12 font-medium line-clamp-2 text-ellipsis">
