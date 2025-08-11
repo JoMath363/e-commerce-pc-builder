@@ -22,8 +22,8 @@ const CategoryRow = () => {
     <section className="overflow-x-auto">
       <div className="flex space-x-4 w-fit">
         {
-          categoriesList.map(item =>
-            <button className="p-3 flex gap-2 items-center text-nowrap text-2xl cursor-pointer border-1 border-[var(--border-2)] rounded-xl text-[var(--text-2)] hover:bg-[var(--surface)] hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent">
+          categoriesList.map((item, i) =>
+            <button key={i} className="p-3 flex gap-2 items-center text-nowrap text-2xl cursor-pointer border-1 border-[var(--border-2)] rounded-xl text-[var(--text-2)] hover:bg-[var(--surface)] hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent">
               {categoryIcons[item.name] || null}
               <span className="text-base font-medium">
                 {unslug(item.name)}

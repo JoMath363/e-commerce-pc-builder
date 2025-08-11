@@ -39,7 +39,7 @@ export default class ProductsService {
     }
 
     return await prisma.product.findMany({
-      where: filter
+      where: filter,
     });
   }
 

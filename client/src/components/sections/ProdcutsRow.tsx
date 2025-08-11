@@ -4,9 +4,9 @@ import ProductCard from "../ui/ProductCard";
 
 const ProdcutsRow = (props: { title: string; link?: string; filter: ProductFilter }) => {
 
-  const { fetchCatalog } = useProduct();
+  const { fetchFeatured } = useProduct();
 
-  const products = fetchCatalog(0);
+  const products = fetchFeatured(props.filter);
 
   return (
     <section className="flex flex-col gap-4">
@@ -22,7 +22,7 @@ const ProdcutsRow = (props: { title: string; link?: string; filter: ProductFilte
 
       <div className="overflow-x-auto">
         <div className="flex space-x-4 w-fit">
-          {products.map((item) => <ProductCard {...item} />)}
+          {products.map((item, i) => <ProductCard {...item} key={i} />)}
         </div>
       </div>
     </section>

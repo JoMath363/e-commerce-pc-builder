@@ -5,94 +5,162 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  /* await prisma.product.createMany({
+  // MotherBoards
+  await prisma.product.createMany({
     data: [
       {
-        "name": "AMD Ryzen 7 5800X",
-        "description": "8-core, 16-thread unlocked desktop processor.",
-        "price": 1599.00,
-        "stock": 20,
-        "imageUrl": "https://example.com/ryzen.jpg",
+        "name": "Asus PRIME B650-PLUS WIFI",
+        "description": "High-performance ATX motherboard with AM5 socket, Wi-Fi connectivity, and support for up to 192GB memory.",
+        "price": 159.99,
+        "stock": 10,
+        "imageUrl": "",
         "specs": {
-          "cores": "8",
-          "threads": "16",
-          "baseClock": "3.8GHz",
-          "socket": "AM4"
+          "socket": "AM5",
+          "form_factor": "ATX",
+          "max_memory": "192 GB",
+          "memory_slots": "4 slots",
+          "color": "Black / Silver"
         },
-        "categoryId": "a7b7aab0-5fb1-4621-b15c-cbf4725a78ff"
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
       },
       {
-        name: "Intel Core i7-12700K",
-        description: "12-core (8P+4E), 20-thread processor with Intel UHD Graphics 770.",
-        price: 2199,
-        stock: 15,
-        imageUrl: "https://example.com/i7-12700k.jpg",
-        specs: {
-          cores: "12 (8P+4E)",
-          threads: "20",
-          socket: "LGA1700",
-          baseClock: "3.6GHz"
+        "name": "MSI B650 GAMING PLUS WIFI",
+        "description": "ATX gaming motherboard with AM5 socket, Wi-Fi, and support for up to 192GB of RAM.",
+        "price": 169.99,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM5",
+          "form_factor": "ATX",
+          "max_memory": "192 GB",
+          "memory_slots": "4 slots",
+          "color": "Black"
         },
-        categoryId: "a7b7aab0-5fb1-4621-b15c-cbf4725a78ff"
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
       },
       {
-        name: "AMD Ryzen 9 7900X",
-        description: "12-core, 24-thread processor with 5.6GHz max boost and PCIe 5.0 support.",
-        price: 2999,
-        stock: 10,
-        imageUrl: "https://example.com/ryzen-9-7900x.jpg",
-        specs: {
-          cores: "12",
-          threads: "24",
-          socket: "AM5",
-          baseClock: "4.7GHz"
+        "name": "MSI MAG B650 TOMAHAWK WIFI",
+        "description": "Durable ATX motherboard with AM5 socket, Wi-Fi support, and up to 256GB memory capacity.",
+        "price": 189.42,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM5",
+          "form_factor": "ATX",
+          "max_memory": "256 GB",
+          "memory_slots": "4 slots",
+          "color": "Black"
         },
-        categoryId: "a7b7aab0-5fb1-4621-b15c-cbf4725a78ff"
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
       },
       {
-        name: "Intel Core i5-13600K",
-        description: "14-core (6P+8E), 20-thread processor for mid-range gaming and productivity.",
-        price: 1599,
-        stock: 25,
-        imageUrl: "https://example.com/i5-13600k.jpg",
-        specs: {
-          cores: "14 (6P+8E)",
-          threads: "20",
-          socket: "LGA1700",
-          baseClock: "3.5GHz"
+        "name": "Gigabyte X870E AORUS ELITE WIFI7",
+        "description": "Premium ATX motherboard with AM5 socket, Wi-Fi 7, and 256GB max memory support.",
+        "price": 325.31,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM5",
+          "form_factor": "ATX",
+          "max_memory": "256 GB",
+          "memory_slots": "4 slots",
+          "color": "Black"
         },
-        categoryId: "a7b7aab0-5fb1-4621-b15c-cbf4725a78ff"
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
       },
       {
-        name: "AMD Ryzen 5 5600X",
-        description: "6-core, 12-thread processor with efficient performance for gaming.",
-        price: 1049,
-        stock: 30,
-        imageUrl: "https://example.com/ryzen-5-5600x.jpg",
-        specs: {
-          cores: "6",
-          threads: "12",
-          socket: "AM4",
-          baseClock: "3.7GHz"
+        "name": "Asus PRIME B550M-A WIFI II",
+        "description": "Micro ATX motherboard with AM4 socket, Wi-Fi, and support for up to 128GB RAM.",
+        "price": 99.99,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM4",
+          "form_factor": "Micro ATX",
+          "max_memory": "128 GB",
+          "memory_slots": "4 slots",
+          "color": "Blue / Silver"
         },
-        categoryId: "a7b7aab0-5fb1-4621-b15c-cbf4725a78ff"
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
       },
       {
-        name: "Intel Core i9-13900K",
-        description: "24-core (8P+16E), 32-thread flagship CPU for high-end PCs.",
-        price: 3899,
-        stock: 5,
-        imageUrl: "https://example.com/i9-13900k.jpg",
-        specs: {
-          cores: "24 (8P+16E)",
-          threads: "32",
-          socket: "LGA1700",
-          baseClock: "3.0GHz"
+        "name": "Gigabyte B650 EAGLE AX",
+        "description": "ATX motherboard with AM5 socket, high memory capacity, and AX Wi-Fi support.",
+        "price": 157.99,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM5",
+          "form_factor": "ATX",
+          "max_memory": "192 GB",
+          "memory_slots": "4 slots",
+          "color": "Gray / Black"
         },
-        categoryId: "a7b7aab0-5fb1-4621-b15c-cbf4725a78ff"
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+      },
+      {
+        "name": "Asus TUF GAMING B850-PLUS WIFI",
+        "description": "TUF Gaming ATX motherboard with AM5 socket, Wi-Fi, and 192GB RAM support.",
+        "price": 217.99,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM5",
+          "form_factor": "ATX",
+          "max_memory": "192 GB",
+          "memory_slots": "4 slots",
+          "color": "Black / Silver"
+        },
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+      },
+      {
+        "name": "ASRock B650M Pro RS WiFi",
+        "description": "Micro ATX motherboard with AM5 socket, Wi-Fi, and up to 256GB RAM capacity.",
+        "price": 139.99,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM5",
+          "form_factor": "Micro ATX",
+          "max_memory": "256 GB",
+          "memory_slots": "4 slots",
+          "color": "Black / Silver"
+        },
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+      },
+      {
+        "name": "MSI MAG X870 TOMAHAWK WIFI",
+        "description": "High-end ATX motherboard with AM5 socket, Wi-Fi, and 256GB max memory.",
+        "price": 269.99,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM5",
+          "form_factor": "ATX",
+          "max_memory": "256 GB",
+          "memory_slots": "4 slots",
+          "color": "Black"
+        },
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+      },
+      {
+        "name": "Gigabyte A520M K V2",
+        "description": "Entry-level Micro ATX motherboard with AM4 socket and 64GB max memory support.",
+        "price": 68.47,
+        "stock": 10,
+        "imageUrl": "",
+        "specs": {
+          "socket": "AM4",
+          "form_factor": "Micro ATX",
+          "max_memory": "64 GB",
+          "memory_slots": "2 slots",
+          "color": "Brown / Black"
+        },
+        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
       }
     ]
-  }); */
+
+  });
 
   await prisma.user.createMany({
     data: [

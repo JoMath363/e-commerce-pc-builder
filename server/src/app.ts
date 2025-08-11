@@ -6,10 +6,17 @@ import usersRouter from './routes/users.route';
 import authRouter from './routes/auth.route';
 import ordersRouter from './routes/orders.route';
 import errorHandler from './middlewares/errorHandler';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  methods: "*",
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(express.json());
 
 app.use("/categories", categoriesRouter);
