@@ -1,21 +1,33 @@
-import { createContext, useContext, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
-import type { ProductPreview, ProductFilter, ProductData } from "../types/ProdcutTypes";
-
-import { prodcuts_previews, products_data, categories } from "../utils/mock.json";
+import { createContext, useContext, useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
+import type { ProductFilter, Category } from "../types/ProdcutTypes";
 
 interface ProductContextInterface {
-  categoriesList: { name: string; }[];
+  categories: Category[];
   filter: ProductFilter;
   setFilter: Dispatch<SetStateAction<ProductFilter>>;
-  fetchCatalog: (page: number) => ProductPreview[];
-  fetchFeatured: (filter: ProductFilter) => ProductPreview[];
-  fetchProduct: (name: string) => ProductData[];
 }
 
 const ProductContext = createContext<ProductContextInterface | null>(null);
 
 export const ProductProvider = (props: { children: ReactNode }) => {
-  const categoriesList = categories;
+  const serverURL = import.meta.env.VITE_SERVER_URL
+
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch(`${serverURL}/categories`);
+        if (!res.ok) throw new Error("Failed to fetch");
+        const data = await res.json();
+        setCategories(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchCategories();
+  })
 
   const [filter, setFilter] = useState<ProductFilter>({
     categories: [],
@@ -23,28 +35,11 @@ export const ProductProvider = (props: { children: ReactNode }) => {
     maxPrice: 2000,
   });
 
-  const fetchFeatured = (filter: ProductFilter): ProductPreview[] => {
-    console.log(filter);
-    return prodcuts_previews;
-  }
-
-  const fetchCatalog = (page: number): ProductPreview[] => {
-    console.log(page);
-    return prodcuts_previews;
-  };
-
-  const fetchProduct = (name: string): ProductData[] => {
-    return products_data.filter(product => product.name == name);
-  }
-
   return (
     <ProductContext.Provider value={{
-      categoriesList,
+      categories,
       filter,
       setFilter,
-      fetchCatalog,
-      fetchFeatured,
-      fetchProduct
     }}>
       {props.children}
     </ProductContext.Provider>

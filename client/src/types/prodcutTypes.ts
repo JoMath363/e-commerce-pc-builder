@@ -1,3 +1,8 @@
+export type Category = {
+  id: string;
+  name: string;
+}
+
 export type ProductFilter = {
   categories: number[];
   maxPrice: number;
@@ -5,6 +10,7 @@ export type ProductFilter = {
 };
 
 export type ProductPreview = {
+  id: string;
   name: string;
   price: number | null;
   imageUrl?: string;

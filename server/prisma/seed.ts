@@ -5,6 +5,40 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
+  // Categories
+  await prisma.category.createMany({
+    data: [
+      {
+        "name": "processors"
+      },
+      {
+        "name": "motherboards"
+      },
+      {
+        "name": "memory"
+      },
+      {
+        "name": "graphics-cards"
+      },
+      {
+        "name": "storage"
+      },
+      {
+        "name": "power-supplies"
+      },
+      {
+        "name": "cases"
+      },
+      {
+        "name": "coolers"
+      },
+      {
+        "name": "case-fans"
+      }
+    ]
+
+  })
+
   // MotherBoards
   await prisma.product.createMany({
     data: [

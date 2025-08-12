@@ -15,7 +15,10 @@ export default class ProductsController {
     try {
       const id = req.params.id;
       const item = await ProductsService.findById(id);
-      if (!item) res.status(404).json({ message: 'Not found' });
+      if (!item) {
+        res.status(404).json({ message: 'Not found' }); return;
+      }
+
       res.json(item);
     } catch (error) {
       next(error);

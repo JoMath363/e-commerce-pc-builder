@@ -1,12 +1,28 @@
-import { useProduct } from "../../contexts/ProductContext";
-import type { ProductFilter } from "../../types/ProdcutTypes";
+import { useEffect, useState } from "react";
+import type { ProductFilter, ProductPreview } from "../../types/ProdcutTypes";
 import ProductCard from "../ui/ProductCard";
 
 const ProdcutsRow = (props: { title: string; link?: string; filter: ProductFilter }) => {
 
-  const { fetchFeatured } = useProduct();
+  const [products, setProducts] = useState<ProductPreview[]>([])
 
-  const products = fetchFeatured(props.filter);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const serverURL = import.meta.env.VITE_SERVER_URL;
+      const filterQuery = props.filter;
+
+      try {
+        const res = await fetch(`${serverURL}/products?page=1&limit=10&${filterQuery}`);
+        if (!res.ok) throw new Error("Failed to fetch");
+        const data = await res.json();
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchProducts();
+  }, [props.filter])
 
   return (
     <section className="flex flex-col gap-4">

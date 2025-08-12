@@ -6,13 +6,27 @@ import { useEffect, useState } from "react";
 import type { ProductPreview } from "../../types/ProdcutTypes";
 
 const CatalogGrid = () => {
-  const { fetchCatalog } = useProduct();
+  const { filter } = useProduct();
   const [products, setProducts] = useState<ProductPreview[]>([]);
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    setProducts(fetchCatalog(page));
-  }, [fetchCatalog, page])
+    const fetchProducts = async () => {
+      const serverURL = import.meta.env.VITE_SERVER_URL;
+      const filterQuery = "";
+
+      try {
+        const res = await fetch(`${serverURL}/products?page=${page}&limit=20&${filterQuery}`);
+        if (!res.ok) throw new Error("Failed to fetch");
+        const data = await res.json();
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchProducts();
+  }, [page, filter])
 
   return (
     <section className="flex flex-col gap-4">
@@ -22,10 +36,10 @@ const CatalogGrid = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        {products.map((item, i) => <ProductCard {...item} key={i}/>)}
+        {products.map((item, i) => <ProductCard {...item} key={i} />)}
       </div>
 
-      <Pagination page={page} setPage={setPage} maximum={10}/>
+      <Pagination page={page} setPage={setPage} maximum={10} />
     </section>
   )
 };

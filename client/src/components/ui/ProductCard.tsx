@@ -1,12 +1,13 @@
 import { } from "react-icons/pi";
 import placeholder_img from "../assets/placeholder_img.png"
 import type { ProductPreview } from "../../types/ProdcutTypes";
+import { Link } from "react-router-dom";
 
 const ProductCard = (props: ProductPreview) => {
   return (
-    <a
+    <Link
       className="min-fit bg-[var(--surface)] rounded"
-      href={`/product/${props.name}`}
+      to={`/product/${props.id}`}
     >
       <img className="rounded h-32 w-1/1" src={props.imageUrl || placeholder_img} alt="" />
 
@@ -17,7 +18,7 @@ const ProductCard = (props: ProductPreview) => {
 
         <div className="flex items-center gap-2 justify-between ">
           <p className="text-[var(--positive)] text-lg font-medium">
-            ${(props.price || 0).toFixed(2)}
+            ${props.price}
           </p>
 
           <p className="text-[var(--text-2)] text-sm line-through">
@@ -26,7 +27,7 @@ const ProductCard = (props: ProductPreview) => {
         </div>
       </div>
 
-    </a>
+    </Link>
   )
 };
 
