@@ -9,35 +9,209 @@ async function main() {
   await prisma.category.createMany({
     data: [
       {
+        "id": "b6b935f4-eef4-4c54-adc4-9388daab6901",
         "name": "processors"
       },
       {
+        "id": "9b080981-fe57-4bf3-97e2-93267d901938",
         "name": "motherboards"
       },
       {
+        "id": "86ff4b9b-8b25-4fa8-8822-c48a9a9fb133",
         "name": "memory"
       },
       {
+        "id": "53c2b7e2-9795-4dfa-b765-7868420240e5",
         "name": "graphics-cards"
       },
       {
+        "id": "218fc3ff-4ef6-493b-af44-6c5a8b344642",
         "name": "storage"
       },
       {
+        "id": "83db0f42-36dd-43a5-920c-bdb476b3459f",
         "name": "power-supplies"
       },
       {
+        "id": "871bac22-c9be-4bd3-a33b-b6d8d511b0ad",
         "name": "cases"
       },
       {
+        "id": "8200571b-0c15-44d4-b7c1-0801d2ecdaac",
         "name": "coolers"
       },
       {
+        "id": "952948b4-e9c0-46be-82af-4da78a9ae56e",
         "name": "case-fans"
       }
     ]
-
   })
+
+  // Processors
+  await prisma.product.createMany({
+    data: [
+      {
+        name: "AMD Ryzen 7 9800X3D",
+        description: "",
+        price: 451.5,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "8",
+          core_clock: "4.7 GHz",
+          boost_clock: "5.2 GHz",
+          microarchitecture: "Zen 5",
+          tdp: "120 W",
+          graphics: "Radeon"
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 7 7800X3D",
+        description: "",
+        price: 340.05,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "8",
+          core_clock: "4.2 GHz",
+          boost_clock: "5.0 GHz",
+          microarchitecture: "Zen 4",
+          tdp: "120 W",
+          graphics: "Radeon"
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 5 7600X",
+        description: "",
+        price: 170.49,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "6",
+          core_clock: "4.7 GHz",
+          boost_clock: "5.3 GHz",
+          microarchitecture: "Zen 4",
+          tdp: "105 W",
+          graphics: "Radeon"
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 5 9600X",
+        description: "",
+        price: 204.99,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "6",
+          core_clock: "3.9 GHz",
+          boost_clock: "5.4 GHz",
+          microarchitecture: "Zen 5",
+          tdp: "65 W",
+          graphics: "Radeon"
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 7 7700X",
+        description: "",
+        price: 242.98,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "8",
+          core_clock: "4.5 GHz",
+          boost_clock: "5.4 GHz",
+          microarchitecture: "Zen 4",
+          tdp: "105 W",
+          graphics: "Radeon"
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 9 9950X3D",
+        description: "",
+        price: 649.99,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "16",
+          core_clock: "4.3 GHz",
+          boost_clock: "5.7 GHz",
+          microarchitecture: "Zen 5",
+          tdp: "170 W",
+          graphics: "Radeon"
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 5 5500",
+        description: "",
+        price: 74.22,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "6",
+          core_clock: "3.6 GHz",
+          boost_clock: "4.2 GHz",
+          microarchitecture: "Zen 3",
+          tdp: "65 W",
+          graphics: ""
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 7 9700X",
+        description: "",
+        price: 305.89,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "8",
+          core_clock: "3.8 GHz",
+          boost_clock: "5.5 GHz",
+          microarchitecture: "Zen 5",
+          tdp: "65 W",
+          graphics: "Radeon"
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 5 5600X",
+        description: "",
+        price: 158.99,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "6",
+          core_clock: "3.7 GHz",
+          boost_clock: "4.6 GHz",
+          microarchitecture: "Zen 3",
+          tdp: "65 W",
+          graphics: ""
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      },
+      {
+        name: "AMD Ryzen 5 5600",
+        description: "",
+        price: 125.61,
+        stock: 0,
+        imageUrl: "",
+        specs: {
+          core_count: "6",
+          core_clock: "3.5 GHz",
+          boost_clock: "4.4 GHz",
+          microarchitecture: "Zen 3",
+          tdp: "65 W",
+          graphics: ""
+        },
+        categoryId: "b6b935f4-eef4-4c54-adc4-9388daab6901"
+      }
+    ]
+  });
 
   // MotherBoards
   await prisma.product.createMany({
@@ -55,7 +229,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Black / Silver"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "MSI B650 GAMING PLUS WIFI",
@@ -70,7 +244,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Black"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "MSI MAG B650 TOMAHAWK WIFI",
@@ -85,7 +259,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Black"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "Gigabyte X870E AORUS ELITE WIFI7",
@@ -100,7 +274,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Black"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "Asus PRIME B550M-A WIFI II",
@@ -115,7 +289,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Blue / Silver"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "Gigabyte B650 EAGLE AX",
@@ -130,7 +304,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Gray / Black"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "Asus TUF GAMING B850-PLUS WIFI",
@@ -145,7 +319,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Black / Silver"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "ASRock B650M Pro RS WiFi",
@@ -160,7 +334,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Black / Silver"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "MSI MAG X870 TOMAHAWK WIFI",
@@ -175,7 +349,7 @@ async function main() {
           "memory_slots": "4 slots",
           "color": "Black"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       },
       {
         "name": "Gigabyte A520M K V2",
@@ -190,7 +364,7 @@ async function main() {
           "memory_slots": "2 slots",
           "color": "Brown / Black"
         },
-        "categoryId": "ad1661fe-4889-4e84-a3a3-9812bb26e221"
+        "categoryId": "9b080981-fe57-4bf3-97e2-93267d901938"
       }
     ]
 

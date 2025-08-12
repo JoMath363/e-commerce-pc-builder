@@ -30,9 +30,11 @@ export default class ProductsService {
     }
 
     if (query.category) {
+      const categoryList = query.category.split(',');
+
       filter.category = {
         name: {
-          equals: query.category,
+          in: categoryList,
           mode: 'insensitive',
         },
       };

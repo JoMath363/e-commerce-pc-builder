@@ -10,16 +10,22 @@ interface ProductContextInterface {
 const ProductContext = createContext<ProductContextInterface | null>(null);
 
 export const ProductProvider = (props: { children: ReactNode }) => {
-  const serverURL = import.meta.env.VITE_SERVER_URL
 
   const [categories, setCategories] = useState<Category[]>([]);
+  const [filter, setFilter] = useState<ProductFilter>({
+    categories: [],
+    minPrice: 0,
+    maxPrice: 5000,
+  });
 
   useEffect(() => {
+    const serverURL = import.meta.env.VITE_SERVER_URL
+
     const fetchCategories = async () => {
       try {
         const res = await fetch(`${serverURL}/categories`);
         if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
+        const data: Category[] = await res.json();
         setCategories(data);
       } catch (err) {
         console.error(err);
@@ -27,13 +33,7 @@ export const ProductProvider = (props: { children: ReactNode }) => {
     }
 
     fetchCategories();
-  })
-
-  const [filter, setFilter] = useState<ProductFilter>({
-    categories: [],
-    minPrice: 0,
-    maxPrice: 2000,
-  });
+  }, [])
 
   return (
     <ProductContext.Provider value={{

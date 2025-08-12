@@ -1,21 +1,27 @@
 import { } from "react-icons/pi";
 import DropSection from "../ui/DropSection";
 import { useProduct } from "../../contexts/ProductContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CheckboxList from "../ui/CheckboxList";
 import PriceRange from "../ui/PriceRange";
 
 const CatalogFilter = () => {
-  const { filter, setFilter } = useProduct();
-  const [categories, setCategories] = useState(filter.categories);
-  const [minPrice, setMinPrice] = useState(filter.minPrice);
-  const [maxPrice, setMaxPrice] = useState(filter.maxPrice);
+  const { categories, filter, setFilter } = useProduct();
+  const [categoriesInput, setCategoriesInput] = useState(filter.categories);
+  const [minPriceInput, setMinPriceInput] = useState(filter.minPrice);
+  const [maxPriceInput, setMaxPriceInput] = useState(filter.maxPrice);
+
+  useEffect(() => {
+    if (categories.length > 0) {
+      setCategoriesInput(categories.map(c => c.name));
+    }
+  }, [categories]);
 
   const filterProducts = () => {
     setFilter({
-      categories,
-      minPrice,
-      maxPrice
+      categories: categoriesInput,
+      minPrice: minPriceInput,
+      maxPrice: maxPriceInput
     });
   }
 
@@ -25,12 +31,20 @@ const CatalogFilter = () => {
 
         <div className="flex flex-col gap-2 select-none">
           <h3 className="font-medium">Categories</h3>
-          <CheckboxList selected={categories} setSelected={setCategories} />
+          <CheckboxList
+            selected={categoriesInput}
+            setSelected={setCategoriesInput}
+          />
         </div>
 
         <div className="flex flex-col gap-2">
           <h3 className="font-medium">Price</h3>
-          <PriceRange {...{ minPrice, maxPrice, setMinPrice, setMaxPrice }} />
+          <PriceRange
+            minPrice={minPriceInput}
+            maxPrice={maxPriceInput}
+            setMinPrice={setMinPriceInput}
+            setMaxPrice={setMaxPriceInput}
+          />
         </div>
 
         <button

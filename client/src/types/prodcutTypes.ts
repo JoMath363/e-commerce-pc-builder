@@ -4,7 +4,7 @@ export type Category = {
 }
 
 export type ProductFilter = {
-  categories: number[];
+  categories: string[];
   maxPrice: number;
   minPrice: number;
 };

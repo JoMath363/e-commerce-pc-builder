@@ -4,6 +4,7 @@ import ProductCard from "../ui/ProductCard";
 import Pagination from "../ui/Pagination";
 import { useEffect, useState } from "react";
 import type { ProductPreview } from "../../types/ProdcutTypes";
+import { getFilterQuery } from "../../utils/helper";
 
 const CatalogGrid = () => {
   const { filter } = useProduct();
@@ -13,7 +14,7 @@ const CatalogGrid = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const serverURL = import.meta.env.VITE_SERVER_URL;
-      const filterQuery = "";
+      const filterQuery = getFilterQuery(filter);
 
       try {
         const res = await fetch(`${serverURL}/products?page=${page}&limit=20&${filterQuery}`);
