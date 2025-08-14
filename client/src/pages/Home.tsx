@@ -5,6 +5,7 @@ import CategoryRow from "../components/sections/CategoryRow";
 import ProductsRow from "../components/sections/ProdcutsRow";
 import Hero from "../components/sections/Hero";
 import SearchBar from "../components/sections/SearchBar";
+
 const Home = () => {
   return (
     <>

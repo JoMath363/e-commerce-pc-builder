@@ -12,10 +12,10 @@ const CatalogFilter = () => {
   const [maxPriceInput, setMaxPriceInput] = useState(filter.maxPrice);
 
   useEffect(() => {
-    if (categories.length > 0) {
+    if (categories.length > 0 && categoriesInput.length == 0) {
       setCategoriesInput(categories.map(c => c.name));
     }
-  }, [categories]);
+  }, [categories, categoriesInput]);
 
   const filterProducts = () => {
     setFilter({

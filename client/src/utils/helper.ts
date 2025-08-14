@@ -9,7 +9,7 @@ export function unslug(s: string): string {
 export function getFilterQuery(filter: ProductFilter) {
   const query = []
 
-  if (filter.categories.length > 0) {
+  if (filter.categories && filter.categories.length > 0) {
     query.push(`category=${filter.categories.join(",")}`)
   }
 
