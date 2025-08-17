@@ -15,8 +15,27 @@ export default class AuthController {
   static async login(req: Request, res: Response, next: NextFunction) {
     try {
       const dto = req.body;
+      console.log(dto);
+
       const user = await AuthService.login(dto);
-      res.status(201).json(user);
+
+      res.cookie("token", user.accessToken, {
+        httpOnly: true,
+        secure: false,
+        sameSite: "strict",
+        maxAge: 1000 * 60 * 60 * 24, // 1 day
+      });
+
+      res.status(201).send();
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async logout(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.clearCookie("token");
+      res.json({ message: "Logged out" });
     } catch (error) {
       next(error);
     }

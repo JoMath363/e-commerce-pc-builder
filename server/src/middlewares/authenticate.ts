@@ -1,10 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, RequestHandler } from 'express';
 import { verify } from 'jsonwebtoken';
 import { ENV } from '../config/enviroment';
 import { prisma } from '../config/database';
 
-export async function authenticate(req: Request, res: Response, next: NextFunction) {
-  const token = req.headers.authorization;
+export const authenticate: RequestHandler = async (req: Request, res: Response, next: NextFunction)=> {
+  const token = req.cookies.token;
 
   if (!token) {
     res.status(401).send('Access token missing.'); return;

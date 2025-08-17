@@ -1,9 +1,22 @@
 import { PiCaretLeft, PiTrash } from "react-icons/pi";
 import placeholder_img from "../assets/placeholder_img.png"
-import { useCart } from "../../contexts/CartContext";
+import { useLoaderData } from "react-router-dom";
+import type { CartItem } from "../../types/CartTypes";
 
 const CartList = () => {
-  const { cart, removeFromCart, addOneToCartItem, removeOneFromCartItem } = useCart();
+  const { cart }: { cart: CartItem[] } = useLoaderData();
+
+  const removeFromCart = (index: number) => {
+    console.log(index)
+  };
+
+  const addOneToCartItem = (index: number) => {
+    console.log(index)
+  };
+
+  const removeOneFromCartItem = (index: number) => {
+    console.log(index)
+  };
 
   return (
     <section className="flex flex-col gap-4">
@@ -14,7 +27,7 @@ const CartList = () => {
       <div className="flex flex-col gap-4">
 
         {
-          cart.map((product, i) =>
+          cart.map((product: CartItem, i: number) =>
             <div className="h-min flex bg-[var(--surface)] rounded-xl overflow-hidden" key={i}>
               <img
                 className="h-32"

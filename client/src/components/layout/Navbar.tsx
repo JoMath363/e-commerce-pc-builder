@@ -1,4 +1,5 @@
 import { PiCpuBold, PiShoppingCart, PiUser } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -9,18 +10,18 @@ const NavBar = () => {
       </a>
 
       <div className="flex items-center justify-center gap-2">
-        <a
-          href="/cart"
+        <Link
+          to="/cart"
           className="p-1.5 text-[var(--background)] text-2xl rounded cursor-pointer transition-all hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]"
         >
           <PiShoppingCart />
-        </a>
+        </Link>
 
-        <a
-          href="/"
+        <Link
+          to="/"
           className="p-1.5 text-[var(--background)] text-2xl rounded cursor-pointer transition-all hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]">
           <PiUser />
-        </a>
+        </Link>
       </div>
     </nav>
   )

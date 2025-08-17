@@ -1,15 +1,34 @@
 import { PiEnvelopeSimpleBold, PiEye, PiEyeSlash, PiLockBold } from "react-icons/pi";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [emailInput, setEmailInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  const navigate = useNavigate()
 
-  console.log(emailInput, passwordInput);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const serverURL = import.meta.env.VITE_SERVER_URL
+
+    const res = await fetch(`${serverURL}/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: emailInput, password: passwordInput }),
+      credentials: "include",
+    });
+
+    if (res.ok) {
+      navigate("/");
+    } else {
+      alert("Invalid credentials");
+    }
+  }
 
   return (
-    <main className="h-[100vh] flex flex-col justify-center items-center gap-10">
+    <form onSubmit={handleSubmit} className="h-[100vh] flex flex-col justify-center items-center gap-10">
       <h2 className="text-2xl font-bold uppercase">
         Sign In
       </h2>
@@ -19,7 +38,7 @@ const Login = () => {
           <PiEnvelopeSimpleBold className="text-2xl" />
           <input
             type="email"
-            onChange={(e) => setPasswordInput(e.target.value)}
+            onChange={(e) => setEmailInput(e.target.value)}
             placeholder="Insert your email"
             className="w-1/1 outline-none text-lg"
           />
@@ -30,15 +49,15 @@ const Login = () => {
             <PiLockBold className="text-2xl" />
             <input
               type={isPasswordVisible ? "text" : "password"}
-              onChange={(e) => setEmailInput(e.target.value)}
+              onChange={(e) => setPasswordInput(e.target.value)}
               placeholder="Insert your password"
               className="w-1/1 outline-none text-lg"
             />
           </div>
 
-          <button className="text-2xl cursor-pointer text-[var(--text-2)]" onClick={() => setIsPasswordVisible(x => !x)}>
+          <span className="text-2xl cursor-pointer text-[var(--text-2)]" onClick={() => setIsPasswordVisible(x => !x)}>
             {isPasswordVisible ? <PiEye /> : <PiEyeSlash />}
-          </button>
+          </span>
         </label>
 
         <p className="flex gap-2">
@@ -53,7 +72,7 @@ const Login = () => {
       >
         Login
       </button>
-    </main>
+    </form>
   )
 };
 

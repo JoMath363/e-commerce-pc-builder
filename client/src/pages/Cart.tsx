@@ -4,6 +4,7 @@ import Main from "../components/layout/Main";
 import Footer from "../components/layout/Footer";
 import CartList from "../components/sections/CartList";
 import CartPrice from "../components/sections/CartPrice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -12,10 +13,10 @@ const Cart = () => {
       <Main>
         <CartList />
         <CartPrice />
-        <a href="/" className="p-3 flex items-center justify-center gap-2 bg-[var(--positive)] rounded text-[var(--background)]">
+        <Link to="/" className="p-3 flex items-center justify-center gap-2 bg-[var(--positive)] rounded text-[var(--background)]">
           <span className="text-xl font-medium">Place Order</span>
           <PiArrowRightBold className="text-2xl" />
-        </a>
+        </Link>
       </Main>
       <Footer />
     </>

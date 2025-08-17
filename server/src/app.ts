@@ -1,23 +1,27 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import cookieParser from "cookie-parser";
 import productsRouter from './routes/products.route';
 import categoriesRouter from './routes/categories.route';
 import usersRouter from './routes/users.route';
 import authRouter from './routes/auth.route';
 import ordersRouter from './routes/orders.route';
 import errorHandler from './middlewares/errorHandler';
-import dotenv from 'dotenv';
 
 dotenv.config();
 
 const app = express();
 
 app.use(cors({
-  origin: process.env.CLIENT_URL,
-  methods: "*",
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: "http://localhost:5173",
+  credentials: true,
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
+
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/categories", categoriesRouter);
 app.use("/products", productsRouter);

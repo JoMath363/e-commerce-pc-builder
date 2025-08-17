@@ -39,7 +39,7 @@ export default class AuthService {
         passwordHash: true
       },
       where: {
-        email: dto.email
+        email: dto.email.trim()
       }
     })
 
@@ -56,7 +56,7 @@ export default class AuthService {
     const accessToken = sign({
       email: user.email
     }, ENV.JWT_SECRET, {
-      expiresIn: "1h"
+      expiresIn: "1d"
     })
 
     return { accessToken }
@@ -67,6 +67,7 @@ export default class AuthService {
       select: {
         email: true,
         name: true,
+        cart: true,
         orders: true,
         builds: true
       },

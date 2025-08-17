@@ -1,8 +1,9 @@
 import { } from "react-icons/pi";
-import { useCart } from "../../contexts/CartContext";
+import { useLoaderData } from "react-router-dom";
+import type { CartItem } from "../../types/CartTypes";
 
 const CartPrice = () => {
-  const { cart } = useCart();
+  const { cart }: { cart: CartItem[] } = useLoaderData();
 
   return (
     <section className="p-4 flex flex-col gap-2 bg-[var(--surface)] rounded-xl">
