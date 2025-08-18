@@ -61,17 +61,4 @@ export default class AuthService {
 
     return { accessToken }
   }
-
-  static async findInfo(email: string) {
-    return await prisma.user.findUnique({
-      select: {
-        email: true,
-        name: true,
-        cart: true,
-        orders: true,
-        builds: true
-      },
-      where: { email }
-    })
-  }
 }

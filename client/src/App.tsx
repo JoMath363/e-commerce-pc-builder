@@ -11,12 +11,17 @@ import Profile from "./pages/Profile"
 const requireAuth = async () => {
   const serverURL = import.meta.env.VITE_SERVER_URL
 
-  const res = await fetch(`${serverURL}/auth/me`, {
+  const res = await fetch(`${serverURL}/profile/me`, {
     credentials: "include",
   });
 
   if (res.status === 401) {
     throw redirect("/login");
+  }
+
+  if (!res.ok) {
+    console.warn("Erro no servidor:", res.status, res.statusText);
+    return null; 
   }
 
   return res.json();

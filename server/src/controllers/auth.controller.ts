@@ -40,15 +40,4 @@ export default class AuthController {
       next(error);
     }
   }
-
-  static async getInfo(req: Request, res: Response, next: NextFunction) {
-    try {
-      const email = req.user?.email || ""
-      const user = await AuthService.findInfo(email);
-      if (!user) res.status(404).json({ message: 'Not found' });
-      res.json(user);
-    } catch (error) {
-      next(error);
-    }
-  }
 }
