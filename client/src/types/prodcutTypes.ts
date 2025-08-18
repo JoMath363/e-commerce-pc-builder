@@ -5,8 +5,8 @@ export type Category = {
 
 export type ProductFilter = {
   categories: string[];
-  maxPrice: number;
-  minPrice: number;
+  maxPrice: number | "";
+  minPrice: number | "";
 };
 
 export type ProductPreview = {

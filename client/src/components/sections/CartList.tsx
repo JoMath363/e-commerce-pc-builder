@@ -25,7 +25,6 @@ const CartList = () => {
       </h2>
 
       <div className="flex flex-col gap-4">
-
         {
           cart.map((product: CartItem, i: number) =>
             <div className="h-min flex bg-[var(--surface)] rounded-xl overflow-hidden" key={i}>
@@ -92,17 +91,12 @@ const CartList = () => {
                     <PiTrash />
                   </button>
                 </div>
-
-
-
               </div>
-
-
             </div>
           )
         }
       </div>
-    </section>
+    </section >
   )
 };
 

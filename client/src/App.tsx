@@ -1,12 +1,12 @@
 import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom"
+import { ProductProvider } from "./contexts/ProductContext"
 import Home from "./pages/Home"
 import Catalog from "./pages/Catalog"
-import { ProductProvider } from "./contexts/ProductContext"
 import Product from "./pages/Product"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Cart from "./pages/Cart"
-import { CartProvider } from "./contexts/CartContext"
+import Profile from "./pages/Profile"
 
 const requireAuth = async () => {
   const serverURL = import.meta.env.VITE_SERVER_URL
@@ -47,16 +47,19 @@ const router = createBrowserRouter([
     path: "/cart",
     element: <Cart />,
     loader: requireAuth
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+    loader: requireAuth
   }
 ])
 
 function App() {
   return (
-    <CartProvider>
-      <ProductProvider>
-        <RouterProvider router={router} />
-      </ProductProvider>
-    </CartProvider>
+    <ProductProvider>
+      <RouterProvider router={router} />
+    </ProductProvider>
   )
 }
 

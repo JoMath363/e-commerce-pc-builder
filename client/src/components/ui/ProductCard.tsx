@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ProductCard = (props: ProductPreview) => {
   return (
     <Link
-      className="w-40 bg-[var(--surface)] rounded flex-shrink-0"
+      className="w-42 bg-[var(--surface)] rounded flex-shrink-0"
       to={`/product/${props.id}`}
     >
       <img className="rounded h-32 w-1/1" src={props.imageUrl || placeholder_img} alt="" />

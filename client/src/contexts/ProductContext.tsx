@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
+import { createContext, useContext, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import type { ProductFilter, Category } from "../types/ProdcutTypes";
+import useFetchCategories from "../hooks/FetchCategories";
 
 interface ProductContextInterface {
   categories: Category[];
@@ -10,30 +11,13 @@ interface ProductContextInterface {
 const ProductContext = createContext<ProductContextInterface | null>(null);
 
 export const ProductProvider = (props: { children: ReactNode }) => {
-
-  const [categories, setCategories] = useState<Category[]>([]);
+  const { categories } = useFetchCategories();
+  
   const [filter, setFilter] = useState<ProductFilter>({
     categories: [],
     minPrice: 0,
     maxPrice: 5000,
   });
-
-  useEffect(() => {
-    const serverURL = import.meta.env.VITE_SERVER_URL
-
-    const fetchCategories = async () => {
-      try {
-        const res = await fetch(`${serverURL}/categories`);
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data: Category[] = await res.json();
-        setCategories(data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    fetchCategories();
-  }, [])
 
   return (
     <ProductContext.Provider value={{
@@ -46,7 +30,7 @@ export const ProductProvider = (props: { children: ReactNode }) => {
   );
 };
 
-export const useProduct = (): ProductContextInterface => {
+export const useProductContext = (): ProductContextInterface => {
   const context = useContext(ProductContext);
 
   if (!context) throw new Error("useProduct must be used within a ProductProvider");

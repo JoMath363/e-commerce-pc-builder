@@ -1,33 +1,10 @@
 import { } from "react-icons/pi";
-import { useProduct } from "../../contexts/ProductContext";
 import ProductCard from "../ui/ProductCard";
 import Pagination from "../ui/Pagination";
-import { useEffect, useState } from "react";
-import type { ProductPreview } from "../../types/ProdcutTypes";
-import { getFilterQuery } from "../../utils/helper";
+import useFetchCatalog from "../../hooks/FetchCatalog";
 
 const CatalogGrid = () => {
-  const { filter } = useProduct();
-  const [products, setProducts] = useState<ProductPreview[]>([]);
-  const [page, setPage] = useState<number>(1);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const serverURL = import.meta.env.VITE_SERVER_URL;
-      const filterQuery = getFilterQuery(filter);
-
-      try {
-        const res = await fetch(`${serverURL}/products?page=${page}&limit=20&${filterQuery}`);
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        setProducts(data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    fetchProducts();
-  }, [page, filter])
+  const { products, page, setPage } = useFetchCatalog();
 
   return (
     <section className="flex flex-col gap-4">

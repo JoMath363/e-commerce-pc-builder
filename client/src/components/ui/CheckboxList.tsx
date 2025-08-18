@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction } from "react";
-import { useProduct } from "../../contexts/ProductContext";
+import { useProductContext } from "../../contexts/ProductContext";
 import { unslug } from "../../utils/helper";
 
 type CheckboxListProps = {
@@ -8,7 +8,7 @@ type CheckboxListProps = {
 };
 
 const CheckboxList = ({ selected, setSelected }: CheckboxListProps) => {
-  const { categories } = useProduct();
+  const { categories } = useProductContext();
 
   const allSelected = selected.length === categories.length;
 
@@ -24,12 +24,9 @@ const CheckboxList = ({ selected, setSelected }: CheckboxListProps) => {
     setSelected(allSelected ? [] : categories.map(c => c.name));
   };
 
-  const baseClasses =
-    "px-2 py-1 flex gap-2 items-center border-1 border-[var(--border-1)] rounded-md hover:bg-[var(--surface)] cursor-pointer";
-
   return (
     <div className="flex flex-wrap gap-2">
-      <label className={baseClasses}>
+      <label className={"px-2 py-1 flex gap-2 items-center border-1 border-[var(--border-1)] rounded-md hover:bg-[var(--surface)] cursor-pointer"}>
         <input
           type="checkbox"
           checked={allSelected}
@@ -40,7 +37,7 @@ const CheckboxList = ({ selected, setSelected }: CheckboxListProps) => {
       </label>
 
       {categories.map(({ name }, i) => (
-        <label key={i} className={baseClasses}>
+        <label key={i} className={"px-2 py-1 flex gap-2 items-center border-1 border-[var(--border-1)] rounded-md hover:bg-[var(--surface)] cursor-pointer"}>
           <input
             type="checkbox"
             checked={selected.includes(name)}

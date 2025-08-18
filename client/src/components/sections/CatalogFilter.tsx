@@ -1,12 +1,12 @@
 import { } from "react-icons/pi";
 import DropSection from "../ui/DropSection";
-import { useProduct } from "../../contexts/ProductContext";
+import { useProductContext } from "../../contexts/ProductContext";
 import { useEffect, useState } from "react";
 import CheckboxList from "../ui/CheckboxList";
 import PriceRange from "../ui/PriceRange";
 
 const CatalogFilter = () => {
-  const { categories, filter, setFilter } = useProduct();
+  const { categories, filter, setFilter } = useProductContext();
   const [categoriesInput, setCategoriesInput] = useState(filter.categories);
   const [minPriceInput, setMinPriceInput] = useState(filter.minPrice);
   const [maxPriceInput, setMaxPriceInput] = useState(filter.maxPrice);

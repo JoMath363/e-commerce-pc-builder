@@ -13,16 +13,8 @@ type Product = {
 
 export default class ProductsService {
   static async find(query: any) {
-    if (!query.page || Number.isNaN(query.page)) {
-      throw new Error("Page query parameter missing.")
-    }
-
-    if (!query.limit || Number.isNaN(query.limit)) {
-      throw new Error("Limit query parameter missing.")
-    }
-
-    const page = +query.page;
-    const limit = +query.limit;
+    const page = Math.max(+query.page || 1, 1);
+    const limit = Math.max(+query.limit || 10, 1);
     const filter: Prisma.ProductWhereInput = {};
 
     if (query.name) {
