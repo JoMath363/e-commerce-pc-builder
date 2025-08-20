@@ -11,42 +11,49 @@ type Product = {
   categoryId: string;
 };
 
+type ProfuctFilter = {
+  page: number;
+  pageSize: number;
+  name?: string;
+  category?: string;
+  minPrice?: number;
+  maxPrice?: number;
+}
+
 export default class ProductsService {
-  static async find(query: any) {
-    const page = Math.max(+query.page || 1, 1);
-    const limit = Math.max(+query.limit || 10, 1);
+  static async find({ page, pageSize, name, category, minPrice, maxPrice }: ProfuctFilter) {
     const filter: Prisma.ProductWhereInput = {};
 
-    if (query.name) {
-      filter.name = { contains: query.name, mode: 'insensitive' };
+    if (name) {
+      filter.name = { contains: name, mode: 'insensitive' };
     }
 
-    if (query.category) {
-      const categoryList = query.category.split(',');
-
+    if (category) {
       filter.category = {
-        name: {
-          in: categoryList,
-          mode: 'insensitive',
-        },
+        name: { in: category.split(','), mode: 'insensitive' },
       };
     }
 
-    if (query.minPrice || query.maxPrice) {
-      filter.price = {};
-      if (query.minPrice) {
-        filter.price.gte = +query.minPrice;
-      }
-      if (query.maxPrice) {
-        filter.price.lte = +query.maxPrice;
-      }
+    if (minPrice !== undefined || maxPrice !== undefined) {
+      filter.price = {
+        gte: minPrice,
+        lte: maxPrice,
+      };
     }
 
-    return await prisma.product.findMany({
+    const data = await prisma.product.findMany({
       where: filter,
-      take: limit,
-      skip: limit * (page - 1)
+      take: pageSize,
+      skip: pageSize * (page - 1)
     });
+
+    const totalCount = await prisma.product.count({
+      where: filter
+    })
+
+    const totalPages = Math.ceil(totalCount / pageSize);
+
+    return { data, totalCount, totalPages }
   }
 
   static async findById(id: string) {

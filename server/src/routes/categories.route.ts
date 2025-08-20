@@ -6,7 +6,6 @@ const router = express.Router();
 
 export default router
   .get('/', CategoriesController.getAll)
-  .get('/:id', CategoriesController.getById)
   .post('/', authenticate, requireAdmin, CategoriesController.createNew)
   .put('/:id', authenticate, requireAdmin, CategoriesController.updateById)
   .delete('/:id', authenticate, requireAdmin, CategoriesController.deleteById);

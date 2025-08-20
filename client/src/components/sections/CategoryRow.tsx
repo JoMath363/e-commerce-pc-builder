@@ -1,7 +1,7 @@
 import { PiCpu, PiCircuitry, PiMemory, PiGraphicsCard, PiHardDrive, PiLightning, PiComputerTower, PiFan, PiWind } from "react-icons/pi";
 import { unslug } from "../../utils/helper";
 import type { JSX } from "react";
-import { useProductContext } from "../../contexts/ProductContext";
+import { useCatalogContext } from "../../contexts/CatalogContext";
 import { Link } from "react-router-dom";
 
 const categoryIcons: { [key: string]: JSX.Element } = {
@@ -17,7 +17,7 @@ const categoryIcons: { [key: string]: JSX.Element } = {
 };
 
 const CategoryRow = () => {
-  const { categories, setFilter } = useProductContext();
+  const { categories, setFilter } = useCatalogContext();
 
   return (
     <section className="overflow-x-auto">

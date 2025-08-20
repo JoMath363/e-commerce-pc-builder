@@ -14,8 +14,8 @@ const useFetchProducts = ({ filter }: { filter: ProductFilter}) => {
       try {
         const res = await fetch(`${serverURL}/products?${filterQuery}`);
         if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        setProducts(data);
+        const json = await res.json();
+        setProducts(json.data);
       } catch (err) {
         console.error(err);
       }

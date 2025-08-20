@@ -4,8 +4,17 @@ import ProductsService from '../services/prodcuts.service';
 export default class ProductsController {
   static async getByFilter(req: Request, res: Response, next: NextFunction) {
     try {
-      const items = await ProductsService.find(req.query);
-      res.json(items);
+      const query = {
+        page: +(req.query.page ?? 1),
+        pageSize: +(req.query.pageSize ?? 10),
+        name: req.query.name as string,
+        category: req.query.category as string,
+        minPrice: req.query.minPrice ? +req.query.minPrice : undefined,
+        maxPrice: req.query.maxPrice ? +req.query.maxPrice : undefined
+      }
+
+      const data = await ProductsService.find(query);
+      res.json(data);
     } catch (error) {
       next(error);
     }

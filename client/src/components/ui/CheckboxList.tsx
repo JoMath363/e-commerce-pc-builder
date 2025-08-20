@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction } from "react";
-import { useProductContext } from "../../contexts/ProductContext";
+import { useCatalogContext } from "../../contexts/CatalogContext";
 import { unslug } from "../../utils/helper";
 
 type CheckboxListProps = {
@@ -8,7 +8,7 @@ type CheckboxListProps = {
 };
 
 const CheckboxList = ({ selected, setSelected }: CheckboxListProps) => {
-  const { categories } = useProductContext();
+  const { categories } = useCatalogContext();
 
   const allSelected = selected.length === categories.length;
 

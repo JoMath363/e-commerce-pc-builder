@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const EmptyCart = () => {
   return (
-    <div className="w-full flex flex-col text-center gap-4 mx-auto p-6 rounded-xl bg-[var(--surface)]">
+    <div className="w-full flex flex-col text-center gap-4 m-auto p-6 rounded-xl bg-[var(--surface)]">
 
       <img src={empty_cart_img} />
 

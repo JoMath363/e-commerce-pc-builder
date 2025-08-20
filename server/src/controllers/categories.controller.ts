@@ -11,17 +11,6 @@ export default class CategoriesController {
     }
   }
 
-  static async getById(req: Request, res: Response, next: NextFunction) {
-    try {
-      const id = req.params.id;
-      const item = await CategoriesService.findById(id);
-      if (!item) res.status(404).json({ message: 'Not found' });
-      res.json(item);
-    } catch (error) {
-      next(error);
-    }
-  }
-
   static async createNew(req: Request, res: Response, next: NextFunction) {
     try {
       const data = req.body;

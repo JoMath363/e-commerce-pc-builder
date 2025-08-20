@@ -3,21 +3,21 @@ import { PiCaretLeftBold } from "react-icons/pi";
 
 type PaginationProps = {
   page: number;
-  maximum: number;
-  setPage: Dispatch<SetStateAction<number>>
+  setPage: Dispatch<SetStateAction<number>>;
+  totalPages: number;
 }
 
-const Pagination = ({ page, maximum, setPage }: PaginationProps) => {
+const Pagination = ({ page, setPage, totalPages }: PaginationProps) => {
 
   const getPages = () => {
-    const pagesCount = Math.min(5, maximum);
+    const pagesCount = Math.min(5, totalPages);
 
     if (page <= pagesCount / 2) {
       return Array.from({ length: pagesCount }, (_, i) => 1 + i)
     }
 
-    if (page > maximum - pagesCount / 2) {
-      return Array.from({ length: pagesCount }, (_, i) => Math.max(1, maximum - pagesCount + 1) + i);
+    if (page > totalPages - pagesCount / 2) {
+      return Array.from({ length: pagesCount }, (_, i) => Math.max(1, totalPages - pagesCount + 1) + i);
     }
 
     return Array.from({ length: pagesCount }, (_, i) => page - Math.floor(pagesCount / 2) + i)
@@ -56,10 +56,10 @@ const Pagination = ({ page, maximum, setPage }: PaginationProps) => {
       }
 
       {
-        page != maximum ?
+        page != totalPages ?
           <button
             className="p-2 border-1 border-[var(--border-1)] rounded-lg text-xl text-[var(--text-2)] cursor-pointer hover:bg-[var(--surface)] hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
-            onClick={() => setPage(x => Math.min(maximum, x + 1))}
+            onClick={() => setPage(x => Math.min(totalPages, x + 1))}
           >
             <PiCaretLeftBold className="rotate-180" />
           </button> : null

@@ -6,3 +6,7 @@ const router = express.Router();
 
 export default router
   .get('/me', authenticate, ProfileController.getLogged);
+  /* .get('/orders', authenticate, ProfileController.getOrders; */
+  /* .post('/orders', authenticate, ProfileController.createOrder); */
+  /* .get('/cart', authenticate, ProfileController.getCart); */
+  /* .patch('/cart', authenticate, ProfileController.updateCart); */

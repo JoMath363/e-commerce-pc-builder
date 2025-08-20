@@ -2,16 +2,20 @@ import { createContext, useContext, useState, type Dispatch, type ReactNode, typ
 import type { ProductFilter, Category } from "../types/ProdcutTypes";
 import useFetchCategories from "../hooks/FetchCategories";
 
-interface ProductContextInterface {
+interface CatalogContextInterface {
   categories: Category[];
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
   filter: ProductFilter;
   setFilter: Dispatch<SetStateAction<ProductFilter>>;
 }
 
-const ProductContext = createContext<ProductContextInterface | null>(null);
+const CatalogContext = createContext<CatalogContextInterface | null>(null);
 
-export const ProductProvider = (props: { children: ReactNode }) => {
+export const CatalogProvider = (props: { children: ReactNode }) => {
   const { categories } = useFetchCategories();
+
+  const [page, setPage] = useState<number>(1);
   
   const [filter, setFilter] = useState<ProductFilter>({
     categories: [],
@@ -20,18 +24,20 @@ export const ProductProvider = (props: { children: ReactNode }) => {
   });
 
   return (
-    <ProductContext.Provider value={{
+    <CatalogContext.Provider value={{
       categories,
+      page, 
+      setPage,
       filter,
       setFilter,
     }}>
       {props.children}
-    </ProductContext.Provider>
+    </CatalogContext.Provider>
   );
 };
 
-export const useProductContext = (): ProductContextInterface => {
-  const context = useContext(ProductContext);
+export const useCatalogContext = (): CatalogContextInterface => {
+  const context = useContext(CatalogContext);
 
   if (!context) throw new Error("useProduct must be used within a ProductProvider");
 

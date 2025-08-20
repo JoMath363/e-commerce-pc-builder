@@ -1,5 +1,5 @@
 import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom"
-import { ProductProvider } from "./contexts/ProductContext"
+import { CatalogProvider } from "./contexts/CatalogContext"
 import Home from "./pages/Home"
 import Catalog from "./pages/Catalog"
 import Product from "./pages/Product"
@@ -62,9 +62,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ProductProvider>
+    <CatalogProvider>
       <RouterProvider router={router} />
-    </ProductProvider>
+    </CatalogProvider>
   )
 }
 

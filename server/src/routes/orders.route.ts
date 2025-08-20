@@ -6,6 +6,5 @@ const router = express.Router();
 
 export default router
   .get('/', authenticate, requireAdmin, OrdersController.getAll)
-  .get('/:id', authenticate, requireAdmin, OrdersController.getById)
-  .get('/preview', authenticate, OrdersController.getPreview)
-  .post('/', authenticate, OrdersController.createNew);
+  .get('/:id', authenticate, requireAdmin, OrdersController.getById);
+  /* .upadte('/status', authenticate, requireAdmin, OrdersController.updateStatus) */
