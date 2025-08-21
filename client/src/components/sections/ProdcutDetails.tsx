@@ -1,30 +1,14 @@
-import { PiBasketBold, PiCheckBold, PiXBold } from "react-icons/pi";
+import { PiBasketBold } from "react-icons/pi";
 import placeholder_img from "../assets/placeholder_img.png";
 import { unslug } from "../../utils/helper";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import type { ProductData } from "../../types/ProdcutTypes";
+import { useCartContext } from "../../contexts/CartContext";
+import useFetchProduct from "../../hooks/FetchProduct";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState<ProductData | null>(null)
-
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const serverURL = import.meta.env.VITE_SERVER_URL;
-
-      try {
-        const res = await fetch(`${serverURL}/products/${id}`);
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        setProduct(data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    fetchProduct();
-  }, [id])
+  const { cart, addToCart, removeFromCart } = useCartContext();
+  const { product } = useFetchProduct(id || "");
 
   return product != null ? (
     <section className="flex flex-col gap-4">
@@ -49,12 +33,26 @@ const ProductDetails = () => {
         </p>
       </div>
 
-      <button
-        className="p-3 flex items-center justify-center gap-2 bg-[var(--positive)] rounded text-[var(--background)]"
-      >
-        <PiBasketBold className="text-2xl" />
-        <span className="text-xl font-medium">Add to Cart</span>
-      </button>
+      {
+        cart.find(item => item.id == id) ? (
+          <button
+            onClick={() => removeFromCart(id || "")}
+            className="p-3 flex items-center justify-center gap-2 bg-[var(--negative)] rounded text-[var(--background)]"
+          >
+            <PiBasketBold className="text-2xl" />
+            <span className="text-xl font-medium">Remove From Cart</span>
+          </button>
+        ) : (
+          <button
+            onClick={() => addToCart(id || "")}
+            className="p-3 flex items-center justify-center gap-2 bg-[var(--positive)] rounded text-[var(--background)]"
+          >
+            <PiBasketBold className="text-2xl" />
+            <span className="text-xl font-medium">Add To Cart</span>
+          </button>
+        )
+      }
+
 
       <div className="flex flex-col gap-2">
         <h2 className="font-bold text-xl text-center">
@@ -69,13 +67,7 @@ const ProductDetails = () => {
                   {unslug(key)}
                 </span>
                 <span className="p-2 basis-3/5 flex items-center justify-center border-l-1 border-[var(--border-2)]">
-                  {
-                    typeof value == "boolean" ? (
-                      value ? <PiCheckBold /> : <PiXBold />
-                    ) : (
-                      String(value)
-                    )
-                  }
+                  {value}
                 </span>
               </div>
             )

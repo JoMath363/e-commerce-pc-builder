@@ -1,22 +1,10 @@
 import { PiCaretLeft, PiTrash } from "react-icons/pi";
 import placeholder_img from "../assets/placeholder_img.png"
-import { useLoaderData } from "react-router-dom";
 import type { CartItem } from "../../types/CartTypes";
+import { useCartContext } from "../../contexts/CartContext";
 
 const CartList = () => {
-  const { cart }: { cart: CartItem[] } = useLoaderData();
-
-  const removeFromCart = (index: number) => {
-    console.log(index)
-  };
-
-  const addOneToCartItem = (index: number) => {
-    console.log(index)
-  };
-
-  const removeOneFromCartItem = (index: number) => {
-    console.log(index)
-  };
+  const { cart, removeFromCart, updateCartItemQty } = useCartContext();
 
   return (
     <section className="flex flex-col gap-4">
@@ -46,14 +34,13 @@ const CartList = () => {
                     {
                       product.quantity > 1 ? (
                         <button
-                          onClick={() => removeOneFromCartItem(i)}
+                          onClick={() => updateCartItemQty(product.id, product.quantity - 1)}
                           className="p-2 border-1 border-r-0 rounded-tl rounded-bl border-[var(--border-1)] cursor-pointer hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
                         >
                           <PiCaretLeft />
                         </button>
                       ) : (
                         <button
-                          onClick={() => removeOneFromCartItem(i)}
                           className="p-2 border-1 border-r-0 rounded-tl rounded-bl border-[var(--border-2)] text-[var(--border-1)]"
                         >
                           <PiCaretLeft />
@@ -66,16 +53,15 @@ const CartList = () => {
                     </span>
 
                     {
-                      product.quantity < 20 ? (
+                      product.quantity < 10 ? (
                         <button
-                          onClick={() => addOneToCartItem(i)}
+                          onClick={() => updateCartItemQty(product.id, product.quantity + 1)}
                           className="p-2 border-1 border-l-0 rounded-tr rounded-br border-[var(--border-1)] cursor-pointer hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
                         >
                           <PiCaretLeft className="rotate-180" />
                         </button>
                       ) : (
                         <button
-                          onClick={() => addOneToCartItem(i)}
                           className="p-2 border-1 border-l-0 rounded-tr rounded-br border-[var(--border-2)] text-[var(--border-1)]"
                         >
                           <PiCaretLeft className="rotate-180" />
@@ -85,7 +71,7 @@ const CartList = () => {
                   </div>
 
                   <button
-                    onClick={() => removeFromCart(i)}
+                    onClick={() => removeFromCart(product.id)}
                     className="border-1 border-[var(--negative)] p-1 text-2xl text-[var(--negative)] rounded cursor-pointer hover:bg-[var(--negative)] hover:text-[var(--background)] active:bg-[var(--background)] active:text-[var(--text-1)] active:border-[var(--text-1)]"
                   >
                     <PiTrash />

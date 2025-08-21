@@ -10,7 +10,7 @@ const useFetchCatalog = () => {
   const [totalProducts, setTotalProducts] = useState<number>(0);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchCatalog = async () => {
       const serverURL = import.meta.env.VITE_SERVER_URL;
 
       const filterQuery = getFilterQuery(filter);
@@ -27,7 +27,7 @@ const useFetchCatalog = () => {
       }
     }
 
-    fetchProducts();
+    fetchCatalog();
   }, [page, filter])
 
 
