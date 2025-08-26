@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import type { CartItem } from "../types/CartTypes";
+import type { CartItem } from "../types/OrderTypes";
 import useCheckAuth from "../hooks/CheckAuth";
 
 interface CartContextInterface {

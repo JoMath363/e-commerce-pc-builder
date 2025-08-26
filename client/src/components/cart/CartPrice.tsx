@@ -18,7 +18,7 @@ const CartPrice = () => {
         {
           cart.map((product, i) =>
             <div className="flex justify-between" key={i}>
-              <span  className="text-[var(--text-2)]">
+              <span className="text-[var(--text-2)]">
                 {product.quantity}x {product.name}
               </span>
               <span className="font-medium">

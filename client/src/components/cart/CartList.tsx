@@ -1,6 +1,6 @@
 import { PiCaretLeft, PiTrash } from "react-icons/pi";
 import placeholder_img from "../assets/placeholder_img.png"
-import type { CartItem } from "../../types/CartTypes";
+import type { CartItem } from "../../types/OrderTypes";
 import { useCartContext } from "../../contexts/CartContext";
 
 const CartList = () => {
@@ -8,10 +8,6 @@ const CartList = () => {
 
   return (
     <section className="flex flex-col gap-4">
-      <h2 className="text-2xl font-bold text-center">
-        Cart Items
-      </h2>
-
       <div className="flex flex-col gap-4">
         {
           cart.map((product: CartItem, i: number) =>

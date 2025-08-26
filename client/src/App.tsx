@@ -1,4 +1,4 @@
-import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, Outlet, redirect, RouterProvider, useLoaderData } from "react-router-dom"
 import Home from "./pages/Home"
 import Catalog from "./pages/Catalog"
 import Product from "./pages/Product"
@@ -6,56 +6,52 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Cart from "./pages/Cart"
 import Profile from "./pages/Profile"
+import Checkout from "./pages/Checkout"
 
-const requireAuth = async () => {
+const PublicPage = () => {
+  return <Outlet />
+}
+
+const AuthLoader = async () => {
   const serverURL = import.meta.env.VITE_SERVER_URL
 
   const res = await fetch(`${serverURL}/profile/logged`, {
     credentials: "include",
   });
 
-  if (res.status === 401) {
-    throw redirect("/login");
-  }
+  if (!res.ok) return { user: null };
+  return { user: await res.json() };
+}
 
-  if (!res.ok) {
-    console.warn("Erro no servidor:", res.status, res.statusText);
-    return null;
-  }
-
-  return res.json();
-};
+const ProtectedPage = () => {
+  const { user } = useLoaderData();
+  if (!user) throw redirect("/login");
+  return <Outlet />;
+}
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <PublicPage />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "catalog", element: <Catalog /> },
+      { path: "product/:id", element: <Product /> },
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> }
+    ]
   },
   {
-    path: "/catalog",
-    element: <Catalog />
-  },
-  {
-    path: "/product/:id",
-    element: <Product />
-  },
-  {
-    path: "/login",
-    element: <Login />
-  },
-  {
-    path: "/register",
-    element: <Register />
-  },
-  {
-    path: "/cart",
-    element: <Cart />,
-    loader: requireAuth
-  },
-  {
-    path: "/profile",
-    element: <Profile />,
-    loader: requireAuth
+    id: "protected_root",
+    path: "/",
+    loader: AuthLoader,
+    element: <ProtectedPage/>,
+    children: [
+      { path: "cart", element: <Cart /> },
+      { path: "checkout", element: <Checkout /> },
+      { path: "confirmation", element: <Profile /> },
+      { path: "profile", element: <Profile /> },
+    ]
   }
 ])
 

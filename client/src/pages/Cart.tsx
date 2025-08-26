@@ -1,22 +1,20 @@
-import { PiArrowRightBold } from "react-icons/pi";
 import NavBar from "../components/layout/NavBar";
 import Main from "../components/layout/Main";
 import Footer from "../components/layout/Footer";
-import CartList from "../components/sections/CartList";
-import CartPrice from "../components/sections/CartPrice";
-import { Link, } from "react-router-dom";
+import CartList from "../components/cart/CartList";
+import CartPrice from "../components/cart/CartPrice";
+import PageTitle from "../components/ui/PageTitle";
+import NextPageBtn from "../components/ui/NextPageBtn";
 
 const Cart = () => {
   return (
     <>
       <NavBar />
       <Main>
+        <PageTitle text="Your Cart" />
         <CartList />
         <CartPrice />
-        <Link to="/" className="p-3 flex items-center justify-center gap-2 bg-[var(--positive)] rounded text-[var(--background)]">
-          <span className="text-xl font-medium">Place Order</span>
-          <PiArrowRightBold className="text-2xl" />
-        </Link>
+        <NextPageBtn text="Place Order" path="/checkout"/>
       </Main>
       <Footer />
     </>

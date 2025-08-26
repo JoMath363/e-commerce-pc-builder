@@ -1,9 +1,9 @@
 import {  } from "react-icons/pi";
 import NavBar from "../components/layout/NavBar";
 import Main from "../components/layout/Main";
-import SearchBar from "../components/sections/SearchBar";
-import ProductDetails from "../components/sections/ProdcutDetails";
-import ProdcutsRow from "../components/sections/ProdcutsRow";
+import SearchBar from "../components/generic/SearchBar";
+import ProductDetails from "../components/product/ProdcutDetails";
+import ProdcutsRow from "../components/generic/ProdcutsRow";
 import Footer from "../components/layout/Footer";
 
 const Product = () => {

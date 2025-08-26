@@ -1,10 +1,10 @@
 import Footer from "../components/layout/Footer";
 import Main from "../components/layout/Main";
 import NavBar from "../components/layout/NavBar";
-import CategoryRow from "../components/sections/CategoryRow";
-import ProductsRow from "../components/sections/ProdcutsRow";
-import Hero from "../components/sections/Hero";
-import SearchBar from "../components/sections/SearchBar";
+import CategoryRow from "../components/generic/CategoryRow";
+import ProductsRow from "../components/generic/ProdcutsRow";
+import Hero from "../components/generic/Hero";
+import SearchBar from "../components/generic/SearchBar";
 
 const Home = () => {
   return (

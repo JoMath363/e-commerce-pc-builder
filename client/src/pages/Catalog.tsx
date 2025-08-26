@@ -1,7 +1,7 @@
 import Navbar from "../components/layout/NavBar";
-import SearchBar from "../components/sections/SearchBar";
-import CatalogFilter from "../components/sections/CatalogFilter";
-import CatalogGrid from "../components/sections/CatalogGrid";
+import SearchBar from "../components/generic/SearchBar";
+import CatalogFilter from "../components/catalog/CatalogFilter";
+import CatalogGrid from "../components/catalog/CatalogGrid";
 import Footer from "../components/layout/Footer";
 import Main from "../components/layout/Main";
 

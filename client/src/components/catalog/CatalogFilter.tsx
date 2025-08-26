@@ -2,8 +2,8 @@ import { } from "react-icons/pi";
 import DropSection from "../ui/DropSection";
 import { useCatalogContext } from "../../contexts/CatalogContext";
 import { useEffect, useState } from "react";
-import CheckboxList from "../ui/CheckboxList";
-import PriceRange from "../ui/PriceRange";
+import CheckboxList from "./CheckboxList";
+import PriceRange from "./PriceRange";
 
 const CatalogFilter = () => {
   const { categories, setPage, filter, setFilter } = useCatalogContext();

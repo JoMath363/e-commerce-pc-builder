@@ -46,7 +46,7 @@ const ProdcutsRow = ({ title, link, filter }: ProdcutsRowProps) => {
   return (
     <section className="flex flex-col gap-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold ">{title}</h2>
+        <h2 className="text-xl font-bold ">{title}</h2>
         {
           link ?
             <Link to={link} className="text-[var(--primary-2)]">
