@@ -11,20 +11,26 @@ type User = {
 
 export default class UsersService {
   static async findAll() {
-    return await prisma.user.findMany();
+    const data = await prisma.user.findMany();
+
+    return { data };
   }
 
   static async findByEmail(email: string) {
-    return await prisma.user.findUnique({ where: { email } });
+    const data = await prisma.user.findUnique({ where: { email } });
+
+    return { data };
   }
 
-  static async update(data: Partial<User>) {
-    return await prisma.user.update({
+  static async update(user: Partial<User>) {
+    const data = await prisma.user.update({
       where: {
-        email: data.email
+        email: user.email
       },
-      data,
+      data: { ...user },
     });
+
+    return { data };
   }
 
   static async delete(email: string) {

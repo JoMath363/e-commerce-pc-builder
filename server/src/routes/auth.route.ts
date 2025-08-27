@@ -7,4 +7,5 @@ const router = express.Router();
 export default router
   .post('/register', AuthController.register)
   .post('/login', AuthController.login)
-  .post('/logout', AuthController.logout);
+  .post('/logout', AuthController.logout)
+  .get('/logged', authenticate, AuthController.logged);

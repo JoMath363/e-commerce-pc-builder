@@ -3,14 +3,19 @@ import { compare, hash } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { ENV } from '../config/enviroment';
 
-type User = {
+type RegisterDTO = {
   name: string;
   email: string;
   password: string;
 }
 
+type LoginDTO = {
+  email: string;
+  password: string;
+}
+
 export default class AuthService {
-  static async register(dto: User) {
+  static async register(dto: RegisterDTO) {
     const existent = await prisma.user.findUnique({
       where: {
         email: dto.email
@@ -23,16 +28,19 @@ export default class AuthService {
 
     const passwordHash = await hash(dto.password, 8);
 
-    return await prisma.user.create({
+    const data =  await prisma.user.create({
       data: {
         name: dto.name,
         email: dto.email,
-        passwordHash: passwordHash
+        passwordHash: passwordHash,
+        cart: { create: {} }
       }
     });
+
+    return { data };
   }
 
-  static async login(dto: User) {
+  static async login(dto: LoginDTO) {
     const user = await prisma.user.findUnique({
       select: {
         email: true,
@@ -60,5 +68,17 @@ export default class AuthService {
     })
 
     return { accessToken }
+  }
+
+  static async findLogged(email: string) {
+    const data = await prisma.user.findUnique({
+      select: {
+        email: true,
+        name: true
+      },
+      where: { email }
+    })
+
+    return { data };
   }
 }

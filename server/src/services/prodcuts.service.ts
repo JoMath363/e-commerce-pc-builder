@@ -57,18 +57,24 @@ export default class ProductsService {
   }
 
   static async findById(id: string) {
-    return await prisma.product.findUnique({ where: { id } });
+    const data = await prisma.product.findUnique({ where: { id } });
+
+    return { data };
   }
 
-  static async create(data: Product) {
-    return await prisma.product.create({ data });
+  static async create(product: Product) {
+    const data = await prisma.product.create({ data: { ...product } });
+
+    return { data };
   }
 
-  static async update(id: string, data: Partial<Product>) {
-    return await prisma.product.update({
+  static async update(id: string, product: Partial<Product>) {
+    const data = await prisma.product.update({
       where: { id },
-      data,
+      data: { ...product },
     });
+
+    return { data };
   }
 
   static async delete(id: string) {

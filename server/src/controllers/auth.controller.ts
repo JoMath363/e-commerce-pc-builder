@@ -5,8 +5,8 @@ export default class AuthController {
   static async register(req: Request, res: Response, next: NextFunction) {
     try {
       const dto = req.body;
-      const newUser = await AuthService.register(dto);
-      res.status(201).json(newUser);
+      const data = await AuthService.register(dto);
+      res.status(201).json(data);
     } catch (error) {
       next(error);
     }
@@ -26,7 +26,7 @@ export default class AuthController {
         maxAge: 1000 * 60 * 60 * 24, // 1 day
       });
 
-      res.status(201).send();
+      res.status(201).send({ message: "Logged with sucess."});
     } catch (error) {
       next(error);
     }
@@ -36,6 +36,17 @@ export default class AuthController {
     try {
       res.clearCookie("token");
       res.json({ message: "Logged out" });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async logged(req: Request, res: Response, next: NextFunction) {
+    try {
+      const email = req.user?.email || ""
+      const user = await AuthService.findLogged(email);
+      if (!user) res.status(404).json({ message: 'Not found' });
+      res.json(user);
     } catch (error) {
       next(error);
     }

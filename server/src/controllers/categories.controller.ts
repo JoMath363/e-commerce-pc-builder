@@ -4,8 +4,8 @@ import CategoriesService from '../services/categories.service';
 export default class CategoriesController {
   static async getAll(req: Request, res: Response, next: NextFunction) {
     try {
-      const items = await CategoriesService.findAll();
-      res.json(items);
+      const data = await CategoriesService.findAll();
+      res.json(data);
     } catch (error) {
       next(error);
     }
@@ -13,9 +13,9 @@ export default class CategoriesController {
 
   static async createNew(req: Request, res: Response, next: NextFunction) {
     try {
-      const data = req.body;
-      const newItem = await CategoriesService.create(data);
-      res.status(201).json(newItem);
+      const name = req.body.name || "";
+      const data = await CategoriesService.create(name);
+      res.status(201).json(data);
     } catch (error) {
       next(error);
     }
@@ -24,9 +24,9 @@ export default class CategoriesController {
   static async updateById(req: Request, res: Response, next: NextFunction) {
     try {
       const id = req.params.id;
-      const data = req.body;
-      const updatedItem = await CategoriesService.update(id, data);
-      res.json(updatedItem);
+      const name = req.body.name || "";
+      const data = await CategoriesService.update(id, name);
+      res.json(data);
     } catch (error) {
       next(error);
     }

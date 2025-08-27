@@ -2,18 +2,24 @@ import { prisma } from '../config/database';
 
 export default class CategoriesService {
   static async findAll() {
-    return await prisma.category.findMany();
+    const data = await prisma.category.findMany();
+
+    return { data };
   }
   
-  static async create(data: { name: string, slug: string }) {
-    return await prisma.category.create({ data });
+  static async create(name: string) {
+    const data = await prisma.category.create({ data: { name } });
+
+    return { data };
   }
 
-  static async update(id: string, data: { name: string }) {
-    return await prisma.category.update({
+  static async update(id: string, name: string) {
+    const data = await prisma.category.update({
       where: { id },
-      data,
+      data: { name },
     });
+
+    return { data };
   }
 
   static async delete(id: string) {

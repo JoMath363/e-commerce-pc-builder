@@ -36,9 +36,9 @@ export default class ProductsController {
 
   static async createNew(req: Request, res: Response, next: NextFunction) {
     try {
-      const data = req.body;
-      const newItem = await ProductsService.create(data);
-      res.status(201).json(newItem);
+      const product = req.body;
+      const data = await ProductsService.create(product);
+      res.status(201).json(data);
     } catch (error) {
       next(error);
     }
@@ -47,9 +47,9 @@ export default class ProductsController {
   static async updateById(req: Request, res: Response, next: NextFunction) {
     try {
       const id = req.params.id;
-      const data = req.body;
-      const updatedItem = await ProductsService.update(id, data);
-      res.json(updatedItem);
+      const product = req.body;
+      const data = await ProductsService.update(id, product);
+      res.json(data);
     } catch (error) {
       next(error);
     }
