@@ -22,7 +22,7 @@ export const CartProvider = (props: { children: ReactNode }) => {
       const serverURL = import.meta.env.VITE_SERVER_URL;
 
       try {
-        const res = await fetch(`${serverURL}/profile/cart`, {
+        const res = await fetch(`${serverURL}/carts`, {
           credentials: "include"
         });
         if (!res.ok) throw new Error("Failed to fetch cart.")
@@ -42,7 +42,7 @@ export const CartProvider = (props: { children: ReactNode }) => {
     const serverURL = import.meta.env.VITE_SERVER_URL;
 
     try {
-      const res = await fetch(`${serverURL}/profile/cart/${id}`, {
+      const res = await fetch(`${serverURL}/carts/${id}`, {
         method: 'POST',
         credentials: "include"
       });
@@ -60,7 +60,7 @@ export const CartProvider = (props: { children: ReactNode }) => {
     const serverURL = import.meta.env.VITE_SERVER_URL;
 
     try {
-      const res = await fetch(`${serverURL}/profile/cart/${id}`, {
+      const res = await fetch(`${serverURL}/carts/${id}`, {
         method: 'DELETE',
         credentials: "include"
       });
@@ -78,7 +78,7 @@ export const CartProvider = (props: { children: ReactNode }) => {
     const serverURL = import.meta.env.VITE_SERVER_URL;
 
     try {
-      const res = await fetch(`${serverURL}/profile/cart/${id}`, {
+      const res = await fetch(`${serverURL}/carts/${id}`, {
         method: 'PATCH',
         credentials: "include",
         headers: { "Content-Type": "application/json" },

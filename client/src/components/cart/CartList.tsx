@@ -10,7 +10,7 @@ const CartList = () => {
     <section className="flex flex-col gap-4">
       <div className="flex flex-col gap-4">
         {
-          cart.map((product: CartItem, i: number) =>
+          cart.map(({ quantity, product }: CartItem, i: number) =>
             <div className="h-min flex bg-[var(--surface)] rounded-xl overflow-hidden" key={i}>
               <img
                 className="h-32"
@@ -28,9 +28,9 @@ const CartList = () => {
                 <div className="flex justify-between">
                   <div className="w-fit flex">
                     {
-                      product.quantity > 1 ? (
+                      quantity > 1 ? (
                         <button
-                          onClick={() => updateCartItemQty(product.id, product.quantity - 1)}
+                          onClick={() => updateCartItemQty(product.id, quantity - 1)}
                           className="p-2 border-1 border-r-0 rounded-tl rounded-bl border-[var(--border-1)] cursor-pointer hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
                         >
                           <PiCaretLeft />
@@ -45,13 +45,13 @@ const CartList = () => {
                     }
 
                     <span className="px-3 py-1 border-1 border-[var(--border-1)]">
-                      {product.quantity}
+                      {quantity}
                     </span>
 
                     {
-                      product.quantity < 10 ? (
+                      quantity < 10 ? (
                         <button
-                          onClick={() => updateCartItemQty(product.id, product.quantity + 1)}
+                          onClick={() => updateCartItemQty(product.id, quantity + 1)}
                           className="p-2 border-1 border-l-0 rounded-tr rounded-br border-[var(--border-1)] cursor-pointer hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
                         >
                           <PiCaretLeft className="rotate-180" />

@@ -16,13 +16,13 @@ const CartPrice = () => {
 
       <div className="flex flex-col gap-1">
         {
-          cart.map((product, i) =>
+          cart.map(({ quantity, product }, i) =>
             <div className="flex justify-between" key={i}>
               <span className="text-[var(--text-2)]">
-                {product.quantity}x {product.name}
+                {quantity}x {product.name}
               </span>
               <span className="font-medium">
-                ${(product.price * product.quantity).toFixed(2)}
+                ${(product.price * quantity).toFixed(2)}
               </span>
             </div>
           )
@@ -44,7 +44,7 @@ const CartPrice = () => {
           Total Amount
         </span >
         <span className="font-medium">
-          ${(cart.reduce((acc, cur) => acc += cur.price * cur.quantity, 0).toFixed(2))}
+          ${(cart.reduce((acc, { quantity, product }) => acc += product.price * quantity, 0).toFixed(2))}
         </span>
       </div>
     </section>

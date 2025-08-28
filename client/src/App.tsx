@@ -15,12 +15,14 @@ const PublicPage = () => {
 const AuthLoader = async () => {
   const serverURL = import.meta.env.VITE_SERVER_URL
 
-  const res = await fetch(`${serverURL}/profile/logged`, {
+  const res = await fetch(`${serverURL}/auth/logged`, {
     credentials: "include",
   });
 
+  const { data } = await res.json()
+
   if (!res.ok) return { user: null };
-  return { user: await res.json() };
+  return { user: data };
 }
 
 const ProtectedPage = () => {

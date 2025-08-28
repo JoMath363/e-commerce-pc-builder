@@ -34,7 +34,7 @@ const ProductDetails = () => {
       </div>
 
       {
-        cart.find(item => item.id == id) ? (
+        cart.find(({ product }) => product.id == id) ? (
           <button
             onClick={() => removeFromCart(id || "")}
             className="p-3 flex items-center justify-center gap-2 bg-[var(--negative)] rounded text-[var(--background)]"

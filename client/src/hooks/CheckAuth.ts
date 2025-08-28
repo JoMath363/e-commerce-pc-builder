@@ -7,7 +7,7 @@ const useCheckAuth = () => {
     const checkAuth = async () => {
       try {
         const serverURL = import.meta.env.VITE_SERVER_URL;
-        const res = await fetch(`${serverURL}/profile/logged`, {
+        const res = await fetch(`${serverURL}/auth/logged`, {
           credentials: "include",
         });
 

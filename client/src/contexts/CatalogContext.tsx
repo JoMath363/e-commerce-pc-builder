@@ -21,7 +21,7 @@ export const CatalogProvider = (props: { children: ReactNode }) => {
       try {
         const res = await fetch(`${serverURL}/categories`);
         if (!res.ok) throw new Error("Failed to fetch");
-        const data: Category[] = await res.json();
+        const { data } = await res.json();
         setCategories(data);
       } catch (err) {
         console.error(err);
