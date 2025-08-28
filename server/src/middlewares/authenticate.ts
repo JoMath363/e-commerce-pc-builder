@@ -19,7 +19,7 @@ export const authenticate: RequestHandler = async (req: Request, res: Response, 
 
     const user = await prisma.user.findUnique({
       where: { email: payload.email },
-      select: { email: true, isAdmin: true },
+      select: { id: true, email: true, isAdmin: true },
     });
 
     if (!user) {
@@ -27,6 +27,7 @@ export const authenticate: RequestHandler = async (req: Request, res: Response, 
     }
 
     req.user = {
+      id: user.id,
       email: user.email,
       isAdmin: user.isAdmin,
     };

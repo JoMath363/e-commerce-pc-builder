@@ -32,8 +32,7 @@ export default class AuthService {
       data: {
         name: dto.name,
         email: dto.email,
-        passwordHash: passwordHash,
-        cart: { create: {} }
+        passwordHash: passwordHash
       }
     });
 
@@ -70,7 +69,7 @@ export default class AuthService {
     return { accessToken }
   }
 
-  static async findLogged(email: string) {
+  static async logged(email: string) {
     const data = await prisma.user.findUnique({
       select: {
         email: true,

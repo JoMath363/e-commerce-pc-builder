@@ -15,7 +15,6 @@ export default class AuthController {
   static async login(req: Request, res: Response, next: NextFunction) {
     try {
       const dto = req.body;
-      console.log(dto);
 
       const user = await AuthService.login(dto);
 
@@ -44,9 +43,9 @@ export default class AuthController {
   static async logged(req: Request, res: Response, next: NextFunction) {
     try {
       const email = req.user?.email || ""
-      const user = await AuthService.findLogged(email);
-      if (!user) res.status(404).json({ message: 'Not found' });
-      res.json(user);
+      const data = await AuthService.logged(email);
+      if (!data) res.status(404).json({ message: 'Not found' });
+      res.json(data);
     } catch (error) {
       next(error);
     }

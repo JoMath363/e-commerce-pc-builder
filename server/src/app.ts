@@ -6,8 +6,7 @@ import productsRouter from './routes/products.route';
 import categoriesRouter from './routes/categories.route';
 import usersRouter from './routes/users.route';
 import authRouter from './routes/auth.route';
-/* import profileRouter from './routes/profile.route'; */
-/* import ordersRouter from './routes/orders.route'; */
+import cartsRouter from './routes/carts.route';
 import errorHandler from './middlewares/errorHandler';
 
 dotenv.config();
@@ -28,8 +27,7 @@ app.use("/categories", categoriesRouter);
 app.use("/products", productsRouter);
 app.use("/users", usersRouter);
 app.use("/auth", authRouter);
-/* app.use("/profile", profileRouter); */
-/* app.use("/orders", ordersRouter); */
+app.use("/carts", cartsRouter)
 app.use(errorHandler);
 
 export default app;
