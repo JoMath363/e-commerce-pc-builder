@@ -7,14 +7,14 @@ export const authenticate: RequestHandler = async (req: Request, res: Response, 
   const token = req.cookies.token;
 
   if (!token) {
-    res.status(401).send('Access token missing.'); return;
+    res.status(401).send({ message: 'Access token missing.' }); return;
   }
 
   try {
     const payload = verify(token, ENV.JWT_SECRET) as { email: string };
 
     if (!payload.email) {
-      res.status(401).send('Invalid token payload.'); return;
+      res.status(401).send({ message: 'Invalid token payload.' }); return;
     }
 
     const user = await prisma.user.findUnique({
@@ -23,7 +23,7 @@ export const authenticate: RequestHandler = async (req: Request, res: Response, 
     });
 
     if (!user) {
-      res.status(401).send('User not found.'); return ;
+      res.status(401).send({ message: 'User not found.' }); return ;
     }
 
     req.user = {

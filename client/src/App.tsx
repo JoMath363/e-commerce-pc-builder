@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, redirect, RouterProvider, useLoaderData } from "react-router-dom"
+import { createBrowserRouter, Outlet, redirect, RouterProvider } from "react-router-dom"
 import Home from "./pages/Home"
 import Catalog from "./pages/Catalog"
 import Product from "./pages/Product"
@@ -8,9 +8,7 @@ import Cart from "./pages/Cart"
 import Profile from "./pages/Profile"
 import Checkout from "./pages/Checkout"
 
-const PublicPage = () => {
-  return <Outlet />
-}
+const Layout = () => <Outlet />;
 
 const AuthLoader = async () => {
   const serverURL = import.meta.env.VITE_SERVER_URL
@@ -19,22 +17,17 @@ const AuthLoader = async () => {
     credentials: "include",
   });
 
+  if (res.status == 401) throw redirect("/login");
+  if (!res.ok)  throw redirect("/")
+
   const { data } = await res.json()
-
-  if (!res.ok) return { user: null };
   return { user: data };
-}
-
-const ProtectedPage = () => {
-  const { user } = useLoaderData();
-  if (!user) throw redirect("/login");
-  return <Outlet />;
 }
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PublicPage />,
+    element: <Layout />,
     children: [
       { index: true, element: <Home /> },
       { path: "catalog", element: <Catalog /> },
@@ -47,7 +40,7 @@ const router = createBrowserRouter([
     id: "protected_root",
     path: "/",
     loader: AuthLoader,
-    element: <ProtectedPage/>,
+    element: <Layout />,
     children: [
       { path: "cart", element: <Cart /> },
       { path: "checkout", element: <Checkout /> },

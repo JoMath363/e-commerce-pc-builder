@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { CartItem } from "../types/OrderTypes";
 import useCheckAuth from "../hooks/CheckAuth";
+import { redirect } from "react-router-dom";
 
 interface CartContextInterface {
   cart: CartItem[],
@@ -21,23 +22,20 @@ export const CartProvider = (props: { children: ReactNode }) => {
 
       const serverURL = import.meta.env.VITE_SERVER_URL;
 
-      try {
-        const res = await fetch(`${serverURL}/carts`, {
-          credentials: "include"
-        });
-        if (!res.ok) throw new Error("Failed to fetch cart.")
-        const { data } = await res.json();
-        setCart(data)
-      } catch (err) {
-        console.error(err);
-      }
+      const res = await fetch(`${serverURL}/carts`, {
+        credentials: "include"
+      });
+
+      if (!res.ok) throw new Error("Failed to fetch cart.")
+      const { data } = await res.json();
+      setCart(data)
     }
 
     fetchCart();
   }, [isLogged])
 
   const addToCart = async (id: string) => {
-    if (!isLogged) return;
+    if (!isLogged) throw redirect("/login");
 
     const serverURL = import.meta.env.VITE_SERVER_URL;
 

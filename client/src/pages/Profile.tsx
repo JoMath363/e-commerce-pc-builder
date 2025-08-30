@@ -7,6 +7,7 @@ import ProfileInfo from "../components/profile/ProfileInfo";
 import ProfileSwitcher from "../components/profile/ProfileSwitcher";
 import ProfileAddress from "../components/profile/ProfileAddress";
 import ProfileCards from "../components/profile/ProfileCards";
+import ProfileLogout from "../components/profile/ProfileLogout";
 
 const Profile = () => {
   return (
@@ -18,6 +19,7 @@ const Profile = () => {
         <ProfileAddress/>
         <ProfileCards/>
         <ProfileSwitcher/>
+        <ProfileLogout/>
       </Main>
       <Footer/>
     </>
