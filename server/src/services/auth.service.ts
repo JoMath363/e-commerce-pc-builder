@@ -2,6 +2,7 @@ import { prisma } from '../config/database';
 import { compare, hash } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { ENV } from '../config/enviroment';
+import { APIError } from '../middlewares/errorHandler';
 
 type RegisterDTO = {
   name: string;
@@ -51,13 +52,13 @@ export default class AuthService {
     })
 
     if (!user) {
-      throw new Error('User not in register.')
+      throw new APIError('User not in register.', 404);
     }
 
     const passwordsMatch = await compare(dto.password, user.passwordHash)
 
     if (!passwordsMatch) {
-      throw new Error('User ou password invalid.')
+      throw new APIError('User ou password invalid.', 400);
     }
 
     const accessToken = sign({

@@ -1,3 +1,4 @@
+import { APIError } from '../middlewares/errorHandler';
 import { prisma } from '../config/database';
 
 export default class CartsService {
@@ -25,7 +26,7 @@ export default class CartsService {
       where: { userId, productId }
     })
 
-    if (cartItem) throw new Error("Item already in cart.")
+    if (cartItem) throw new APIError("Item already in cart.", 400)
 
     await prisma.cartItem.create({
       data: {
@@ -44,7 +45,7 @@ export default class CartsService {
       where: { userId, productId }
     })
 
-    if (!cartItem) throw new Error("Item not in cart.")
+    if (!cartItem) throw new APIError("Item not in cart.", 404)
 
     await prisma.cartItem.update({
       where: { id: cartItem.id },
@@ -61,7 +62,7 @@ export default class CartsService {
       where: { userId, productId }
     })
 
-    if (!cartItem) throw new Error("Item not in cart.")
+    if (!cartItem) throw new APIError("Item not in cart.", 404)
 
     await prisma.cartItem.delete({
       where: { id: cartItem.id }
