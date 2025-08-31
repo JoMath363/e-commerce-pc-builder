@@ -18,8 +18,14 @@ const LoginForm = () => {
       </h2>
 
       <div className="w-80 flex flex-col gap-4">
-        <EmailInput setEmailInput={setEmailInput} emailError={emailError}/>
-        <PasswordInput setPasswordInput={setPasswordInput} passwordError={passwordError}/>
+        <EmailInput
+          setEmailInput={setEmailInput}
+          emailError={emailError}
+        />
+        <PasswordInput
+          setPasswordInput={setPasswordInput}
+          passwordError={passwordError}
+        />
 
         <p className="flex gap-2">
           Don't have an account?

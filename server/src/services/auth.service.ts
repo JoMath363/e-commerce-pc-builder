@@ -52,13 +52,13 @@ export default class AuthService {
     })
 
     if (!user) {
-      throw new APIError('User not in register.', 404);
+      throw new APIError('User not found in register.', 404);
     }
 
     const passwordsMatch = await compare(dto.password, user.passwordHash)
 
     if (!passwordsMatch) {
-      throw new APIError('User ou password invalid.', 400);
+      throw new APIError('Password is incorrect.', 401);
     }
 
     const accessToken = sign({
