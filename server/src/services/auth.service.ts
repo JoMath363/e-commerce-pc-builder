@@ -8,26 +8,6 @@ type RegisterDTO = {
   name: string;
   email: string;
   password: string;
-  adress: Adress;
-  card: Card;
-}
-
-type Adress = {
-  street: string;
-  number: string;
-  complement?: string;
-  neighborhood: string
-  city: string;
-  state: string;
-  postalCode: string;
-  country: string;
-}
-
-type Card = {
-  brand: string;
-  last4: string;
-  expiry: string;
-  token: string;
 }
 
 type LoginDTO = {
@@ -53,9 +33,7 @@ export default class AuthService {
       data: {
         name: dto.name,
         email: dto.email,
-        passwordHash: passwordHash,
-        address: { create: dto.adress },
-        cards: { create: dto.card }
+        passwordHash: passwordHash
       }
     });
   }

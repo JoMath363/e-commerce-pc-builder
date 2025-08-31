@@ -3,8 +3,8 @@ import Main from "../components/layout/Main";
 import Footer from "../components/layout/Footer";
 import CartList from "../components/cart/CartList";
 import CartPrice from "../components/cart/CartPrice";
-import PageTitle from "../components/ui/PageTitle";
-import NextPageBtn from "../components/ui/NextPageBtn";
+import PageTitle from "../components/common/PageTitle";
+import NextPageBtn from "../components/common/NextPageBtn";
 
 const Cart = () => {
   return (

@@ -1,12 +1,12 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { PiEnvelopeSimpleBold, PiWarning } from "react-icons/pi";
 
-type PasswordInputProps = {
+type EmailInputProps = {
   setEmailInput: Dispatch<SetStateAction<string>>;
   emailError: string;
 }
 
-const EmailInput = ({ setEmailInput, emailError }: PasswordInputProps) => {
+const EmailInput = ({ setEmailInput, emailError }: EmailInputProps) => {
 
   return (
     <div className="flex flex-col gap-2">

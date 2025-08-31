@@ -2,7 +2,7 @@ import { } from "react-icons/pi";
 import NavBar from "../components/layout/NavBar";
 import Main from "../components/layout/Main";
 import Footer from "../components/layout/Footer";
-import PageTitle from "../components/ui/PageTitle";
+import PageTitle from "../components/common/PageTitle";
 import ProfileInfo from "../components/profile/ProfileInfo";
 import ProfileSwitcher from "../components/profile/ProfileSwitcher";
 import ProfileAddress from "../components/profile/ProfileAddress";

@@ -1,5 +1,5 @@
 import { } from "react-icons/pi";
-import DropSection from "../ui/DropSection";
+import DropSection from "../common/DropSection";
 import { useCatalogContext } from "../../contexts/CatalogContext";
 import { useEffect, useState } from "react";
 import CheckboxList from "./CheckboxList";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PiSignOutBold } from "react-icons/pi";
-import Modal from "../ui/Modal";
+import Modal from "../common/Modal";
 import { useNavigate } from "react-router-dom";
 
 const ProfileLogout = () => {

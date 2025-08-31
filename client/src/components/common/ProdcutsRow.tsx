@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { ProductFilter } from "../../types/ProdcutTypes";
-import ProductCard from "../ui/ProductCard";
+import ProductCard from "./ProductCard";
 import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
 import useFetchProducts from "../../hooks/FetchProducts";
 import { Link } from "react-router-dom";

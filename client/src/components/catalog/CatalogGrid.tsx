@@ -1,6 +1,6 @@
 import { } from "react-icons/pi";
-import ProductCard from "../ui/ProductCard";
-import Pagination from "../ui/Pagination";
+import ProductCard from "../common/ProductCard";
+import Pagination from "../common/Pagination";
 import useFetchCatalog from "../../hooks/FetchCatalog";
 import { useCatalogContext } from "../../contexts/CatalogContext";
 
