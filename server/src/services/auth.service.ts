@@ -8,6 +8,26 @@ type RegisterDTO = {
   name: string;
   email: string;
   password: string;
+  adress: Adress;
+  card: Card;
+}
+
+type Adress = {
+  street: string;
+  number: string;
+  complement?: string;
+  neighborhood: string
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+}
+
+type Card = {
+  brand: string;
+  last4: string;
+  expiry: string;
+  token: string;
 }
 
 type LoginDTO = {
@@ -24,20 +44,20 @@ export default class AuthService {
     })
 
     if (existent) {
-      throw new Error("This email is already in use.");
+      throw new APIError("This email is already in use.", 409);
     }
 
     const passwordHash = await hash(dto.password, 8);
 
-    const data =  await prisma.user.create({
+    await prisma.user.create({
       data: {
         name: dto.name,
         email: dto.email,
-        passwordHash: passwordHash
+        passwordHash: passwordHash,
+        address: { create: dto.adress },
+        cards: { create: dto.card }
       }
     });
-
-    return { data };
   }
 
   static async login(dto: LoginDTO) {

@@ -5,8 +5,8 @@ export default class AuthController {
   static async register(req: Request, res: Response, next: NextFunction) {
     try {
       const dto = req.body;
-      const data = await AuthService.register(dto);
-      res.status(201).json(data);
+      await AuthService.register(dto);
+      res.status(201).json({ message: "Account created successfully."});
     } catch (error) {
       next(error);
     }
