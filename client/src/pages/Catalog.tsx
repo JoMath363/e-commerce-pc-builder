@@ -1,17 +1,15 @@
 import Navbar from "../components/layout/NavBar";
-import SearchBar from "../components/common/SearchBar";
-import CatalogFilter from "../components/catalog/CatalogFilter";
 import CatalogGrid from "../components/catalog/CatalogGrid";
 import Footer from "../components/layout/Footer";
 import Main from "../components/layout/Main";
+import CatalogSearch from "../components/catalog/CatalogSearch";
 
 const Catalog = () => {
   return (
     <>
       <Navbar />
       <Main>
-        <SearchBar />
-        <CatalogFilter />
+        <CatalogSearch/>
         <CatalogGrid />
       </Main>
       <Footer />

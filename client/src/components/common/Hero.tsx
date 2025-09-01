@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="p-4 flex justify-between items-center bg-[var(--surface)] rounded-2xl">
+    <section className="p-4 flex justify-between items-center bg-[var(--surface)] rounded-lg">
       <div className="w-1/2 flex flex-col gap-4 items-center text-center">
         <h1 className="font-bold text-3xl">
           Build Your Dream PC

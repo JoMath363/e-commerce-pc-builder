@@ -28,7 +28,7 @@ const CategoryRow = () => {
               key={i}
               to={`/catalog`}
               onClick={() => setFilter(prev => ({...prev, categories: [item.name]}))}
-              className="p-3 flex gap-2 items-center text-nowrap text-2xl cursor-pointer border-1 border-[var(--border-2)] rounded-xl text-[var(--text-2)] hover:bg-[var(--surface)] hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
+              className="p-3 flex gap-2 items-center text-nowrap text-2xl cursor-pointer border-1 border-[var(--border-2)] rounded-lg text-[var(--text-2)] hover:bg-[var(--surface)] hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
             >
               {categoryIcons[item.name] || null}
               <span className="text-base font-medium">
