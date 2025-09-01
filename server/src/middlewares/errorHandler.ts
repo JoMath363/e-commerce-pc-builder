@@ -16,16 +16,16 @@ const errorHandler = (err: Error, req: Request, res: Response, next: NextFunctio
 
   switch (true) {
     case (err instanceof APIError): {
-      return res.status(err.status).send({ message: err.message })
+      res.status(err.status).send({ message: err.message }); return;
     }
 
     case (err instanceof Prisma.PrismaClientValidationError): {
       const details = err.message.split("\n").pop()?.trim();
-      return res.status(404).json({ message: `Validation Error: ${details}` });
+      res.status(404).json({ message: `Validation Error: ${details}` }); return;
     }
 
     default: {
-      return res.status(500).json({ message: err.message || 'Internal Server Error', });
+      res.status(500).json({ message: err.message || 'Internal Server Error', }); return;
     }
   }
 }
