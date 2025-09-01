@@ -1,6 +1,6 @@
 import PasswordInput from "./PasswordInput";
 import EmailInput from "./EmailInput";
-import useRegister from "../../hooks/Register";
+import useRegisterForm from "../../hooks/RegisterForm";
 import NameInput from "./NameInput";
 
 const RegisterForm = () => {
@@ -13,7 +13,7 @@ const RegisterForm = () => {
     setPasswordInput,
     passwordError,
     handleSubmit
-  } = useRegister();
+  } = useRegisterForm();
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">

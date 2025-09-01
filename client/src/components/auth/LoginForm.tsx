@@ -1,6 +1,6 @@
 import PasswordInput from "./PasswordInput";
 import EmailInput from "./EmailInput";
-import useLogin from "../../hooks/Login";
+import useLoginForm from "../../hooks/LoginForm";
 
 const LoginForm = () => {
   const {
@@ -9,7 +9,7 @@ const LoginForm = () => {
     setPasswordInput,
     passwordError,
     handleSubmit
-  } = useLogin();
+  } = useLoginForm();
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">

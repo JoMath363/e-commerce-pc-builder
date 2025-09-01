@@ -9,7 +9,7 @@ const useFetchProducts = ({ filter }: { filter: ProductFilter}) => {
     const fetchProducts = async () => {
       const serverURL = import.meta.env.VITE_SERVER_URL;
       
-      const filterQuery = getFilterQuery(filter);
+      const filterQuery = getFilterQuery("", filter);
 
       try {
         const res = await fetch(`${serverURL}/products?${filterQuery}`);

@@ -5,6 +5,8 @@ interface CatalogContextInterface {
   categories: Category[];
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>
   filter: ProductFilter;
   setFilter: Dispatch<SetStateAction<ProductFilter>>;
 }
@@ -32,7 +34,7 @@ export const CatalogProvider = (props: { children: ReactNode }) => {
   }, [])
 
   const [page, setPage] = useState<number>(1);
-  
+  const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<ProductFilter>({
     categories: [],
     minPrice: 0,
@@ -44,8 +46,10 @@ export const CatalogProvider = (props: { children: ReactNode }) => {
       categories,
       page, 
       setPage,
+      search,
+      setSearch,
       filter,
-      setFilter,
+      setFilter
     }}>
       {props.children}
     </CatalogContext.Provider>

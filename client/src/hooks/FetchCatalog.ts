@@ -4,7 +4,7 @@ import type { ProductPreview } from "../types/ProdcutTypes";
 import { getFilterQuery } from "../utils/helper";
 
 const useFetchCatalog = () => {
-  const { filter, page, setPage } = useCatalogContext();
+  const { search, filter, page, setPage } = useCatalogContext();
   const [products, setProducts] = useState<ProductPreview[]>([]);
   const [totalPages, setTotalPages] = useState<number>(1);
   const [totalProducts, setTotalProducts] = useState<number>(0);
@@ -13,7 +13,7 @@ const useFetchCatalog = () => {
     const fetchCatalog = async () => {
       const serverURL = import.meta.env.VITE_SERVER_URL;
 
-      const filterQuery = getFilterQuery(filter);
+      const filterQuery = getFilterQuery(search, filter);
 
       try {
         const res = await fetch(`${serverURL}/products?page=${page}&pageSize=20&${filterQuery}`);
@@ -28,7 +28,7 @@ const useFetchCatalog = () => {
     }
 
     fetchCatalog();
-  }, [page, filter])
+  }, [page, filter, search])
 
 
   return { products, totalProducts, totalPages, page, setPage }

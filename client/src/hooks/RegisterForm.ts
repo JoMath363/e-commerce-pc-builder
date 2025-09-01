@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const useLogin = () => {
+const useRegisterForm = () => {
+  const [nameInput, setNameInput] = useState("");
+  const [nameError, setNameError] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -11,6 +13,13 @@ const useLogin = () => {
 
   const validateInputs = () => {
     let isValid = true;
+
+    if (nameInput.trim() == "") {
+      setNameError("Name is required.");
+      isValid = false
+    } else {
+      setNameError("");
+    }
 
     if (emailInput.trim() == "") {
       setEmailError("Email is required.");
@@ -30,15 +39,13 @@ const useLogin = () => {
   }
 
   const handleErrors = (status: number) => {
+    setNameError("");
     setEmailError("");
     setPasswordError("");
 
     switch (status) {
-      case (404):
-        setEmailError("No account found with this email.");
-        break;
-      case (401):
-        setPasswordError("Incorrect password.");
+      case (409):
+        setEmailError("Email already in use.");
         break;
       default:
         setPasswordError("Something went wrong. Please try again.");
@@ -54,11 +61,12 @@ const useLogin = () => {
     if (!validateInputs()) return;
 
     const user = {
+      name: nameInput,
       email: emailInput,
       password: passwordInput
     }
 
-    const res = await fetch(`${serverURL}/auth/login`, {
+    const res = await fetch(`${serverURL}/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -66,22 +74,22 @@ const useLogin = () => {
     });
 
     if (res.ok) {
-      navigate("/");
+      navigate("/login");
     } else {
       handleErrors(res.status);
     }
   }
 
   return {
-    emailInput,
+    setNameInput,
+    nameError,
     setEmailInput,
-    passwordInput,
-    setPasswordInput,
     emailError,
+    setPasswordInput,
     passwordError,
     handleSubmit
   }
 
 };
 
-export default useLogin;
+export default useRegisterForm;

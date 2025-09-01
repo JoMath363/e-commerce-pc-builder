@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { PiSlidersHorizontal } from "react-icons/pi";
 import Modal from "../common/Modal";
-import CheckboxList from "./CheckboxList";
+import CategoryCheck from "./CategoryCheck";
 import PriceRange from "./PriceRange";
-import useFilter from "../../hooks/Filter";
+import useFilterForm from "../../hooks/FilterForm";
 
 const CatalogFilter = () => {
   const [openFilter, setOpenFilter] = useState(false);
@@ -16,7 +16,7 @@ const CatalogFilter = () => {
     maxPriceInput,
     setMaxPriceInput,
     filterProducts
-  } = useFilter()
+  } = useFilterForm()
 
   return (
     <>
@@ -24,7 +24,7 @@ const CatalogFilter = () => {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2 select-none">
             <h3 className="font-medium">Categories</h3>
-            <CheckboxList
+            <CategoryCheck
               selected={categoriesInput}
               setSelected={setCategoriesInput}
             />

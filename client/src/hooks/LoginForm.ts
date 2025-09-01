@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const useRegister = () => {
-  const [nameInput, setNameInput] = useState("");
-  const [nameError, setNameError] = useState("");
+const useLoginForm = () => {
   const [emailInput, setEmailInput] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -13,13 +11,6 @@ const useRegister = () => {
 
   const validateInputs = () => {
     let isValid = true;
-
-    if (nameInput.trim() == "") {
-      setNameError("Name is required.");
-      isValid = false
-    } else {
-      setNameError("");
-    }
 
     if (emailInput.trim() == "") {
       setEmailError("Email is required.");
@@ -39,13 +30,15 @@ const useRegister = () => {
   }
 
   const handleErrors = (status: number) => {
-    setNameError("");
     setEmailError("");
     setPasswordError("");
 
     switch (status) {
-      case (409):
-        setEmailError("Email already in use.");
+      case (404):
+        setEmailError("No account found with this email.");
+        break;
+      case (401):
+        setPasswordError("Incorrect password.");
         break;
       default:
         setPasswordError("Something went wrong. Please try again.");
@@ -61,12 +54,11 @@ const useRegister = () => {
     if (!validateInputs()) return;
 
     const user = {
-      name: nameInput,
       email: emailInput,
       password: passwordInput
     }
 
-    const res = await fetch(`${serverURL}/auth/register`, {
+    const res = await fetch(`${serverURL}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -74,22 +66,22 @@ const useRegister = () => {
     });
 
     if (res.ok) {
-      navigate("/login");
+      navigate("/");
     } else {
       handleErrors(res.status);
     }
   }
 
   return {
-    setNameInput,
-    nameError,
+    emailInput,
     setEmailInput,
-    emailError,
+    passwordInput,
     setPasswordInput,
+    emailError,
     passwordError,
     handleSubmit
   }
 
 };
 
-export default useRegister;
+export default useLoginForm;

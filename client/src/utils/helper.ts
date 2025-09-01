@@ -6,15 +6,19 @@ export function unslug(s: string): string {
     .join(" ");
 }
 
-export function getFilterQuery(filter: ProductFilter) {
+export function getFilterQuery(search: string, filter: ProductFilter) {
   const query = []
 
-  if (filter.categories && filter.categories.length > 0) {
-    query.push(`category=${filter.categories.join(",")}`)
+  if (search != "") {
+    query.push(`name=${search}`);
   }
 
-  query.push(`minPrice=${filter.minPrice}`)
-  query.push(`maxPrice=${filter.maxPrice}`)
+  if (filter.categories?.length > 0) {
+    query.push(`category=${filter.categories.join(",")}`);
+  }
+
+  query.push(`minPrice=${filter.minPrice}`);
+  query.push(`maxPrice=${filter.maxPrice}`);
 
   return query.join("&");
 }
