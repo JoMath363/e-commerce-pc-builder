@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const useLoginForm = () => {
   const [emailInput, setEmailInput] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
-  const navigate = useNavigate();
 
   const validateInputs = () => {
     let isValid = true;
@@ -66,7 +63,7 @@ const useLoginForm = () => {
     });
 
     if (res.ok) {
-      navigate("/");
+      window.location.href = "/";
     } else {
       handleErrors(res.status);
     }

@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { PiSignOutBold } from "react-icons/pi";
 import Modal from "../common/Modal";
-import { useNavigate } from "react-router-dom";
 
 const ProfileLogout = () => {
   const [openLogOut, setOpenLogOut] = useState(false);
-  const navigate = useNavigate()
 
   const handleLogout = async () => {
     const serverUrl = import.meta.env.VITE_SERVER_URL
@@ -16,7 +14,7 @@ const ProfileLogout = () => {
     })
 
     setOpenLogOut(false);
-    navigate("/");
+    window.location.href = "/";
   }
 
   return (

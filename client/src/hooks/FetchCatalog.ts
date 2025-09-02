@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCatalogContext } from "../contexts/CatalogContext";
+import { useCatalogContext } from "../contexts/catalog/CatalogContext";
 import type { ProductPreview } from "../types/ProdcutTypes";
 import { getFilterQuery } from "../utils/helper";
 

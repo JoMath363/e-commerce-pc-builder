@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCatalogContext } from "../contexts/CatalogContext";
+import { useCatalogContext } from "../contexts/catalog/CatalogContext";
 
 const useFilter = () => {
   const { setPage, filter, setFilter } = useCatalogContext();

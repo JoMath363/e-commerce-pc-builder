@@ -1,5 +1,5 @@
 import { useState, type Dispatch, type SetStateAction } from "react";
-import { useCatalogContext } from "../../contexts/CatalogContext";
+import { useCatalogContext } from "../../contexts/catalog/CatalogContext";
 import { unslug } from "../../utils/helper";
 
 type CategoryCheckProps = {

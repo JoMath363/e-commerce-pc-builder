@@ -1,26 +1,13 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import type { CartItem } from "../types/OrderTypes";
-import useCheckAuth from "../hooks/CheckAuth";
-import { redirect } from "react-router-dom";
+import { useEffect, useState, type ReactNode } from "react";
+import type { CartItem } from "../../types/ProfileTypes";
+import { CartContext } from "./CartContext";
 
-interface CartContextInterface {
-  cart: CartItem[],
-  addToCart: (id: string) => void,
-  removeFromCart: (id: string) => void,
-  updateCartItemQty: (id: string, quantity: number) => void
-}
-
-const CartContext = createContext<CartContextInterface | null>(null);
-
-export const CartProvider = (props: { children: ReactNode }) => {
-  const isLogged = useCheckAuth();
+export const ProtectedCartProvider = (props: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const serverURL = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
     const fetchCart = async () => {
-      if (!isLogged) return;
-
-      const serverURL = import.meta.env.VITE_SERVER_URL;
 
       const res = await fetch(`${serverURL}/carts`, {
         credentials: "include"
@@ -32,12 +19,10 @@ export const CartProvider = (props: { children: ReactNode }) => {
     }
 
     fetchCart();
-  }, [isLogged])
+  }, [serverURL])
 
-  const addToCart = async (id: string) => {
-    if (!isLogged) throw redirect("/login");
-
-    const serverURL = import.meta.env.VITE_SERVER_URL;
+  const addCartItem = async ({ id }: { id?: string }) => {
+    if (!id) return;
 
     try {
       const res = await fetch(`${serverURL}/carts/${id}`, {
@@ -52,10 +37,8 @@ export const CartProvider = (props: { children: ReactNode }) => {
     }
   }
 
-  const removeFromCart = async (id: string) => {
-    if (!isLogged) return;
-
-    const serverURL = import.meta.env.VITE_SERVER_URL;
+  const removeCartItem = async ({ id }: { id?: string | undefined }) => {
+    if (!id) return;
 
     try {
       const res = await fetch(`${serverURL}/carts/${id}`, {
@@ -70,10 +53,8 @@ export const CartProvider = (props: { children: ReactNode }) => {
     }
   };
 
-  const updateCartItemQty = async (id: string, quantity: number) => {
-    if (!isLogged) return;
-
-    const serverURL = import.meta.env.VITE_SERVER_URL;
+  const updateCartItemQty = async ({ id, quantity }: { id?: string, quantity: number }) => {
+    if (!id) return;
 
     try {
       const res = await fetch(`${serverURL}/carts/${id}`, {
@@ -93,19 +74,11 @@ export const CartProvider = (props: { children: ReactNode }) => {
   return (
     <CartContext.Provider value={{
       cart,
-      addToCart,
-      removeFromCart,
+      addCartItem,
+      removeCartItem,
       updateCartItemQty
     }}>
       {props.children}
     </CartContext.Provider>
   );
-};
-
-export const useCartContext = (): CartContextInterface => {
-  const context = useContext(CartContext);
-
-  if (!context) throw new Error("useProduct must be used within a ProductProvider");
-
-  return context;
 };

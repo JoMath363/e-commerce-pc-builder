@@ -1,17 +1,6 @@
-import { createContext, useContext, useEffect, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
-import type { ProductFilter, Category } from "../types/ProdcutTypes";
-
-interface CatalogContextInterface {
-  categories: Category[];
-  page: number;
-  setPage: Dispatch<SetStateAction<number>>;
-  search: string;
-  setSearch: Dispatch<SetStateAction<string>>
-  filter: ProductFilter;
-  setFilter: Dispatch<SetStateAction<ProductFilter>>;
-}
-
-const CatalogContext = createContext<CatalogContextInterface | null>(null);
+import { useEffect, useState, type ReactNode } from "react";
+import type { Category, ProductFilter } from "../../types/ProdcutTypes";
+import { CatalogContext } from "./CatalogContext";
 
 export const CatalogProvider = (props: { children: ReactNode }) => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -54,12 +43,4 @@ export const CatalogProvider = (props: { children: ReactNode }) => {
       {props.children}
     </CatalogContext.Provider>
   );
-};
-
-export const useCatalogContext = (): CatalogContextInterface => {
-  const context = useContext(CatalogContext);
-
-  if (!context) throw new Error("useProduct must be used within a ProductProvider");
-
-  return context;
 };

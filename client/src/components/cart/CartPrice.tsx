@@ -1,5 +1,5 @@
 import { } from "react-icons/pi";
-import { useCartContext } from "../../contexts/CartContext";
+import { useCartContext } from "../../contexts/cart/CartContext";
 
 const CartPrice = () => {
   const { cart } = useCartContext();

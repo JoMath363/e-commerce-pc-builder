@@ -2,7 +2,7 @@ import { } from "react-icons/pi";
 import ProductCard from "../common/ProductCard";
 import Pagination from "../common/Pagination";
 import useFetchCatalog from "../../hooks/FetchCatalog";
-import { useCatalogContext } from "../../contexts/CatalogContext";
+import { useCatalogContext } from "../../contexts/catalog/CatalogContext";
 
 const CatalogGrid = () => {
   const { products, totalProducts, totalPages } = useFetchCatalog();

@@ -2,15 +2,15 @@ import { PiBasketBold } from "react-icons/pi";
 import placeholder_img from "../assets/placeholder_img.png";
 import { unslug } from "../../utils/helper";
 import { useParams } from "react-router-dom";
-import { useCartContext } from "../../contexts/CartContext";
+import { useCartContext } from "../../contexts/cart/CartContext";
 import useFetchProduct from "../../hooks/FetchProduct";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const { cart, addToCart, removeFromCart } = useCartContext();
+  const { cart, addCartItem, removeCartItem } = useCartContext();
   const { product } = useFetchProduct(id || "");
 
-  return product != null ? (
+  return product != null && (
     <section className="flex flex-col gap-4">
       <div className="w-1/1">
         <img
@@ -36,7 +36,7 @@ const ProductDetails = () => {
       {
         cart.find(({ product }) => product.id == id) ? (
           <button
-            onClick={() => removeFromCart(id || "")}
+            onClick={() => removeCartItem({ id })}
             className="p-3 flex items-center justify-center gap-2 bg-[var(--negative)] rounded text-[var(--background)]"
           >
             <PiBasketBold className="text-2xl" />
@@ -44,7 +44,12 @@ const ProductDetails = () => {
           </button>
         ) : (
           <button
-            onClick={() => addToCart(id || "")}
+            onClick={() => addCartItem({
+              id,
+              name: product?.name,
+              price: product?.price,
+              imageUrl: product?.imageUrl,
+            })}
             className="p-3 flex items-center justify-center gap-2 bg-[var(--positive)] rounded text-[var(--background)]"
           >
             <PiBasketBold className="text-2xl" />
@@ -75,7 +80,7 @@ const ProductDetails = () => {
         </div>
       </div>
     </section >
-  ) : null
+  )
 };
 
 export default ProductDetails;

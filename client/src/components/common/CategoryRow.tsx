@@ -1,7 +1,7 @@
 import { PiCpu, PiCircuitry, PiMemory, PiGraphicsCard, PiHardDrive, PiLightning, PiComputerTower, PiFan, PiWind } from "react-icons/pi";
 import { unslug } from "../../utils/helper";
 import type { JSX } from "react";
-import { useCatalogContext } from "../../contexts/CatalogContext";
+import { useCatalogContext } from "../../contexts/catalog/CatalogContext";
 import { Link } from "react-router-dom";
 
 const categoryIcons: { [key: string]: JSX.Element } = {

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { PiMagnifyingGlass, PiX } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
-import { useCatalogContext } from "../../contexts/CatalogContext";
+import { useCatalogContext } from "../../contexts/catalog/CatalogContext";
 
 const SearchBar = () => {
   const { search, setSearch } = useCatalogContext();

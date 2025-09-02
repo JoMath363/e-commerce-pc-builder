@@ -1,10 +1,10 @@
 import { PiCaretLeft, PiTrash } from "react-icons/pi";
 import placeholder_img from "../assets/placeholder_img.png"
-import type { CartItem } from "../../types/OrderTypes";
-import { useCartContext } from "../../contexts/CartContext";
+import type { CartItem } from "../../types/ProfileTypes";
+import { useCartContext } from "../../contexts/cart/CartContext";
 
 const CartList = () => {
-  const { cart, removeFromCart, updateCartItemQty } = useCartContext();
+  const { cart, removeCartItem, updateCartItemQty } = useCartContext();
 
   return (
     <section className="flex flex-col gap-4">
@@ -30,7 +30,10 @@ const CartList = () => {
                     {
                       quantity > 1 ? (
                         <button
-                          onClick={() => updateCartItemQty(product.id, quantity - 1)}
+                          onClick={() => updateCartItemQty({ 
+                            id: product.id, 
+                            quantity: quantity - 1
+                          })}
                           className="p-2 border-1 border-r-0 rounded-tl rounded-bl border-[var(--border-1)] cursor-pointer hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
                         >
                           <PiCaretLeft />
@@ -51,7 +54,10 @@ const CartList = () => {
                     {
                       quantity < 10 ? (
                         <button
-                          onClick={() => updateCartItemQty(product.id, quantity + 1)}
+                          onClick={() => updateCartItemQty({ 
+                            id: product.id, 
+                            quantity: quantity + 1
+                          })}
                           className="p-2 border-1 border-l-0 rounded-tr rounded-br border-[var(--border-1)] cursor-pointer hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
                         >
                           <PiCaretLeft className="rotate-180" />
@@ -67,7 +73,7 @@ const CartList = () => {
                   </div>
 
                   <button
-                    onClick={() => removeFromCart(product.id)}
+                    onClick={() => removeCartItem({ id: product.id })}
                     className="border-1 border-[var(--negative)] p-1 text-2xl text-[var(--negative)] rounded cursor-pointer hover:bg-[var(--negative)] hover:text-[var(--background)] active:bg-[var(--background)] active:text-[var(--text-1)] active:border-[var(--text-1)]"
                   >
                     <PiTrash />

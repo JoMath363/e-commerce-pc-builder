@@ -1,8 +1,8 @@
 import { PiUser } from "react-icons/pi";
-import { useRouteLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const ProfileInfo = () => {
-  const { user } = useRouteLoaderData("protected_root");
+  const { user } = useLoaderData();
 
   return (
     <section className="flex flex-col gap-4">

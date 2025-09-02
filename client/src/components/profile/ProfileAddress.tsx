@@ -2,6 +2,8 @@ import { PiMapPin } from "react-icons/pi";
 import { address } from "../../utils/mock.json"
 
 const ProfileAdress = () => {
+  
+
   return (
     <section className="flex flex-col gap-3 mb-2">
       <div className="flex justify-between items-center">
