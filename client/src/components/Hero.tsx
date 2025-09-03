@@ -1,6 +1,6 @@
 import { PiCaretRightBold } from "react-icons/pi";
 import cabinet_img from "./assets/cabinet_img.png"
-import { Link } from "react-router-dom";
+import { PrimaryButton } from "./Buttons";
 
 const Hero = () => {
   return (
@@ -10,12 +10,12 @@ const Hero = () => {
           Build Your Dream PC
         </h1>
 
-        <Link to="/" className="px-4 py-2 flex items-center gap-2 bg-[var(--primary-2)] text-[var(--background)] rounded hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]">
-          <p className="">
-            Start Now
-          </p>
-          <PiCaretRightBold />
-        </Link>
+        <PrimaryButton
+          href="/"
+          className="px-4 py-2 flex items-center gap-2"
+          text="Start Now"
+          iconRight={<PiCaretRightBold />}
+        />
       </div>
 
       <div className="w-1/2 flex justify-center items-center">

@@ -46,7 +46,7 @@ const SearchBar = () => {
       </div>
       <button
         onClick={submitSearch}
-        className="px-3 py-auto bg-[var(--surface)] text-[var(--text-2)] text-2xl cursor-pointer transition-all hover:bg-[var(--secondary-1)] hover:text-[var(--background)] active:bg-[var(--background)] active:text-[var(--text-1)]">
+        className="px-3 py-auto bg-[var(--surface)] text-[var(--text-2)] text-2xl transition-all hover:bg-[var(--primary)] hover:text-[var(--accent)] active:bg-[var(--secondary)] active:text-[var(--accent)]">
         <PiMagnifyingGlass />
       </button>
 

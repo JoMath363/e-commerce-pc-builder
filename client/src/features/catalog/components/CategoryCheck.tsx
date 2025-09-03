@@ -35,7 +35,7 @@ const CategoryCheck = ({ selected, setSelected }: CategoryCheckProps) => {
           onClick={toggleAllSelected}
           className={`
             px-4 py-1 font-semibold border border-[var(--border-1)] rounded-lg  cursor-pointer"
-            ${allSelected ? "bg-[var(--secondary-1)] border-[var(--secondary-1)] text-[var(--background)] hover:bg-[var(--secondary-2)]" : "text-[var(--text-2)] hover:bg-[var(--surface)]"}
+            ${allSelected ? "bg-[var(--secondary-1)] border-[var(--secondary-1)] text-[var(--accent)] hover:bg-[var(--secondary-2)]" : "text-[var(--text-2)] hover:bg-[var(--surface)]"}
           `}
         >
           <span>All</span>
@@ -44,7 +44,7 @@ const CategoryCheck = ({ selected, setSelected }: CategoryCheckProps) => {
           onClick={toggleAllSelected}
           className={`
             px-4 py-1 font-semibold border border-[var(--border-1)] rounded-lg  cursor-pointer"
-            ${!allSelected ? "bg-[var(--secondary-1)] border-[var(--secondary-1)] text-[var(--background)] hover:bg-[var(--secondary-2)]" : "text-[var(--text-2)] hover:bg-[var(--surface)]"}
+            ${!allSelected ? "bg-[var(--secondary-1)] border-[var(--secondary-1)] text-[var(--accent)] hover:bg-[var(--secondary-2)]" : "text-[var(--text-2)] hover:bg-[var(--surface)]"}
           `}
         >
           <span>Selected</span>

@@ -37,12 +37,12 @@ const RegisterForm = () => {
 
         <p className="flex gap-2">
           Already have an account?
-          <a href="/login" className="text-[var(--primary-2)]">Login Here</a>
+          <a href="/login" className="text-[var(--primary)]">Login Here</a>
         </p>
       </div>
 
       <button
-        className="w-80 p-2 bg-[var(--primary-2)] rounded font-medium bg-[var(--primary-2)] text-[var(--background)] rounded hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]"
+        className="w-80 p-2 bg-[var(--primary)] rounded font-medium bg-[var(--primary)] text-[var(--accent)] rounded hover:bg-[var(--primary-1)] active:bg-[var(--secondary)]"
       >
         Register
       </button>

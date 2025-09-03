@@ -16,8 +16,8 @@ const ProfileAdress = () => {
       {
         address ? (
           <div className="p-3 bg-[var(--surface)] flex items-center gap-4 rounded-xl">
-            <span className="bg-[var(--primary-2)] p-2 rounded-lg">
-              <PiMapPin className="text-2xl text-[var(--background)]" />
+            <span className="bg-[var(--primary)] p-2 rounded-lg">
+              <PiMapPin className="text-2xl text-[var(--accent)]" />
             </span>
             <div>
               <h2>{address.street}, {address.number}, {address.complement} - {address.neighborhood}</h2>

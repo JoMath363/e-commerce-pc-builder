@@ -28,7 +28,7 @@ const ProfileLogout = () => {
           <div className="flex gap-4 justify-center">
             <button
               onClick={() => setOpenLogOut(false)}
-              className="py-2 px-5 bg-[var(--surface)] rounded text-[var(--text-1)] font-medium hover:bg-[var(--text-2)] hover:text-[var(--background)] active:bg-[var(--background)] active:text-[var(--text-1)] active:border-[var(--text-1)]"
+              className="py-2 px-5 bg-[var(--surface)] rounded text-[var(--text-1)] font-medium hover:bg-[var(--text-2)] hover:text-[var(--accent)] active:bg-[var(--background)] active:text-[var(--text-1)] active:border-[var(--text-1)]"
             >
               Cancel
             </button>

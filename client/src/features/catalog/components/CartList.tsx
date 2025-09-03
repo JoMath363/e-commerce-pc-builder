@@ -74,7 +74,7 @@ const CartList = () => {
 
                   <button
                     onClick={() => removeCartItem({ id: product.id })}
-                    className="border-1 border-[var(--negative)] p-1 text-2xl text-[var(--negative)] rounded cursor-pointer hover:bg-[var(--negative)] hover:text-[var(--background)] active:bg-[var(--background)] active:text-[var(--text-1)] active:border-[var(--text-1)]"
+                    className="border-1 border-[var(--negative)] p-1 text-2xl text-[var(--negative)] rounded cursor-pointer hover:bg-[var(--negative)] hover:text-[var(--accent)] active:bg-[var(--background)] active:text-[var(--text-1)] active:border-[var(--text-1)]"
                   >
                     <PiTrash />
                   </button>

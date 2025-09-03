@@ -2,7 +2,7 @@ import { PiCpu, PiCircuitry, PiMemory, PiGraphicsCard, PiHardDrive, PiLightning,
 import { unslug } from "../utils/helper";
 import type { JSX } from "react";
 import { useCatalogContext } from "../contexts/catalog/CatalogContext";
-import { Link } from "react-router-dom";
+import { SelectionButton } from "./Buttons";
 
 const categoryIcons: { [key: string]: JSX.Element } = {
   "processors": <PiCpu />,
@@ -19,22 +19,25 @@ const categoryIcons: { [key: string]: JSX.Element } = {
 const CategoryRow = () => {
   const { categories, setFilter } = useCatalogContext();
 
+  
+
   return (
     <section className="overflow-x-auto">
       <div className="flex space-x-4 w-fit">
         {
-          categories.map((item, i) =>
-            <Link
-              key={i}
-              to={`/catalog`}
-              onClick={() => setFilter(prev => ({...prev, categories: [item.name]}))}
-              className="p-3 flex gap-2 items-center text-nowrap text-2xl cursor-pointer border-1 border-[var(--border-2)] rounded-lg text-[var(--text-2)] hover:bg-[var(--surface)] hover:text-[var(--text-1)] active:border-[var(--primary-1)] active:text-[var(--primary-1)] active:bg-transparent"
-            >
-              {categoryIcons[item.name] || null}
-              <span className="text-base font-medium">
-                {unslug(item.name)}
-              </span>
-            </Link>)
+          categories.map((item, i) => {
+
+            return (
+              <SelectionButton
+                key={i}
+                href={`/catalog`}
+                onClick={() => setFilter(prev => ({ ...prev, categories: [item.name] }))}
+                className="px-3 py-2 flex gap-2 items-center text-nowrap font-medium"
+                iconLeft={<span className="text-2xl">{categoryIcons[item.name]}</span>}
+                text={unslug(item.name)}
+              />
+            )
+          })
         }
 
       </div>

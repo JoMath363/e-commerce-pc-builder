@@ -2,15 +2,14 @@
 
 body {
   --background: #f4f3f2;
-  --surface: hsl(0, 1%, 91%);
+  --surface: #e8e8e8;
   --border-1: #8e8771;
   --border-2: #d2cfc6;
   --text-1: #060504;
   --text-2: #3f3c33;
-  --primary-1: #f72585;
-  --primary-2: #b5179e;
-  --secondary-1: #560bad;
-  --secondary-2: #3f37c9;
+  --accent: #f4f3f2;
+  --primary: #b5179e;
+  --secondary: #560bad;
   --positive: #00674b;
   --negative: #C40233;
 

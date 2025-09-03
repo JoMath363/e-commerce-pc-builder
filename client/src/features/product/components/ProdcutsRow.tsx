@@ -3,7 +3,7 @@ import type { ProductFilter } from "../../../types/ProdcutTypes";
 import ProductCard from "../../../components/ProductCard";
 import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
 import useFetchProducts from "../hooks/FetchProducts";
-import { Link } from "react-router-dom";
+import { TextButton } from "../../../components/Buttons";
 
 type ProdcutsRowProps = {
   title: string;
@@ -48,10 +48,11 @@ const ProdcutsRow = ({ title, link, filter }: ProdcutsRowProps) => {
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-bold ">{title}</h2>
         {
-          link ?
-            <Link to={link} className="text-[var(--primary-2)]">
-              View More
-            </Link> : null
+          link && 
+          <TextButton 
+            href="/catalog"
+            text="View More"
+          />
         }
       </div>
 

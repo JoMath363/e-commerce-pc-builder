@@ -38,7 +38,7 @@ const ProductDetails = () => {
         cart.find(({ product }) => product.id == id) ? (
           <button
             onClick={() => removeCartItem({ id })}
-            className="p-3 flex items-center justify-center gap-2 bg-[var(--negative)] rounded text-[var(--background)]"
+            className="p-3 flex items-center justify-center gap-2 bg-[var(--negative)] rounded text-[var(--accent)]"
           >
             <PiBasketBold className="text-2xl" />
             <span className="text-xl font-medium">Remove From Cart</span>
@@ -51,7 +51,7 @@ const ProductDetails = () => {
               price: product?.price,
               imageUrl: product?.imageUrl,
             })}
-            className="p-3 flex items-center justify-center gap-2 bg-[var(--positive)] rounded text-[var(--background)]"
+            className="p-3 flex items-center justify-center gap-2 bg-[var(--positive)] rounded text-[var(--accent)]"
           >
             <PiBasketBold className="text-2xl" />
             <span className="text-xl font-medium">Add To Cart</span>

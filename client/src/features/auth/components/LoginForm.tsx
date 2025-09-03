@@ -29,12 +29,12 @@ const LoginForm = () => {
 
         <p className="flex gap-2">
           Don't have an account?
-          <a href="/register" className="text-[var(--primary-2)]">Register Here</a>
+          <a href="/register" className="text-[var(--primary)]">Register Here</a>
         </p>
       </div>
 
       <button
-        className="w-80 p-2 bg-[var(--primary-2)] rounded font-medium bg-[var(--primary-2)] text-[var(--background)] rounded hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]"
+        className="w-80 p-2 bg-[var(--primary)] rounded font-medium bg-[var(--primary)] text-[var(--accent)] rounded hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]"
       >
         Login
       </button>

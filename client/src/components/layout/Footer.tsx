@@ -3,7 +3,7 @@ import { PiCpuBold } from "react-icons/pi";
 const Footer = () => {
   return (
     <div className="mt-8 flex gap-16 p-8 flex-wrap bg-gray-900">
-      <div className="w-1/1 flex items-center justify-center gap-2 text-[var(--background)] text-3xl">
+      <div className="w-1/1 flex items-center justify-center gap-2 text-[var(--accent)] text-3xl">
         <PiCpuBold />
         <p>PC Builder</p>
       </div>

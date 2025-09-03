@@ -7,7 +7,7 @@ const ChoosePayment = () => {
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-semibold">Payment Method</h2>
 
-        <button className="text-[var(--primary-2)]">
+        <button className="text-[var(--primary)]">
           + Add Card
         </button>
       </div>

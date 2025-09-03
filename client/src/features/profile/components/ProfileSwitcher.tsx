@@ -10,7 +10,7 @@ const ProfileSwitcher = () => {
         <button
           onClick={() => setCurrentSwitch("orders")}
           className={`w-1/2 py-4 font-semibold
-            ${currentSwitch == "orders" && "bg-[var(--primary-2)] text-[var(--background)]"}
+            ${currentSwitch == "orders" && "bg-[var(--primary)] text-[var(--accent)]"}
           `}
         >
           Orders
@@ -18,7 +18,7 @@ const ProfileSwitcher = () => {
         <button
           onClick={() => setCurrentSwitch("builds")}
           className={`w-1/2 px-8 py-4 font-semibold text-[var(--text-2)]
-            ${currentSwitch == "builds" && "bg-[var(--primary-2)] text-[var(--background)]"}
+            ${currentSwitch == "builds" && "bg-[var(--primary)] text-[var(--accent)]"}
           `}
         >
           Builds

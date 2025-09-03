@@ -39,7 +39,7 @@ const Pagination = ({ page, setPage, totalPages }: PaginationProps) => {
       {
         getPages().map(n => n == page ? (
           <button
-            className="p-1 px-3 bg-[var(--primary-2)] border-1 border-[var(--primary-2)] text-[var(--background)] rounded-lg text-xl cursor-pointer"
+            className="p-1 px-3 bg-[var(--primary)] border-1 border-[var(--primary)] text-[var(--accent)] rounded-lg text-xl cursor-pointer"
             key={n}
           >
             <span>{n}</span>
