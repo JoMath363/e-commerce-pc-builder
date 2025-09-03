@@ -1,6 +1,6 @@
 const PageTitle = (props: { text: string}) => {
   return (
-    <h1 className="text-2xl font-bold text-center">
+    <h1 className="text-[var(--text-1)] text-xl font-bold text-center">
       {props.text}
     </h1>
   )

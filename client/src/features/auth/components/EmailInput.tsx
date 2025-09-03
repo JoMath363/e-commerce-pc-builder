@@ -1,8 +1,7 @@
-import { type Dispatch, type SetStateAction } from "react";
 import { PiEnvelopeSimpleBold, PiWarning } from "react-icons/pi";
 
 type EmailInputProps = {
-  setEmailInput: Dispatch<SetStateAction<string>>;
+  setEmailInput: (val: string) => void;
   emailError: string;
 }
 

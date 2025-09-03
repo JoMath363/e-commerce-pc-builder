@@ -5,15 +5,7 @@ import NameInput from "./NameInput";
 
 const RegisterForm = () => {
 
-  const {
-    setNameInput,
-    nameError,
-    setEmailInput,
-    emailError,
-    setPasswordInput,
-    passwordError,
-    handleSubmit
-  } = useRegisterForm();
+  const { registerForm, handleChange, handleSubmit } = useRegisterForm();
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">
@@ -23,16 +15,16 @@ const RegisterForm = () => {
 
       <div className="w-80 flex flex-col gap-4">
         <NameInput
-          setNameInput={setNameInput}
-          nameError={nameError}
+          setNameInput={(val) => handleChange("name", val)}
+          nameError={registerForm.name.error}
         />
         <EmailInput
-          setEmailInput={setEmailInput}
-          emailError={emailError}
+          setEmailInput={(val) => handleChange("email", val)}
+          emailError={registerForm.email.error}
         />
         <PasswordInput
-          setPasswordInput={setPasswordInput}
-          passwordError={passwordError}
+          setPasswordInput={(val) => handleChange("password", val)}
+          passwordError={registerForm.password.error}
         />
 
         <p className="flex gap-2">

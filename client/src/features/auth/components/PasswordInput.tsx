@@ -1,8 +1,8 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { useState } from "react";
 import { PiEye, PiEyeSlash, PiLockBold, PiWarning } from "react-icons/pi";
 
 type PasswordInputProps = {
-  setPasswordInput: Dispatch<SetStateAction<string>>;
+  setPasswordInput: (val: string) => void;
   passwordError: string;
 }
 

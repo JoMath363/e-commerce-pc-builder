@@ -1,8 +1,7 @@
-import { type Dispatch, type SetStateAction } from "react";
 import { PiUserBold, PiWarning } from "react-icons/pi";
 
 type NameInputProps = {
-  setNameInput: Dispatch<SetStateAction<string>>;
+  setNameInput: (val: string) => void;
   nameError: string;
 }
 

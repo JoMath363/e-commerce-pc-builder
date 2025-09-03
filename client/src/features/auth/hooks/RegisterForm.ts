@@ -1,57 +1,73 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { capitalize } from "../../../utils/helper";
+
+type Field = { value: string; error: string };
+
+type RegisterForm = {
+  name: Field;
+  email: Field;
+  password: Field;
+};
 
 const useRegisterForm = () => {
-  const [nameInput, setNameInput] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [emailInput, setEmailInput] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordInput, setPasswordInput] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-
-  const navigate = useNavigate();
+  const [registerForm, setRegisterForm] = useState<RegisterForm>({
+    name: { value: "", error: "" },
+    email: { value: "", error: "" },
+    password: { value: "", error: "" },
+  })
 
   const validateInputs = () => {
     let isValid = true;
 
-    if (nameInput.trim() == "") {
-      setNameError("Name is required.");
-      isValid = false
-    } else {
-      setNameError("");
-    }
+    const updatedForm = { ...registerForm };
 
-    if (emailInput.trim() == "") {
-      setEmailError("Email is required.");
-      isValid = false
-    } else {
-      setEmailError("");
-    }
+    Object.entries(registerForm).forEach(([key, input]) => {
+      const val = input.value.trim();
 
-    if (passwordInput.trim() == "") {
-      setPasswordError("Password is required.")
-      isValid = false
-    } else {
-      setPasswordError("");
-    }
+      if (val === "") {
+        updatedForm[key as keyof typeof registerForm] = {
+          value: val,
+          error: `${capitalize(key)} is required.`
+        };
+        isValid = false;
+      } else {
+        updatedForm[key as keyof typeof registerForm] = {
+          value: val,
+          error: ""
+        };
+      }
+    });
+
+    setRegisterForm(updatedForm);
 
     return isValid;
-  }
+  };
 
   const handleErrors = (status: number) => {
-    setNameError("");
-    setEmailError("");
-    setPasswordError("");
+    const updatedForm = { ...registerForm };
+
+    Object.keys(updatedForm).forEach((key) => {
+      updatedForm[key as keyof typeof registerForm].error = "";
+    })
 
     switch (status) {
       case (409):
-        setEmailError("Email already in use.");
+        updatedForm.email.error = "Email already in use."
         break;
       default:
-        setPasswordError("Something went wrong. Please try again.");
+        updatedForm.password.error = "Something went wrong. Please try again."
         break;
     }
+
+    setRegisterForm(updatedForm);
   }
+
+  const handleChange = (field: keyof RegisterForm, value: string) => {
+    setRegisterForm((prev) => ({
+      ...prev,
+      [field]: { value, error: "" }, // reset error on change
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,9 +77,9 @@ const useRegisterForm = () => {
     if (!validateInputs()) return;
 
     const user = {
-      name: nameInput,
-      email: emailInput,
-      password: passwordInput
+      name: registerForm.name.value,
+      email: registerForm.email.value,
+      password: registerForm.password.value
     }
 
     const res = await fetch(`${serverURL}/auth/register`, {
@@ -74,19 +90,15 @@ const useRegisterForm = () => {
     });
 
     if (res.ok) {
-      navigate("/login");
+      window.location.href = "/";
     } else {
       handleErrors(res.status);
     }
   }
 
   return {
-    setNameInput,
-    nameError,
-    setEmailInput,
-    emailError,
-    setPasswordInput,
-    passwordError,
+    registerForm,
+    handleChange,
     handleSubmit
   }
 

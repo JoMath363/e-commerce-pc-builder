@@ -9,7 +9,7 @@ const useFetchAddress = () => {
       const serverURL = import.meta.env.VITE_SERVER_URL;
 
       try {
-        const res = await fetch(`${serverURL}/addresss`, {
+        const res = await fetch(`${serverURL}/addresses`, {
           credentials: "include"
         });
         if (!res.ok) throw new Error("Failed to fetch");

@@ -6,6 +6,9 @@ export function unslug(s: string): string {
     .join(" ");
 }
 
+export function capitalize(s: string): string {
+  return s[0].toUpperCase() + s.slice(1);
+}
 export function getFilterQuery(search: string, filter: ProductFilter) {
   const query = []
 

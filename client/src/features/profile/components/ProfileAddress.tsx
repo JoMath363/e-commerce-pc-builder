@@ -1,5 +1,6 @@
 import { PiMapPin } from "react-icons/pi";
 import useFetchAddress from "../hooks/FetchAddress";
+import AddressModalOpener from "./AddressModalOpener";
 
 const ProfileAdress = () => {
   const { address } = useFetchAddress();
@@ -9,7 +10,7 @@ const ProfileAdress = () => {
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-semibold">Adress</h2>
 
-        
+        <AddressModalOpener/>
       </div>
 
       {

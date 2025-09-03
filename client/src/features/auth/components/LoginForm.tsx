@@ -3,13 +3,7 @@ import EmailInput from "./EmailInput";
 import useLoginForm from "../hooks/LoginForm";
 
 const LoginForm = () => {
-  const {
-    setEmailInput,
-    emailError,
-    setPasswordInput,
-    passwordError,
-    handleSubmit
-  } = useLoginForm();
+  const { loginForm, handleChange, handleSubmit } = useLoginForm();
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-10">
@@ -19,12 +13,12 @@ const LoginForm = () => {
 
       <div className="w-80 flex flex-col gap-4">
         <EmailInput
-          setEmailInput={setEmailInput}
-          emailError={emailError}
+          setEmailInput={(val) => handleChange("email", val)}
+          emailError={loginForm.email.error}
         />
         <PasswordInput
-          setPasswordInput={setPasswordInput}
-          passwordError={passwordError}
+          setPasswordInput={(val) => handleChange("password", val)}
+          passwordError={loginForm.password.error}
         />
 
         <p className="flex gap-2">
