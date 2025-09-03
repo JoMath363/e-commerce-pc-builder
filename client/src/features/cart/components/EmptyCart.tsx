@@ -10,7 +10,7 @@ const EmptyCart = () => {
 
       <h2 className="text-[var(--text-1)] text-2xl font-bold">Your cart is empty!</h2>
       <p>Looks like you haven’t added anything yet. Don’t miss out on our best deals, start shopping now!</p>
-      <Link to="/" className="px-4 py-2 flex justify-center items-center gap-2 bg-[var(--primary)] text-[var(--accent)] rounded hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]">
+      <Link to="/" className="px-4 py-2 flex justify-center items-center gap-2 bg-[var(--primary)] text-[var(--accent)] rounded hover:bg-[var(--primary-1)] active:bg-[var(--secondary)]">
         <p className="">
           Browse Products
         </p>

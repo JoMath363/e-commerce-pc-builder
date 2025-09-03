@@ -34,7 +34,7 @@ const LoginForm = () => {
       </div>
 
       <button
-        className="w-80 p-2 bg-[var(--primary)] rounded font-medium bg-[var(--primary)] text-[var(--accent)] rounded hover:bg-[var(--primary-1)] active:bg-[var(--secondary-1)]"
+        className="w-80 p-2 bg-[var(--primary)] rounded font-medium bg-[var(--primary)] text-[var(--accent)] rounded hover:bg-[var(--primary)] active:bg-[var(--secondary)]"
       >
         Login
       </button>

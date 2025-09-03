@@ -29,7 +29,7 @@ export const SecondaryButton = (props: ButtonProps) => {
     <Button
       {...props}
       className={clsx(
-        "bg-[var(--primary)] text-[var(--accent)] rounded hover:bg-[var(--secondary)] active:bg-[var(--accent)] active:text-[var(--text-1)]",
+        "bg-[var(--surface)] rounded text-[var(--text-1)] hover:bg-[var(--text-2)] hover:text-[var(--accent)] active:bg-[var(--background)] active:text-[var(--text-1)] active:border-[var(--text-1)]",
         props.className,
       )}
     />
@@ -60,7 +60,7 @@ export const SelectionButton = (props: ButtonProps) => {
   )
 }
 
-export const Button = (props: ButtonProps) => {
+const Button = (props: ButtonProps) => {
   return props.href ? (
     <Link
       to={props.href}
