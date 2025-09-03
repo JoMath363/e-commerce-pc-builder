@@ -1,5 +1,5 @@
 import Center from "../components/layout/Center";
-import LoginForm from "../components/auth/LoginForm";
+import LoginForm from "../features/auth/components/LoginForm";
 
 const Login = () => {
   return (

@@ -2,12 +2,12 @@ import { } from "react-icons/pi";
 import NavBar from "../components/layout/NavBar";
 import Main from "../components/layout/Main";
 import Footer from "../components/layout/Footer";
-import PageTitle from "../components/common/PageTitle";
-import ProfileInfo from "../components/profile/ProfileInfo";
-import ProfileSwitcher from "../components/profile/ProfileSwitcher";
-import ProfileAddress from "../components/profile/ProfileAddress";
-import ProfileCards from "../components/profile/ProfileCards";
-import ProfileLogout from "../components/profile/ProfileLogout";
+import PageTitle from "../components/PageTitle";
+import ProfileInfo from "../features/profile/components/ProfileInfo";
+import ProfileSwitcher from "../features/profile/components/ProfileSwitcher";
+import ProfileAddress from "../features/profile/components/ProfileAddress";
+import ProfileCards from "../features/profile/components/ProfileCards";
+import ProfileLogout from "../features/profile/components/ProfileLogout";
 
 const Profile = () => {
   return (

@@ -1,5 +1,5 @@
 import Center from "../components/layout/Center";
-import RegisterForm from "../components/auth/RegisterForm";
+import RegisterForm from "../features/auth/components/RegisterForm";
 
 const Register = () => {
   return (

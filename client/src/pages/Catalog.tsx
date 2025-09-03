@@ -1,8 +1,8 @@
 import Navbar from "../components/layout/NavBar";
-import CatalogGrid from "../components/catalog/CatalogGrid";
+import CatalogGrid from "../features/catalog/components/CatalogGrid";
 import Footer from "../components/layout/Footer";
 import Main from "../components/layout/Main";
-import CatalogSearch from "../components/catalog/CatalogSearch";
+import CatalogSearch from "../features/catalog/components/CatalogSearch";
 
 const Catalog = () => {
   return (
